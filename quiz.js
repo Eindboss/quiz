@@ -1,4 +1,4 @@
-// Buurt Pubquiz - Quiz Logic
+// Buurt Pubquiz 2025 - Quiz Logic
 
 let currentRound = 0;
 let currentQuestion = 0;
@@ -29,7 +29,7 @@ function startQuiz() {
 function showRoundIntro() {
     const round = quizData[currentRound];
 
-    document.getElementById('next-round-number').textContent = `Ronde ${currentRound + 1}`;
+    document.getElementById('next-round-number').textContent = `Ronde ${currentRound + 1} van ${quizData.length}`;
     document.getElementById('next-round-title').textContent = `${round.emoji} ${round.name}`;
     document.getElementById('next-round-description').textContent = round.description;
 
@@ -52,6 +52,34 @@ function loadQuestion() {
     document.getElementById('round-title').textContent = round.name;
     document.getElementById('question-counter').textContent =
         `Vraag ${currentQuestion + 1} van ${round.questions.length}`;
+
+    // Update difficulty badge
+    const badge = document.getElementById('difficulty-badge');
+    if (question.difficulty === 'kind') {
+        badge.textContent = '🧒 Kinderen';
+        badge.className = 'difficulty-badge kind';
+    } else {
+        badge.textContent = '👨‍👩‍👧 Volwassenen';
+        badge.className = 'difficulty-badge volwassen';
+    }
+
+    // Update media (afbeelding of video)
+    const mediaContainer = document.getElementById('media-container');
+    mediaContainer.innerHTML = '';
+
+    if (question.image) {
+        const img = document.createElement('img');
+        img.src = question.image;
+        img.alt = 'Quiz afbeelding';
+        img.loading = 'lazy';
+        mediaContainer.appendChild(img);
+    } else if (question.video) {
+        const iframe = document.createElement('iframe');
+        iframe.src = question.video;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        mediaContainer.appendChild(iframe);
+    }
 
     // Update vraag
     document.getElementById('question-text').textContent = question.question;
@@ -138,6 +166,7 @@ function restartQuiz() {
 document.addEventListener('keydown', (e) => {
     if (screens.quiz.classList.contains('active')) {
         if (e.key === ' ' || e.key === 'Enter') {
+            e.preventDefault();
             if (!answerRevealed) {
                 showAnswer();
             } else {
@@ -148,5 +177,22 @@ document.addEventListener('keydown', (e) => {
         if (['1', '2', '3', '4'].includes(e.key)) {
             selectAnswer(parseInt(e.key) - 1);
         }
+        // A, B, C, D voor antwoorden
+        if (['a', 'b', 'c', 'd', 'A', 'B', 'C', 'D'].includes(e.key)) {
+            const index = e.key.toLowerCase().charCodeAt(0) - 97;
+            selectAnswer(index);
+        }
+    }
+
+    // Start quiz met Enter op startscherm
+    if (screens.start.classList.contains('active') && (e.key === ' ' || e.key === 'Enter')) {
+        e.preventDefault();
+        startQuiz();
+    }
+
+    // Start ronde met Enter op rondescherm
+    if (screens.round.classList.contains('active') && (e.key === ' ' || e.key === 'Enter')) {
+        e.preventDefault();
+        continueQuiz();
     }
 });

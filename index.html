@@ -11,12 +11,12 @@
         <!-- Start scherm -->
         <section id="start-screen" class="screen active">
             <div class="confetti"></div>
-            <h1>🎄 Buurt Pubquiz 🎆</h1>
+            <h1>🎄 Buurt Pubquiz 2025 🎆</h1>
             <p class="subtitle">Eindejaarsquiz voor jong & oud!</p>
             <div class="start-info">
-                <p>🧠 Test je kennis</p>
-                <p>👨‍👩‍👧‍👦 Voor het hele gezin</p>
-                <p>🏆 Wie wint de quiz?</p>
+                <p>🧒 Kindervragen & 👨‍👩‍👧 Volwassen vragen</p>
+                <p>🖼️ Met afbeeldingen & video's</p>
+                <p>🏆 10 rondes - 50 vragen</p>
             </div>
             <button class="btn btn-primary" onclick="startQuiz()">Start de Quiz!</button>
         </section>
@@ -28,13 +28,20 @@
                     <span id="round-name">Ronde 1</span>
                     <span id="round-title">Algemene Kennis</span>
                 </div>
-                <div class="progress">
+                <div class="progress-info">
                     <span id="question-counter">Vraag 1 van 5</span>
+                    <span id="difficulty-badge" class="difficulty-badge">👨‍👩‍👧 Familie</span>
                 </div>
             </div>
 
             <div class="question-container">
+                <!-- Media container voor afbeelding of video -->
+                <div id="media-container" class="media-container">
+                    <!-- Wordt dynamisch gevuld -->
+                </div>
+
                 <h2 id="question-text">Hier komt de vraag</h2>
+
                 <div id="answers" class="answers">
                     <!-- Antwoorden worden hier dynamisch toegevoegd -->
                 </div>
