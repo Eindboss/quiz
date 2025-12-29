@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Buurt Pubquiz 2025",
   "scripts": {
-    "start": "serve -s ."
+    "start": "serve -s . -l $PORT"
   },
   "dependencies": {
     "serve": "^14.2.0"
