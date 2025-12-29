@@ -1,0 +1,304 @@
+/* Buurt Pubquiz - Feestelijke styling */
+
+:root {
+    --primary: #ff6b35;
+    --primary-dark: #e55a2b;
+    --secondary: #004e89;
+    --accent: #ffd166;
+    --success: #06d6a0;
+    --background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --text: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--background);
+    min-height: 100vh;
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Screens */
+.screen {
+    display: none;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Start scherm */
+#start-screen h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 40px;
+}
+
+.start-info {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 400px;
+}
+
+.start-info p {
+    font-size: 1.3rem;
+    margin: 15px 0;
+}
+
+/* Buttons */
+.btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+}
+
+.btn-primary:disabled {
+    background: #666;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.btn-secondary:hover {
+    background: var(--accent);
+    color: #1a1a2e;
+}
+
+/* Quiz scherm */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+}
+
+.round-info {
+    text-align: left;
+}
+
+#round-name {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+#round-title {
+    font-size: 1.5rem;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+#question-counter {
+    background: var(--secondary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Vraag container */
+.question-container {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+}
+
+#question-text {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+
+/* Antwoorden */
+.answers {
+    display: grid;
+    gap: 15px;
+}
+
+.answer-btn {
+    padding: 20px;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.answer-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent);
+}
+
+.answer-btn.correct {
+    background: rgba(6, 214, 160, 0.3);
+    border-color: var(--success);
+}
+
+.answer-btn.incorrect {
+    background: rgba(255, 100, 100, 0.3);
+    border-color: #ff6464;
+}
+
+.answer-btn.revealed {
+    pointer-events: none;
+}
+
+/* Quiz footer */
+.quiz-footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Ronde scherm */
+.round-announcement {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 60px 40px;
+    margin-bottom: 40px;
+}
+
+#next-round-number {
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#next-round-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+#next-round-description {
+    font-size: 1.3rem;
+    color: var(--accent);
+}
+
+/* Einde scherm */
+.final-message {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 30px auto;
+    max-width: 500px;
+}
+
+.final-message p {
+    font-size: 1.3rem;
+    margin: 15px 0;
+}
+
+.emoji-row {
+    font-size: 3rem;
+    margin-top: 20px;
+}
+
+/* Confetti animatie (simpele versie) */
+.confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    #start-screen h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    #question-text {
+        font-size: 1.3rem;
+    }
+
+    .quiz-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    #next-round-title {
+        font-size: 2rem;
+    }
+}
