@@ -1,4 +1,4 @@
-/* Oudejaarsquiz 2025 - Premium Buurtmensen */
+/* Eindejaarsquiz 2025 - Premium Buurtmensen - Chronologisch */
 
 :root {
     /* Premium color palette */
@@ -18,6 +18,12 @@
     --kids: #a855f7;
     --adults: #3b82f6;
     --mixed: #f59e0b;
+
+    /* Slot colors */
+    --news: #ef4444;
+    --viral: #f97316;
+    --music: #8b5cf6;
+    --buurt: #10b981;
 
     /* Typography */
     --font-display: 'Playfair Display', Georgia, serif;
@@ -82,17 +88,9 @@ body {
 .firework:nth-child(3) { left: 80%; animation-delay: 2s; }
 
 @keyframes firework {
-    0% {
-        transform: translateY(100vh) scale(0);
-        opacity: 1;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(20vh) scale(1);
-        opacity: 0;
-    }
+    0% { transform: translateY(100vh) scale(0); opacity: 1; }
+    50% { opacity: 1; }
+    100% { transform: translateY(20vh) scale(1); opacity: 0; }
 }
 
 /* ============================================
@@ -123,14 +121,8 @@ body {
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ============================================
@@ -138,7 +130,7 @@ body {
    ============================================ */
 
 .logo-container {
-    margin-bottom: 48px;
+    margin-bottom: 32px;
 }
 
 .year-badge {
@@ -185,15 +177,51 @@ body {
     letter-spacing: 1px;
 }
 
-/* Features grid */
+/* Timeline preview */
+.timeline-preview {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 32px auto;
+    max-width: 700px;
+    flex-wrap: wrap;
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.timeline-month {
+    font-size: 0.7rem;
+    color: var(--white-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--white-faint);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+    background: var(--gold);
+    box-shadow: 0 0 10px var(--gold);
+}
+
+/* Features grid - 5 items */
 .features-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 48px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
 .feature {
@@ -201,8 +229,9 @@ body {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: var(--radius-md);
-    padding: 20px 12px;
+    padding: 16px 20px;
     transition: all 0.3s ease;
+    min-width: 80px;
 }
 
 .feature:hover {
@@ -212,18 +241,18 @@ body {
 
 .feature-icon {
     display: block;
-    font-size: 1.8rem;
-    margin-bottom: 8px;
+    font-size: 1.5rem;
+    margin-bottom: 6px;
 }
 
 .feature-text {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 500;
     color: var(--white-muted);
 }
 
 .credits {
-    margin-top: 48px;
+    margin-top: 40px;
     font-size: 0.9rem;
     color: var(--white-muted);
 }
@@ -314,37 +343,38 @@ body {
     border-radius: var(--radius-lg);
 }
 
-.round-badge {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.round-emoji {
-    font-size: 2rem;
-}
-
-.round-info {
+.month-badge {
     text-align: left;
 }
 
-#round-name {
+.month-name {
     display: block;
-    font-size: 0.8rem;
-    color: var(--white-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-#round-title {
     font-family: var(--font-display);
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--gold);
 }
 
+.month-theme {
+    font-size: 0.85rem;
+    color: var(--white-muted);
+    font-style: italic;
+}
+
 .progress-container {
     text-align: right;
+}
+
+.month-indicator {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.month-indicator span {
+    color: var(--gold);
 }
 
 .progress-bar {
@@ -377,20 +407,64 @@ body {
     margin-bottom: 24px;
 }
 
-.difficulty-row {
+.slot-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.difficulty-badge {
+/* Slot badges */
+.slot-badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     padding: 6px 14px;
     border-radius: 50px;
     font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.slot-badge.news {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.slot-badge.kids {
+    background: rgba(168, 85, 247, 0.2);
+    color: #c084fc;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.slot-badge.music {
+    background: rgba(139, 92, 246, 0.2);
+    color: #a78bfa;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.slot-badge.viral {
+    background: rgba(249, 115, 22, 0.2);
+    color: #fdba74;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.slot-badge.buurt {
+    background: rgba(16, 185, 129, 0.2);
+    color: #6ee7b7;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Difficulty badge */
+.difficulty-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.8rem;
     font-weight: 600;
 }
 
@@ -509,6 +583,56 @@ body {
     pointer-events: none;
 }
 
+/* Open answer input */
+.open-answer-container {
+    margin-top: 20px;
+}
+
+.open-answer-input {
+    width: 100%;
+    padding: 20px;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    background: var(--white-faint);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    color: var(--white);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.open-answer-input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.open-answer-input::placeholder {
+    color: var(--white-muted);
+}
+
+/* Correct answer display */
+.correct-answer-display {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(16, 185, 129, 0.2);
+    border: 2px solid var(--success);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.correct-answer-display .label {
+    font-size: 0.85rem;
+    color: var(--success);
+    margin-bottom: 8px;
+}
+
+.correct-answer-display .answer {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
 /* Quiz controls */
 .quiz-controls {
     display: flex;
@@ -518,10 +642,10 @@ body {
 }
 
 /* ============================================
-   ROUND SCREEN
+   MONTH SCREEN
    ============================================ */
 
-.round-intro {
+.month-intro {
     background: var(--white-faint);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(212, 175, 55, 0.2);
@@ -530,7 +654,7 @@ body {
     margin-bottom: 32px;
 }
 
-.round-number-big {
+.month-number-big {
     font-size: 1rem;
     color: var(--white-muted);
     text-transform: uppercase;
@@ -538,25 +662,41 @@ body {
     margin-bottom: 12px;
 }
 
-.round-title-big {
+.month-title-big {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-size: clamp(2.5rem, 10vw, 4rem);
     font-weight: 900;
     margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--white), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.round-description {
+.month-description {
     font-size: 1.2rem;
     color: var(--gold);
     margin-bottom: 24px;
+    font-style: italic;
 }
 
-.round-meta {
+.slot-preview {
     display: flex;
     justify-content: center;
     gap: 16px;
-    font-size: 0.9rem;
-    color: var(--white-muted);
+    margin-top: 24px;
+}
+
+.slot-icon {
+    font-size: 1.5rem;
+    padding: 12px;
+    background: var(--white-faint);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.slot-icon:hover {
+    transform: scale(1.2);
 }
 
 /* ============================================
@@ -641,6 +781,11 @@ body {
     height: 70px;
 }
 
+.year-recap {
+    margin-top: 24px;
+    font-size: 1.3rem;
+}
+
 .finale-credits {
     font-size: 0.85rem;
     color: var(--white-muted);
@@ -656,9 +801,34 @@ body {
         padding: 16px;
     }
 
+    .timeline-preview {
+        gap: 4px;
+    }
+
+    .timeline-month {
+        font-size: 0.6rem;
+    }
+
+    .timeline-dot {
+        width: 8px;
+        height: 8px;
+    }
+
     .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 8px;
+    }
+
+    .feature {
+        padding: 12px 14px;
+        min-width: 60px;
+    }
+
+    .feature-icon {
+        font-size: 1.2rem;
+    }
+
+    .feature-text {
+        font-size: 0.65rem;
     }
 
     .quiz-header {
@@ -666,11 +836,7 @@ body {
         text-align: center;
     }
 
-    .round-badge {
-        justify-content: center;
-    }
-
-    .round-info {
+    .month-badge {
         text-align: center;
     }
 
@@ -688,6 +854,10 @@ body {
         padding: 24px 20px;
     }
 
+    .slot-row {
+        justify-content: center;
+    }
+
     .answers-grid {
         grid-template-columns: 1fr;
     }
@@ -696,13 +866,17 @@ body {
         padding: 16px;
     }
 
-    .difficulty-row {
-        flex-direction: column;
-        gap: 12px;
+    .month-intro {
+        padding: 40px 24px;
     }
 
-    .round-intro {
-        padding: 40px 24px;
+    .slot-preview {
+        gap: 10px;
+    }
+
+    .slot-icon {
+        font-size: 1.2rem;
+        padding: 10px;
     }
 
     .podium-place {

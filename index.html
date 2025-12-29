@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oudejaarsquiz 2025 | Premium Buurtmensen</title>
+    <title>Eindejaarsquiz 2025 | Premium Buurtmensen</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -23,33 +23,88 @@
             <div class="logo-container">
                 <div class="year-badge">2025</div>
                 <h1 class="main-title">
-                    <span class="title-line">Oudejaarsquiz</span>
+                    <span class="title-line">Eindejaarsquiz</span>
                     <span class="title-accent">Premium Buurtmensen</span>
                 </h1>
-                <div class="tagline">Voor jong & oud • Met een knipoog • 90 minuten plezier</div>
+                <div class="tagline">12 maanden • 60 vragen • 1 epische quiz</div>
+            </div>
+
+            <div class="timeline-preview">
+                <div class="timeline-item">
+                    <span class="timeline-month">Jan</span>
+                    <span class="timeline-dot"></span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-month">Feb</span>
+                    <span class="timeline-dot"></span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-month">Mrt</span>
+                    <span class="timeline-dot"></span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-month">Apr</span>
+                    <span class="timeline-dot"></span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-month">Mei</span>
+                    <span class="timeline-dot"></span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-month">Jun</span>
+                    <span class="timeline-dot"></span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-month">Jul</span>
+                    <span class="timeline-dot"></span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-month">Aug</span>
+                    <span class="timeline-dot"></span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-month">Sep</span>
+                    <span class="timeline-dot"></span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-month">Okt</span>
+                    <span class="timeline-dot"></span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-month">Nov</span>
+                    <span class="timeline-dot"></span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-month">Dec</span>
+                    <span class="timeline-dot"></span>
+                </div>
             </div>
 
             <div class="features-grid">
                 <div class="feature">
-                    <span class="feature-icon">🎯</span>
-                    <span class="feature-text">8 Rondes</span>
+                    <span class="feature-icon">📰</span>
+                    <span class="feature-text">Nieuws</span>
                 </div>
                 <div class="feature">
-                    <span class="feature-icon">❓</span>
-                    <span class="feature-text">40 Vragen</span>
+                    <span class="feature-icon">🧒</span>
+                    <span class="feature-text">Kids</span>
                 </div>
                 <div class="feature">
-                    <span class="feature-icon">👨‍👩‍👧‍👦</span>
-                    <span class="feature-text">Familie-proof</span>
+                    <span class="feature-icon">🎵</span>
+                    <span class="feature-text">Muziek</span>
                 </div>
                 <div class="feature">
-                    <span class="feature-icon">😂</span>
-                    <span class="feature-text">Hilarisch</span>
+                    <span class="feature-icon">🔥</span>
+                    <span class="feature-text">Viral</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🏘️</span>
+                    <span class="feature-text">Buurt</span>
                 </div>
             </div>
 
             <button class="btn btn-primary btn-glow" onclick="startQuiz()">
-                <span>Start de Quiz</span>
+                <span>Start de Tijdreis</span>
                 <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -63,14 +118,14 @@
         <!-- Quiz scherm -->
         <section id="quiz-screen" class="screen">
             <div class="quiz-header">
-                <div class="round-badge">
-                    <span class="round-emoji" id="round-emoji">🔥</span>
-                    <div class="round-info">
-                        <span id="round-name">Ronde 1 van 8</span>
-                        <span id="round-title">Opwarmer</span>
-                    </div>
+                <div class="month-badge">
+                    <span class="month-name" id="month-name">Januari</span>
+                    <span class="month-theme" id="month-theme">Nieuw jaar, oude chaos</span>
                 </div>
                 <div class="progress-container">
+                    <div class="month-indicator">
+                        <span id="month-number">1</span>/12
+                    </div>
                     <div class="progress-bar">
                         <div class="progress-fill" id="progress-fill"></div>
                     </div>
@@ -79,9 +134,10 @@
             </div>
 
             <div class="question-card">
-                <div class="difficulty-row">
-                    <span id="difficulty-badge" class="difficulty-badge kids">🧒 Kinderen</span>
-                    <span id="points-badge" class="points-badge">1 punt</span>
+                <div class="slot-row">
+                    <span id="slot-badge" class="slot-badge news">📰 Nieuws</span>
+                    <span id="difficulty-badge" class="difficulty-badge adults">🧠 Volwassenen</span>
+                    <span id="points-badge" class="points-badge">2 punten</span>
                 </div>
 
                 <div id="media-container" class="media-container"></div>
@@ -89,6 +145,11 @@
                 <h2 id="question-text" class="question-text">Hier komt de vraag</h2>
 
                 <div id="answers" class="answers-grid"></div>
+
+                <!-- Open question input -->
+                <div id="open-answer-container" class="open-answer-container" style="display: none;">
+                    <input type="text" id="open-answer-input" class="open-answer-input" placeholder="Typ je antwoord..." autocomplete="off">
+                </div>
             </div>
 
             <div class="quiz-controls">
@@ -104,20 +165,22 @@
             </div>
         </section>
 
-        <!-- Ronde overgang scherm -->
-        <section id="round-screen" class="screen">
-            <div class="round-intro">
-                <div class="round-number-big" id="next-round-number">Ronde 2</div>
-                <div class="round-title-big" id="next-round-title">🎵 Muziek</div>
-                <p class="round-description" id="next-round-description">Ken jij deze hits?</p>
-                <div class="round-meta">
-                    <span>5 vragen</span>
-                    <span>•</span>
-                    <span>Mix van makkelijk & pittig</span>
+        <!-- Maand overgang scherm -->
+        <section id="month-screen" class="screen">
+            <div class="month-intro">
+                <div class="month-number-big" id="next-month-number">Maand 2 van 12</div>
+                <div class="month-title-big" id="next-month-title">Februari</div>
+                <p class="month-description" id="next-month-theme">Carnaval & Valentijn</p>
+                <div class="slot-preview">
+                    <span class="slot-icon">📰</span>
+                    <span class="slot-icon">🧒</span>
+                    <span class="slot-icon">🎵</span>
+                    <span class="slot-icon">🔥</span>
+                    <span class="slot-icon">🏘️</span>
                 </div>
             </div>
             <button class="btn btn-primary btn-glow" onclick="continueQuiz()">
-                <span>Start Ronde</span>
+                <span>Start Maand</span>
                 <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -128,11 +191,11 @@
         <section id="end-screen" class="screen">
             <div class="finale-container">
                 <div class="trophy">🏆</div>
-                <h1 class="finale-title">Quiz Voltooid!</h1>
-                <p class="finale-subtitle">Wat een avond!</p>
+                <h1 class="finale-title">2025 Voltooid!</h1>
+                <p class="finale-subtitle">Wat een jaar!</p>
 
                 <div class="finale-message">
-                    <p>Tel de punten, kroon de winnaar,<br>en proost op een fantastisch 2026!</p>
+                    <p>12 maanden doorgespit, 60 vragen beantwoord.<br>Tel de punten en kroon de winnaar!</p>
                 </div>
 
                 <div class="podium">
@@ -140,13 +203,17 @@
                     <div class="podium-place first">🥇</div>
                     <div class="podium-place third">🥉</div>
                 </div>
+
+                <div class="year-recap">
+                    <p>🎉 Proost op 2026! 🎉</p>
+                </div>
             </div>
 
             <button class="btn btn-primary" onclick="restartQuiz()">
                 <span>Opnieuw Spelen</span>
             </button>
 
-            <p class="finale-credits">Oudejaarsquiz 2025 • Premium Buurtmensen</p>
+            <p class="finale-credits">Eindejaarsquiz 2025 • Premium Buurtmensen</p>
         </section>
     </div>
 
