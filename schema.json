@@ -1,0 +1,271 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pubquiz-2025-schema",
+  "title": "Buurt Pubquiz 2025 Schema",
+  "description": "Datastructuur voor eindejaarsquiz vragen",
+
+  "$defs": {
+    "category_enum": {
+      "enum": [
+        "algemene_kennis",
+        "muziek",
+        "film_tv",
+        "sport",
+        "wetenschap",
+        "aardrijkskunde",
+        "geschiedenis",
+        "nederland",
+        "natuur_dieren",
+        "actualiteit_2025",
+        "eten_drinken",
+        "kunst_cultuur"
+      ]
+    },
+
+    "question_type_enum": {
+      "enum": [
+        "multiple_choice",
+        "open_question",
+        "true_false",
+        "image_question",
+        "video_question",
+        "music_question"
+      ]
+    },
+
+    "target_audience_enum": {
+      "enum": ["adults", "kids", "mixed"]
+    },
+
+    "media_type_enum": {
+      "enum": ["image", "video", "audio", "none"]
+    },
+
+    "music_type_enum": {
+      "enum": ["intro", "refrein", "artiest", "jaar"]
+    },
+
+    "media_object": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "$ref": "#/$defs/media_type_enum" },
+        "url": { "type": "string", "format": "uri" },
+        "alt_text": { "type": "string", "maxLength": 150 },
+        "caption": { "type": ["string", "null"], "maxLength": 100 },
+        "autoplay": { "type": "boolean", "default": false },
+        "start_seconds": { "type": ["integer", "null"], "minimum": 0 },
+        "end_seconds": { "type": ["integer", "null"], "minimum": 0 }
+      },
+      "if": {
+        "properties": { "type": { "const": "none" } }
+      },
+      "then": {},
+      "else": {
+        "required": ["url", "alt_text"]
+      }
+    },
+
+    "multiple_choice_payload": {
+      "type": "object",
+      "required": ["options", "correct_option"],
+      "properties": {
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["key", "text"],
+            "properties": {
+              "key": { "enum": ["A", "B", "C", "D"] },
+              "text": { "type": "string", "minLength": 1, "maxLength": 100 }
+            }
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "correct_option": { "enum": ["A", "B", "C", "D"] },
+        "shuffle": { "type": "boolean", "default": true }
+      }
+    },
+
+    "true_false_payload": {
+      "type": "object",
+      "required": ["correct_answer"],
+      "properties": {
+        "correct_answer": { "type": "boolean" }
+      }
+    },
+
+    "open_question_payload": {
+      "type": "object",
+      "required": ["correct_answer"],
+      "properties": {
+        "correct_answer": { "type": "string", "minLength": 1 },
+        "alternatives": {
+          "type": "array",
+          "items": { "type": "string" },
+          "maxItems": 5
+        },
+        "case_sensitive": { "type": "boolean", "default": false }
+      }
+    },
+
+    "music_payload": {
+      "type": "object",
+      "required": ["music_type", "artist", "title"],
+      "properties": {
+        "music_type": { "$ref": "#/$defs/music_type_enum" },
+        "artist": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "title": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "release_year": { "type": "integer", "minimum": 1900, "maximum": 2025 },
+        "genre": { "type": "string", "maxLength": 50 },
+        "play_duration_seconds": { "type": "integer", "minimum": 5, "maximum": 30, "default": 15 }
+      }
+    },
+
+    "scoring_object": {
+      "type": "object",
+      "required": ["base_points"],
+      "properties": {
+        "base_points": { "type": "integer", "minimum": 1, "maximum": 10, "default": 1 },
+        "bonus_speed": { "type": "boolean", "default": false },
+        "partial_credit": { "type": "boolean", "default": false },
+        "penalty_wrong": { "type": "integer", "minimum": 0, "maximum": 5, "default": 0 }
+      }
+    },
+
+    "hint_object": {
+      "type": "object",
+      "required": ["text", "points_deduction"],
+      "properties": {
+        "text": { "type": "string", "minLength": 1, "maxLength": 150 },
+        "points_deduction": { "type": "integer", "minimum": 1, "maximum": 3 }
+      }
+    },
+
+    "question": {
+      "type": "object",
+      "required": [
+        "id",
+        "sequence",
+        "category",
+        "target_audience",
+        "difficulty",
+        "question_type",
+        "question_text",
+        "explanation",
+        "media",
+        "scoring"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^q_[a-z0-9_]+$" },
+        "sequence": { "type": "integer", "minimum": 1 },
+        "year_relevance": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2025 },
+        "category": { "$ref": "#/$defs/category_enum" },
+        "target_audience": { "$ref": "#/$defs/target_audience_enum" },
+        "difficulty": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "question_type": { "$ref": "#/$defs/question_type_enum" },
+        "question_text": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "explanation": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "fun_fact": { "type": ["string", "null"], "maxLength": 200 },
+        "humor_level": { "type": "integer", "minimum": 0, "maximum": 3, "default": 1 },
+        "time_limit_seconds": { "type": ["integer", "null"], "minimum": 10, "maximum": 120 },
+        "media": { "$ref": "#/$defs/media_object" },
+        "scoring": { "$ref": "#/$defs/scoring_object" },
+        "hints": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/hint_object" },
+          "maxItems": 3
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "payload": { "type": "object" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "question_type": { "const": "multiple_choice" } } },
+          "then": { "properties": { "payload": { "$ref": "#/$defs/multiple_choice_payload" } }, "required": ["payload"] }
+        },
+        {
+          "if": { "properties": { "question_type": { "const": "true_false" } } },
+          "then": { "properties": { "payload": { "$ref": "#/$defs/true_false_payload" } }, "required": ["payload"] }
+        },
+        {
+          "if": { "properties": { "question_type": { "const": "open_question" } } },
+          "then": { "properties": { "payload": { "$ref": "#/$defs/open_question_payload" } }, "required": ["payload"] }
+        },
+        {
+          "if": { "properties": { "question_type": { "const": "music_question" } } },
+          "then": {
+            "properties": {
+              "payload": { "$ref": "#/$defs/music_payload" },
+              "media": { "properties": { "type": { "const": "audio" } } }
+            },
+            "required": ["payload"]
+          }
+        },
+        {
+          "if": { "properties": { "question_type": { "const": "image_question" } } },
+          "then": {
+            "properties": {
+              "media": { "properties": { "type": { "const": "image" } } }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "question_type": { "const": "video_question" } } },
+          "then": {
+            "properties": {
+              "media": { "properties": { "type": { "const": "video" } } }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "target_audience": { "const": "kids" } } },
+          "then": { "properties": { "difficulty": { "maximum": 3 }, "time_limit_seconds": { "minimum": 15 } } }
+        }
+      ]
+    },
+
+    "round": {
+      "type": "object",
+      "required": ["round_id", "round_number", "name", "emoji", "description", "questions"],
+      "properties": {
+        "round_id": { "type": "string", "pattern": "^r_[a-z0-9_]+$" },
+        "round_number": { "type": "integer", "minimum": 1 },
+        "name": { "type": "string", "minLength": 1, "maxLength": 50 },
+        "emoji": { "type": "string", "maxLength": 4 },
+        "description": { "type": "string", "maxLength": 150 },
+        "questions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/question" },
+          "minItems": 1
+        }
+      }
+    }
+  },
+
+  "type": "object",
+  "required": ["meta", "rounds"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["version", "year", "title"],
+      "properties": {
+        "version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+        "year": { "type": "integer" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "updated_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "rounds": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/round" },
+      "minItems": 1
+    }
+  }
+}

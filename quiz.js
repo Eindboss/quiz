@@ -1,4 +1,4 @@
-// Buurt Pubquiz 2025 - Quiz Logic
+// Oudejaarsquiz 2025 - Premium Buurtmensen
 
 let currentRound = 0;
 let currentQuestion = 0;
@@ -46,22 +46,35 @@ function continueQuiz() {
 function loadQuestion() {
     const round = quizData[currentRound];
     const question = round.questions[currentQuestion];
+    const totalQuestions = round.questions.length;
 
     // Update header
-    document.getElementById('round-name').textContent = `Ronde ${currentRound + 1}`;
+    document.getElementById('round-emoji').textContent = round.emoji;
+    document.getElementById('round-name').textContent = `Ronde ${currentRound + 1} van ${quizData.length}`;
     document.getElementById('round-title').textContent = round.name;
-    document.getElementById('question-counter').textContent =
-        `Vraag ${currentQuestion + 1} van ${round.questions.length}`;
+    document.getElementById('question-counter').textContent = `Vraag ${currentQuestion + 1}/${totalQuestions}`;
+
+    // Update progress bar
+    const progressPercent = ((currentQuestion + 1) / totalQuestions) * 100;
+    document.getElementById('progress-fill').style.width = `${progressPercent}%`;
 
     // Update difficulty badge
     const badge = document.getElementById('difficulty-badge');
-    if (question.difficulty === 'kind') {
+    const difficulty = question.difficulty || 'kind';
+    if (difficulty === 'kind') {
         badge.textContent = '🧒 Kinderen';
-        badge.className = 'difficulty-badge kind';
+        badge.className = 'difficulty-badge kids';
+    } else if (difficulty === 'volwassen') {
+        badge.textContent = '🧠 Volwassenen';
+        badge.className = 'difficulty-badge adults';
     } else {
-        badge.textContent = '👨‍👩‍👧 Volwassenen';
-        badge.className = 'difficulty-badge volwassen';
+        badge.textContent = '👨‍👩‍👧 Familie';
+        badge.className = 'difficulty-badge mixed';
     }
+
+    // Update points badge
+    const points = question.points || 1;
+    document.getElementById('points-badge').textContent = `${points} punt${points > 1 ? 'en' : ''}`;
 
     // Update media (afbeelding of video)
     const mediaContainer = document.getElementById('media-container');
@@ -99,11 +112,11 @@ function loadQuestion() {
 
     // Reset knoppen
     answerRevealed = false;
-    document.getElementById('show-answer-btn').style.display = 'inline-block';
+    document.getElementById('show-answer-btn').style.display = 'inline-flex';
     document.getElementById('next-btn').disabled = true;
 }
 
-// Selecteer een antwoord (optioneel, voor interactief spelen)
+// Selecteer een antwoord
 function selectAnswer(index) {
     if (answerRevealed) return;
 
