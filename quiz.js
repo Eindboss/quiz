@@ -5,6 +5,34 @@ let currentMonth = 0;
 let currentQuestion = 0;
 let answerRevealed = false;
 
+// Confetti colors
+const confettiColors = ['#d4af37', '#f4e4a6', '#a68b2a', '#ffffff', '#8b5cf6', '#10b981', '#ef4444'];
+
+// Create confetti effect
+function createConfetti(count = 100) {
+    for (let i = 0; i < count; i++) {
+        setTimeout(() => {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.background = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+            confetti.style.width = (Math.random() * 10 + 5) + 'px';
+            confetti.style.height = (Math.random() * 10 + 5) + 'px';
+            confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            confetti.style.animationDelay = (Math.random() * 0.5) + 's';
+
+            // Random shapes
+            const shapes = ['50%', '0%', '30% 70% 70% 30% / 30% 30% 70% 70%'];
+            confetti.style.borderRadius = shapes[Math.floor(Math.random() * shapes.length)];
+
+            document.body.appendChild(confetti);
+
+            // Remove after animation
+            setTimeout(() => confetti.remove(), 4000);
+        }, i * 30);
+    }
+}
+
 // Slot type configuratie
 const slotConfig = {
     news: { emoji: '📰', label: 'Nieuws', class: 'news' },
@@ -29,6 +57,11 @@ function showScreen(screenName) {
     });
     if (screens[screenName]) {
         screens[screenName].classList.add('active');
+
+        // Trigger confetti on end screen
+        if (screenName === 'end') {
+            setTimeout(() => createConfetti(150), 300);
+        }
     }
 }
 
