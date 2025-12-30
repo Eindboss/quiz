@@ -245,18 +245,13 @@ function loadQuestion() {
     answersContainer.innerHTML = '';
     openAnswerContainer.style.display = 'none';
 
-    // Hide answers for audio_youtube (listen & guess questions)
+    // Hide answers for audio_youtube (listen & guess questions) and open questions
     const isListenQuestion = question.media && question.media.type === 'audio_youtube';
+    const isOpenQuestion = question.question_type === 'open_question';
 
-    if (isListenQuestion) {
-        // Luistervraag: geen antwoorden tonen, mensen moeten zelf raden
-        // Antwoorden worden pas bij "Toon Antwoord" getoond
-    } else if (question.question_type === 'open_question') {
-        // Open vraag
-        openAnswerContainer.style.display = 'block';
-        openAnswerInput.value = '';
-        openAnswerInput.placeholder = 'Typ je antwoord...';
-        openAnswerInput.focus();
+    if (isListenQuestion || isOpenQuestion) {
+        // Luistervraag of open vraag: geen antwoorden/invoerveld tonen
+        // Mensen zeggen het hardop, antwoord wordt bij "Toon Antwoord" getoond
     } else if (question.question_type === 'true_false') {
         // Waar/Niet waar
         ['Waar', 'Niet waar'].forEach((answer, index) => {
