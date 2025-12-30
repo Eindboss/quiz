@@ -245,7 +245,13 @@ function loadQuestion() {
     answersContainer.innerHTML = '';
     openAnswerContainer.style.display = 'none';
 
-    if (question.question_type === 'open_question') {
+    // Hide answers for audio_youtube (listen & guess questions)
+    const isListenQuestion = question.media && question.media.type === 'audio_youtube';
+
+    if (isListenQuestion) {
+        // Luistervraag: geen antwoorden tonen, mensen moeten zelf raden
+        // Antwoorden worden pas bij "Toon Antwoord" getoond
+    } else if (question.question_type === 'open_question') {
         // Open vraag
         openAnswerContainer.style.display = 'block';
         openAnswerInput.value = '';
