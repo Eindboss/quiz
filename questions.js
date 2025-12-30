@@ -1,6 +1,6 @@
 // Eindejaarsquiz 2025 - Premium Buurtmensen
-// 12 maanden × 5 vragen = 60 vragen totaal
-// Slot types: news, kids, music, viral, buurt
+// 12 maanden × 3 vragen = 36 vragen totaal
+// Slot types: news, kids, music
 
 const quizData = {
   "meta": {
@@ -8,8 +8,8 @@ const quizData = {
     "year": 2025,
     "title": "Eindejaarsquiz Premium Buurtmensen",
     "total_months": 12,
-    "questions_per_month": 5,
-    "total_questions": 60
+    "questions_per_month": 3,
+    "total_questions": 36
   },
   "months": [
     {
@@ -20,20 +20,20 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "Wie werd op 20 januari 2025 beëdigd als vicepresident van de Verenigde Staten?",
+          "question_text": "20 januari 2025: Amerika kreeg een nieuw machtsduo. Wie stond naast Trump bij de eedaflegging, en werd daarmee het politieke 'experiment' van deze termijn?",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
           "media": {
-            "type": "image",
+            "type": "image_after_answer",
             "url": "https://ci.usembassy.gov/wp-content/uploads/sites/12/2025/01/inauguration_trump_swearing_in-25020627943215-2.jpg",
             "alt_text": "Trump inauguratie 2025"
           },
           "answers": [
             "J.D. Vance",
+            "Nikki Haley",
             "Mike Pence",
-            "Kamala Harris",
-            "Elon Musk (want hij was er toch)"
+            "Ron DeSantis"
           ],
           "correct": 0,
           "explanation": "Trump begon zijn tweede termijn met J.D. Vance als vicepresident."
@@ -41,85 +41,44 @@ const quizData = {
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Wat doe je meestal op oudjaarsavond vlak vóór 12 uur?",
+          "question_text": "In januari hoor je vaak nieuws over 'goede voornemens'. Wat betekent dat?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 2,
+          "humor_level": 4,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Aftellen",
-            "Je tanden poetsen",
-            "Je huiswerk maken",
-            "De was vouwen (uit vrije wil)"
+            "Dingen die mensen zich voornemen om beter te doen",
+            "Regels die de regering elk jaar in januari maakt",
+            "Nieuwe wetten waar kinderen zich aan moeten houden",
+            "Geheime plannen die meestal tot februari duren"
           ],
           "correct": 0,
-          "explanation": "Vlak voor middernacht tellen veel mensen af naar het nieuwe jaar."
+          "explanation": "Goede voornemens zijn plannen die mensen maken om iets te verbeteren."
         },
         {
           "slot_type": "music",
-          "question_type": "multiple_choice",
-          "question_text": "Begin 2025 kwam een dans-versie uit van 'Moonlight Shadow'. Van wie is het originele nummer uit 1983?",
+          "question_type": "music_lyrics",
+          "question_text": "Wat is de derde zin van het refrein?",
+          "intro_text": "Het lied \"Terug in de tijd\" van Yves Berendse is ook in 2025 nog altijd een van de meest gedraaide liedjes in Nederland.",
+          "lyrics_hint": "Ja, als ik terug kon in de tijd, dan wel met jou\nIk heb je zo lang niet gezien, hoe is het nou?\n....\nAls ik terug kon in de tijd, dan wel met jou",
           "target_audience": "mixed",
           "points": 2,
-          "humor_level": 2,
+          "humor_level": 1,
           "media": {
-            "type": "video",
-            "url": "https://www.youtube.com/embed/e80qhyovOnA?start=30",
-            "alt_text": "Moonlight Shadow"
+            "type": "video_after_answer",
+            "url": "https://www.youtube.com/embed/ERSCR2cuqAU?si=RmfcCx2xyZYfgzTd&clip=UgkxX5AtC3YMl4YlmSa8QIf4OnK0eqVeBiRx&clipt=EKSHAhjPgwQ",
+            "alt_text": "Terug in de tijd - Yves Berendse"
           },
           "answers": [
-            "Mike Oldfield (met zang van Maggie Reilly)",
-            "André Hazes",
-            "Spiderman: The Musical",
-            "De speaker van de AH (bonuspunten als je hem kent)"
+            "Ik zou het allemaal overdoen, ik zweer het jou",
+            "Ik mis je elke dag opnieuw, geloof me nou",
+            "We gaan terug naar vroeger toe, ik weet niet hoe",
+            "De tijd staat stil als jij er bent, dat weet je toch"
           ],
           "correct": 0,
-          "explanation": "'Moonlight Shadow' is oorspronkelijk van Mike Oldfield (1983). In 2025 verscheen er een dance-cover.",
-          "fun_fact": "Je hoort het origineel in veel '80s'-playlists, en het blijft irritant lekker hangen."
-        },
-        {
-          "slot_type": "viral",
-          "question_type": "multiple_choice",
-          "question_text": "Januari: welke 'nieuwjaarstraditie' is elk jaar weer massaal online te zien?",
-          "target_audience": "mixed",
-          "points": 1,
-          "humor_level": 2,
-          "media": {
-            "type": "none"
-          },
-          "answers": [
-            "Goede-voornemens-posts die rond 12 januari verdwijnen",
-            "Iedereen verkoopt spontaan zijn bank",
-            "Massaal sneeuw in Nederland",
-            "Collectieve stilte op internet"
-          ],
-          "correct": 0,
-          "explanation": "Goede voornemens zijn een vaste januari-klassieker online."
-        },
-        {
-          "slot_type": "buurt",
-          "question_type": "open_question",
-          "question_text": "Noem één typisch Nederlands goed voornemen dat je vaak hoort in januari.",
-          "target_audience": "mixed",
-          "points": 2,
-          "humor_level": 2,
-          "media": {
-            "type": "none"
-          },
-          "payload": {
-            "correct_answer": "Meer sporten / gezonder eten / afvallen / minder alcohol",
-            "alternatives": [
-              "meer sporten",
-              "gezonder eten",
-              "afvallen",
-              "minder alcohol",
-              "minder snoepen",
-              "meer wandelen"
-            ]
-          },
-          "explanation": "Alles dat begint met 'dit jaar écht…' is goed. Ook als je het morgen alweer vergeet."
+          "explanation": "De derde zin is: 'Ik zou het allemaal overdoen, ik zweer het jou'"
         }
       ]
     },
@@ -131,105 +90,64 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "Welke artiest verzorgde de halftime show van Super Bowl LIX (februari 2025)?",
+          "question_text": "Super Bowl LIX (februari 2025): sport was bijzaak, cultuur hoofdzaak. Welke artiest kreeg het podium – en het debat – volledig naar zich toe?",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
           "media": {
-            "type": "image",
+            "type": "image_after_answer",
             "url": "https://hips.hearstapps.com/hmg-prod/images/474774247-18481150825049588-4241654844345328156-n-67a387fb4c262.jpg",
             "alt_text": "Super Bowl halftime show 2025"
           },
           "answers": [
-            "Usher",
+            "Kendrick Lamar",
             "Beyoncé",
-            "The Weeknd",
-            "Gerard Joling (internationale doorbraak)"
+            "Taylor Swift",
+            "The Weeknd"
           ],
           "correct": 0,
-          "explanation": "Usher stond centraal tijdens de halftime show van Super Bowl LIX."
+          "explanation": "Kendrick Lamar verzorgde de halftime show van Super Bowl LIX."
         },
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Wat is 'carnaval' meestal het meest?",
+          "question_text": "Dit kwam in 2025 veel in het nieuws: wie werd in januari president van de Verenigde Staten?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 2,
+          "humor_level": 4,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Verkleedfeest met muziek",
-            "Een examenweek",
-            "Een stille optocht waar je niet mag lachen",
-            "Een dag waarop iedereen broccoli eet"
+            "Donald Trump",
+            "Joe Biden",
+            "Barack Obama",
+            "De burgemeester van New York"
           ],
           "correct": 0,
-          "explanation": "Carnaval is een feest met verkleden, muziek en vaak optochten."
+          "explanation": "Donald Trump begon in 2025 aan een nieuwe termijn als president."
         },
         {
           "slot_type": "music",
           "question_type": "multiple_choice",
-          "question_text": "Welke artiest staat bekend om een 'powerballad' én won in 2014 Eurovision voor Oostenrijk (hint: baard en jurk)?",
+          "question_text": "Wat is de echte voornaam van Lady Gaga?",
+          "intro_text": "Het nummer \"Die With a Smile\" van Bruno Mars en Lady Gaga was in februari 2025 het meest gestreamde lied in Nederland. De ballade over eeuwige liefde raakte een snaar bij miljoenen luisteraars.",
           "target_audience": "mixed",
           "points": 2,
           "humor_level": 2,
           "media": {
-            "type": "video",
-            "url": "https://www.youtube.com/embed/SaolVEJEjV4?start=60",
-            "alt_text": "Rise Like a Phoenix"
+            "type": "video_after_answer",
+            "url": "https://www.youtube.com/embed/IFS3imM9qes?si=gzf83w2UzLNt6KPS&start=2",
+            "alt_text": "Die With a Smile - Bruno Mars & Lady Gaga"
           },
           "answers": [
-            "Conchita Wurst",
-            "DJ Tiësto",
-            "K3",
-            "De buurman die altijd om 22:03 boort"
+            "Stefani",
+            "Angelina",
+            "Joanne",
+            "Gaga (echt waar, stond op haar geboorteakte)"
           ],
           "correct": 0,
-          "explanation": "Conchita Wurst won Eurovision 2014 voor Oostenrijk met 'Rise Like a Phoenix'."
-        },
-        {
-          "slot_type": "viral",
-          "question_type": "multiple_choice",
-          "question_text": "Februari: welke Valentijns-trend duikt elk jaar weer op social media?",
-          "target_audience": "mixed",
-          "points": 1,
-          "humor_level": 2,
-          "media": {
-            "type": "none"
-          },
-          "answers": [
-            "'Kijk eens hoe perfect mijn relatie is'-posts",
-            "Iedereen doet alsof bloemen verboden zijn",
-            "Iedereen doet een boekverslag",
-            "Mensen posten alleen foto's van stoeptegels"
-          ],
-          "correct": 0,
-          "explanation": "Valentijn = relatieposts, cadeautjes en veel mensen die 'helemaal niks met Valentijn hebben'."
-        },
-        {
-          "slot_type": "buurt",
-          "question_type": "open_question",
-          "question_text": "Noem één Nederlandse stad die bekend staat om carnaval.",
-          "target_audience": "mixed",
-          "points": 2,
-          "humor_level": 2,
-          "media": {
-            "type": "none"
-          },
-          "payload": {
-            "correct_answer": "Maastricht / Den Bosch / Breda / Tilburg",
-            "alternatives": [
-              "Maastricht",
-              "Den Bosch",
-              "'s-Hertogenbosch",
-              "Breda",
-              "Tilburg",
-              "Eindhoven"
-            ]
-          },
-          "explanation": "Alles onder de rivieren telt. Bonuspunten als je er ook een carnavalsnaam bij weet."
+          "explanation": "Lady Gaga's volledige naam is Stefani Joanne Angelina Germanotta."
         }
       ]
     },
@@ -241,103 +159,67 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "Welke sector zorgde in maart 2025 voor grootschalige ontregeling in Nederland door stakingen?",
+          "question_text": "Maart 2025: welk land stond opnieuw bovenaan de World Happiness Report-lijst, tot lichte frustratie van landen die het 'ook best goed doen'?",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
           "media": {
-            "type": "image",
-            "url": "https://www.dutchnews.nl/wpcms/wp-content/uploads/2025/07/ANP-532106548.jpg",
-            "alt_text": "OV-stakingen maart 2025"
+            "type": "none"
           },
           "answers": [
-            "Openbaar vervoer",
-            "Supermarkten",
-            "De Efteling",
-            "Ouders met bakfietsen"
+            "Finland",
+            "Nederland",
+            "Canada",
+            "Denemarken"
           ],
           "correct": 0,
-          "explanation": "Trein- en OV-stakingen zorgden voor chaos bij forenzen en scholieren."
+          "explanation": "Finland stond opnieuw op nummer 1 in de World Happiness Report 2025."
         },
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Welke maand begint de lente meestal (meteorologisch) in Nederland?",
+          "question_text": "Het Jeugdjournaal ging in 2025 vaak over klimaat. Wat betekent 'klimaat' eigenlijk?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 2,
+          "humor_level": 3,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Maart",
-            "Augustus",
-            "December",
-            "De maand 'Poffertjes'"
+            "Het gemiddelde weer over een lange tijd",
+            "Het weer van vandaag",
+            "Hoe warm je jas is",
+            "Of het morgen gaat regenen"
           ],
           "correct": 0,
-          "explanation": "De lente start vaak in maart."
+          "explanation": "Klimaat gaat over het weer over een lange periode, niet over één dag."
         },
         {
           "slot_type": "music",
-          "question_type": "multiple_choice",
-          "question_text": "In 2025 ging het oude liedje 'Pretty Little Baby' viraal op TikTok. Wie zong het origineel?",
+          "question_type": "open_question",
+          "question_text": "Ken jij nog 3 zangeressen waarvan de naam begint met een R?",
+          "intro_text": "In maart scoorde Bruno Mars weer een megahit, maar nu met een andere zangeres: Rosé.",
           "target_audience": "mixed",
-          "points": 2,
-          "humor_level": 3,
+          "points": 3,
+          "humor_level": 2,
           "media": {
             "type": "video",
-            "url": "https://www.youtube.com/embed/BF2jcSBgM4A?start=10",
-            "alt_text": "Pretty Little Baby"
-          },
-          "answers": [
-            "Connie Francis",
-            "Ariana Grande",
-            "ABBA",
-            "De kat van de buren (miauwt in A-klein)"
-          ],
-          "correct": 0,
-          "explanation": "Het origineel is van Connie Francis (jaren '60) en werd in 2025 opnieuw viral."
-        },
-        {
-          "slot_type": "viral",
-          "question_type": "multiple_choice",
-          "question_text": "Maart: eerste zonnige dag. Wat doen Nederlanders het liefst?",
-          "target_audience": "mixed",
-          "points": 1,
-          "humor_level": 3,
-          "media": {
-            "type": "none"
-          },
-          "answers": [
-            "Op het terras zitten (ook als het 9 graden is)",
-            "Schaatsen op natuurijs",
-            "Sneeuwballen gooien",
-            "Binnen blijven en klagen dat het te warm is"
-          ],
-          "correct": 0,
-          "explanation": "Zon = terras. Nederland is hierin volledig voorspelbaar en toch trots."
-        },
-        {
-          "slot_type": "buurt",
-          "question_type": "open_question",
-          "question_text": "Noem één plek in Nederland waar je in het voorjaar bloemen gaat kijken.",
-          "target_audience": "mixed",
-          "points": 2,
-          "humor_level": 1,
-          "media": {
-            "type": "none"
+            "url": "https://www.youtube.com/embed/ekr2nIex040?si=abHghLUQxAzjtmm6&start=2&clip=Ugkx5klmMSVdJYlwqSaSNk-nmOulm9puiw_d&clipt=EIS1CBjAgQk",
+            "alt_text": "APT. - Bruno Mars & Rosé"
           },
           "payload": {
-            "correct_answer": "Keukenhof",
+            "correct_answer": "Bijvoorbeeld: Rihanna, Rita Ora, Robyn, Rachel Platten, Regina Spektor",
             "alternatives": [
-              "Keukenhof",
-              "Bollenstreek",
-              "Lisse",
-              "tulpenvelden"
+              "Rihanna",
+              "Rita Ora",
+              "Robyn",
+              "Rachel Platten",
+              "Regina Spektor",
+              "Roxette",
+              "Ria Valk"
             ]
           },
-          "explanation": "Keukenhof en de Bollenstreek zijn de bekendste opties."
+          "explanation": "Bekende zangeressen met een R: Rihanna, Rita Ora, Robyn, Roxette (Marie Fredriksson), Rachel Platten, Regina Spektor, en natuurlijk Ria Valk!"
         }
       ]
     },
@@ -349,105 +231,64 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "In welke stad werd de Wereldexpo 2025 officieel geopend?",
+          "question_text": "April 2025: de Wereldexpo ging van start. In welke stad werd de toekomst officieel geopend, inclusief robots, dromen en lange wachttijden?",
           "target_audience": "adults",
           "points": 2,
-          "humor_level": 2,
+          "humor_level": 1,
           "media": {
-            "type": "image",
+            "type": "image_after_answer",
             "url": "https://www.kanpai-japan.com/sites/default/files/styles/content_xs/public/uploads/2024/08/osaka-expo-2025-3d.jpg",
             "alt_text": "Expo 2025 Osaka"
           },
           "answers": [
             "Osaka",
             "Tokio",
-            "Dubai",
-            "Almere (bijna af)"
+            "Shanghai",
+            "Dubai"
           ],
           "correct": 0,
-          "explanation": "Expo 2025 vond plaats in Osaka, Japan."
+          "explanation": "Expo 2025 werd gehouden in Osaka, Japan."
         },
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Wat is een '1 aprilgrap'?",
+          "question_text": "Op 1 april zie je soms nepnieuws. Wat is nepnieuws?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 2,
+          "humor_level": 4,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Een grap die je op 1 april uithaalt",
-            "Een test op school",
-            "Een soort ijsje",
-            "Een dier in de dierentuin"
+            "Nieuws dat niet waar is",
+            "Nieuws dat alleen op tv komt",
+            "Nieuws speciaal voor volwassenen",
+            "Nieuws dat nog moet gebeuren"
           ],
           "correct": 0,
-          "explanation": "Op 1 april halen mensen vaak grapjes uit."
+          "explanation": "Nepnieuws is nieuws dat niet klopt, maar wel echt lijkt."
         },
         {
           "slot_type": "music",
           "question_type": "multiple_choice",
-          "question_text": "Welke band zong het bekende lied 'Waterloo' (Eurovision-winnaar 1974)?",
+          "question_text": "Wat is waar over Roxy Dekker?",
+          "intro_text": "In april was de populairste Nederlandse artiest Roxy Dekker.",
           "target_audience": "mixed",
           "points": 2,
           "humor_level": 2,
           "media": {
             "type": "video",
-            "url": "https://www.youtube.com/embed/Sj_9CiNkkn4?start=20",
-            "alt_text": "ABBA Waterloo"
+            "url": "https://www.youtube.com/embed/AsWcssoECUE?si=wcORh-pUXvAYbzwi&start=2&clip=Ugkxk5ERSrmwwd04yUY4E3XqWn6G8onFM0GV&clipt=EMjWBRjwmQc",
+            "alt_text": "Roxy Dekker"
           },
           "answers": [
-            "ABBA",
-            "The Beatles",
-            "Queen",
-            "De Toppers (maar dan met glitterregen)"
+            "Ze scoorde een nummer-1-hit zonder ooit op de radio te zijn gedraaid",
+            "Haar liedjes begonnen als TikTok-grappen",
+            "Ze brak door met Nederlandstalige covers van Bruno Mars",
+            "Ze was de jongste artiest ooit met drie hits tegelijk in de Top 40"
           ],
-          "correct": 0,
-          "explanation": "ABBA won Eurovision 1974 met 'Waterloo'."
-        },
-        {
-          "slot_type": "viral",
-          "question_type": "multiple_choice",
-          "question_text": "April: wat is het meest geloofwaardige 1-april 'nieuwtje' in de buurtapp?",
-          "target_audience": "mixed",
-          "points": 1,
-          "humor_level": 3,
-          "media": {
-            "type": "none"
-          },
-          "answers": [
-            "'Er is een nieuwe parkeerregel…' (en iedereen raakt meteen in paniek)",
-            "'De zon gaat uit'",
-            "'Iedereen krijgt gratis pizza'",
-            "'Katten moeten voortaan een helm dragen'"
-          ],
-          "correct": 0,
-          "explanation": "In Nederland zijn parkeerregels en paniek elkaars natuurlijke vijanden."
-        },
-        {
-          "slot_type": "buurt",
-          "question_type": "open_question",
-          "question_text": "Koningsdag 2025: noem één ding dat je vaak ziet op een vrijmarkt.",
-          "target_audience": "mixed",
-          "points": 2,
-          "humor_level": 2,
-          "media": {
-            "type": "none"
-          },
-          "payload": {
-            "correct_answer": "Tweedehands speelgoed / boeken / kleding",
-            "alternatives": [
-              "speelgoed",
-              "boeken",
-              "kleding",
-              "oude spellen",
-              "rommel",
-              "LP's"
-            ]
-          },
-          "explanation": "Vrijmarkt = schatzoeken in andermans zolder."
+          "correct": 1,
+          "explanation": "Roxy Dekker begon met het maken van grappige liedjes op TikTok die viraal gingen."
         }
       ]
     },
@@ -459,7 +300,7 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "Wie vertegenwoordigde Nederland op het Eurovisie Songfestival 2025 en op welke plek eindigde Nederland?",
+          "question_text": "Eurovisie 2025: Nederland stuurde een inzending die muzikaal werd gewaardeerd, maar niet won. Wie vertegenwoordigde Nederland en waar eindigden we?",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
@@ -469,94 +310,54 @@ const quizData = {
             "alt_text": "Eurovision 2025 Basel"
           },
           "answers": [
-            "Joost Klein – 5e",
-            "Claude – 3e",
-            "Anouk – 12e",
-            "De Top 2000 – morele winnaar"
+            "Claude – 12e plaats",
+            "Joost Klein – 5e plaats",
+            "Anouk – 2e plaats",
+            "Duncan Laurence – 1e plaats"
           ],
           "correct": 0,
-          "explanation": "Joost Klein eindigde verrassend sterk met een 5e plaats."
+          "explanation": "Claude vertegenwoordigde Nederland en eindigde 12e in de finale."
         },
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "5 mei is in Nederland een speciale dag. Wat vieren we dan?",
+          "question_text": "5 mei is Bevrijdingsdag. Waar denken we dan vooral aan?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 2,
+          "humor_level": 3,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Bevrijdingsdag",
-            "Sinterklaas",
-            "Koningsnacht",
-            "De Nationale Pannenkoekinspectie"
+            "Vrijheid en het einde van de Tweede Wereldoorlog",
+            "Het begin van de zomervakantie",
+            "De verjaardag van de koning",
+            "Een dag zonder regels"
           ],
           "correct": 0,
-          "explanation": "Op 5 mei vieren we Bevrijdingsdag."
+          "explanation": "Bevrijdingsdag gaat over vrijheid na de Tweede Wereldoorlog."
         },
         {
           "slot_type": "music",
           "question_type": "multiple_choice",
-          "question_text": "Eurovision 2025: met welk lied won JJ voor Oostenrijk?",
+          "question_text": "Welk lied heeft de hoogste notering?",
+          "intro_text": "In mei 2025 was Marco Borsato gecanceld. Toch staat hij nu met veel nummers in de Top 2000.",
           "target_audience": "mixed",
           "points": 2,
-          "humor_level": 3,
-          "media": {
-            "type": "video",
-            "url": "https://www.youtube.com/embed/g8v6cZ21vlc?start=45",
-            "alt_text": "JJ Wasted Love Eurovision 2025"
-          },
-          "answers": [
-            "Wasted Love",
-            "Lost in Lidl",
-            "Kapsalon Symphony",
-            "Ik Ben Een Demissionair Kabinet"
-          ],
-          "correct": 0,
-          "explanation": "JJ won Eurovision 2025 met 'Wasted Love'."
-        },
-        {
-          "slot_type": "viral",
-          "question_type": "multiple_choice",
-          "question_text": "Mei: welk 'festivalprobleem' is elk jaar weer trending op social media?",
-          "target_audience": "mixed",
-          "points": 1,
           "humor_level": 2,
           "media": {
-            "type": "none"
+            "type": "video",
+            "url": "https://www.youtube.com/embed/7azASBMAkOU?si=oqGiEGH7REezD8Cu&start=2&clip=UgkxrglFAPV2MbmwEk6uPYosvk7K0JpRG2ly&clipt=EOC_ChjYlQs",
+            "alt_text": "Marco Borsato"
           },
           "answers": [
-            "'Ik ben mijn vrienden kwijt' + 17 spraakmemo's",
-            "Iedereen heeft altijd droog haar",
-            "Niemand verliest ooit iets",
-            "Iedereen gaat op tijd naar bed"
+            "Dromen zijn bedrog",
+            "De Waarheid",
+            "Dochters",
+            "Rood"
           ],
-          "correct": 0,
-          "explanation": "Festivals = kwijt, moe, dorst, en tóch gelukkig."
-        },
-        {
-          "slot_type": "buurt",
-          "question_type": "open_question",
-          "question_text": "Noem één Nederlandse herdenking of traditie die in mei plaatsvindt.",
-          "target_audience": "mixed",
-          "points": 2,
-          "humor_level": 1,
-          "media": {
-            "type": "none"
-          },
-          "payload": {
-            "correct_answer": "Dodenherdenking (4 mei) / Bevrijdingsdag (5 mei)",
-            "alternatives": [
-              "dodenherdenking",
-              "4 mei",
-              "bevrijdingsdag",
-              "5 mei",
-              "bevrijdingsfestival"
-            ]
-          },
-          "explanation": "4 mei herdenken, 5 mei vieren: Nederland in twee dagen."
+          "correct": 1,
+          "explanation": "De Waarheid staat het hoogst in de Top 2000 van alle Marco Borsato nummers."
         }
       ]
     },
@@ -568,7 +369,7 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "Wat was de directe aanleiding voor de val van het kabinet-Schoof op 3 juni 2025?",
+          "question_text": "3 juni 2025: kabinet-Schoof viel. Wat was de doorslaggevende politieke breuklijn?",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
@@ -578,10 +379,10 @@ const quizData = {
             "alt_text": "Kabinet Schoof valt"
           },
           "answers": [
-            "PVV trok steun in over asielbeleid",
-            "Begroting niet rond",
-            "Motie over frikandellen",
-            "Iemand vergat 'reply all'"
+            "Asiel- en migratiebeleid",
+            "De voorjaarsnota",
+            "Stikstof",
+            "De lengte van de kabinetsformatie"
           ],
           "correct": 0,
           "explanation": "Het conflict over asielmigratie leidde tot het terugtrekken van steun door de PVV."
@@ -589,84 +390,43 @@ const quizData = {
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Wat hoort meestal bij het begin van de zomer?",
+          "question_text": "In 2025 viel het Nederlandse kabinet. Wat is een kabinet?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 1,
+          "humor_level": 4,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Lange dagen en meer zon",
-            "Sneeuwballen",
-            "Kerstliedjes",
-            "Iedereen draagt een muts in huis"
+            "De groep ministers die het land bestuurt",
+            "Een kast in de Tweede Kamer",
+            "Het huis van de minister-president",
+            "Een geheime vergaderclub"
           ],
           "correct": 0,
-          "explanation": "In de zomer zijn de dagen langer en is het vaker warm."
+          "explanation": "Het kabinet bestaat uit ministers en bestuurt Nederland."
         },
         {
           "slot_type": "music",
           "question_type": "multiple_choice",
-          "question_text": "Welke Nederlandse zangeres zong 'Europapa' (een echte oorwurm uit de lage landen, maar dan eerder)?",
-          "target_audience": "mixed",
-          "points": 2,
-          "humor_level": 3,
-          "media": {
-            "type": "video",
-            "url": "https://www.youtube.com/embed/gT2wY0DjYHo?start=30",
-            "alt_text": "Europapa Joost Klein"
-          },
-          "answers": [
-            "Joost Klein (het is een man, maar dat is de grap)",
-            "Maan",
-            "Anouk",
-            "Gerard Joling (altijd een optie)"
-          ],
-          "correct": 0,
-          "explanation": "'Europapa' is van Joost Klein. Bonus: je kunt het nu waarschijnlijk niet meer uit je hoofd krijgen."
-        },
-        {
-          "slot_type": "viral",
-          "question_type": "multiple_choice",
-          "question_text": "Juni: wat is de meest gedeelde 'zomerstart' foto in Nederland?",
-          "target_audience": "mixed",
-          "points": 1,
-          "humor_level": 3,
-          "media": {
-            "type": "none"
-          },
-          "answers": [
-            "Eerste barbecue met te veel rook",
-            "Een perfect gezonde salade",
-            "Een foto van stilte",
-            "Een screenshot van je belastingaangifte"
-          ],
-          "correct": 0,
-          "explanation": "De Nederlandse barbecue is 40% eten en 60% rooksignalen naar de buren."
-        },
-        {
-          "slot_type": "buurt",
-          "question_type": "open_question",
-          "question_text": "Noem één typisch Nederlandse 'zomer-eten' klassieker (mag heel simpel).",
+          "question_text": "Wie stond er in juni 2000 op 1 in de Nederlandse hitlijsten?",
+          "intro_text": "25 jaar geleden was er ook al muziek.",
           "target_audience": "mixed",
           "points": 2,
           "humor_level": 2,
           "media": {
-            "type": "none"
+            "type": "video_after_answer",
+            "url": "https://www.youtube.com/embed/oIJldSgK0Wc?si=bXVoGiHBflzNl-8_&clip=Ugkx3ugWjRVnfh5e3jCm7bmDuzC5Z2pu7Lya&clipt=EMmdChijtws",
+            "alt_text": "Life - Des'ree"
           },
-          "payload": {
-            "correct_answer": "IJs / haring / barbecue / aardbeien",
-            "alternatives": [
-              "ijs",
-              "haring",
-              "barbecue",
-              "aardbeien",
-              "saté",
-              "watermeloen"
-            ]
-          },
-          "explanation": "Alles dat je buiten eet en plakt aan je vingers telt."
+          "answers": [
+            "Life – Des'ree",
+            "The Ketchup Song (Aserejé) – Las Ketchup",
+            "Dragostea Din Tei – O-Zone",
+            "Jij bent de zon – Jop"
+          ],
+          "correct": 0,
+          "explanation": "Life van Des'ree stond in juni 2000 op nummer 1 in Nederland."
         }
       ]
     },
@@ -678,87 +438,48 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "Welke tennisser won in juli 2025 voor het eerst Wimbledon bij de mannen?",
+          "question_text": "Juli 2025: Wimbledon kreeg een nieuwe kampioen bij de mannen. Wie won zijn eerste titel op het heiligste gras?",
           "target_audience": "adults",
           "points": 2,
-          "humor_level": 2,
+          "humor_level": 1,
           "media": {
-            "type": "image",
+            "type": "image_after_answer",
             "url": "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/bedf/live/f1887690-51b8-11f0-bdc1-3392cff01039.jpg",
             "alt_text": "Wimbledon 2025 winnaar"
           },
           "answers": [
             "Jannik Sinner",
-            "Novak Djokovic",
             "Carlos Alcaraz",
-            "Tim van Rijthoven (op karakter)"
+            "Novak Djokovic",
+            "Daniil Medvedev"
           ],
           "correct": 0,
-          "explanation": "Jannik Sinner pakte zijn eerste Wimbledon-titel."
+          "explanation": "Jannik Sinner won in 2025 zijn eerste Wimbledon-titel."
         },
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Wat neem je vaak mee op vakantie?",
+          "question_text": "Dit zag je in de zomer van 2025 vaak op tv: wat is Wimbledon?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 2,
+          "humor_level": 3,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Koffer met kleding",
-            "Een koelkast",
-            "Een zwembad van 12 meter",
-            "De complete bankstelset"
+            "Een groot tennistoernooi",
+            "Een voetbalclub",
+            "Een pretpark in Engeland",
+            "Een nieuwe sport"
           ],
           "correct": 0,
-          "explanation": "Op vakantie neem je meestal kleding en spullen in een koffer mee."
+          "explanation": "Wimbledon is een beroemd tennistoernooi in Engeland."
         },
         {
           "slot_type": "music",
-          "question_type": "multiple_choice",
-          "question_text": "Welke artiest staat bekend om het lied 'Flowers' (mega-hit van de afgelopen jaren)?",
-          "target_audience": "mixed",
-          "points": 2,
-          "humor_level": 1,
-          "media": {
-            "type": "video",
-            "url": "https://www.youtube.com/embed/G7KNmW9a75Y?start=60",
-            "alt_text": "Flowers Miley Cyrus"
-          },
-          "answers": [
-            "Miley Cyrus",
-            "Boudewijn de Groot",
-            "Ramses Shaffy",
-            "De buurvrouw met de bladblazer"
-          ],
-          "correct": 0,
-          "explanation": "'Flowers' is van Miley Cyrus."
-        },
-        {
-          "slot_type": "viral",
-          "question_type": "multiple_choice",
-          "question_text": "Juli: welk vakantiefenomeen zie je elk jaar weer in je tijdlijn?",
-          "target_audience": "mixed",
-          "points": 1,
-          "humor_level": 2,
-          "media": {
-            "type": "none"
-          },
-          "answers": [
-            "'Airport dad'-foto's (veel te vroeg op Schiphol)",
-            "Mensen die relaxed zijn op vakantie",
-            "Niemand klaagt over files",
-            "Iedereen post alleen hun waslijst"
-          ],
-          "correct": 0,
-          "explanation": "Vakantie = te vroeg vertrekken, en daarna zeggen dat het 'toch best handig' was."
-        },
-        {
-          "slot_type": "buurt",
           "question_type": "open_question",
-          "question_text": "Open vraag: Wat is jouw ultieme Nederlandse 'vakantie in eigen land'-plek (één woord of plaatsnaam)?",
+          "question_text": "Hoeveel TMF VJ's ken je nog?",
+          "intro_text": "De meeste zomerhits hoor je in de zomer. Waar je weinig meer van hoort is van TMF.",
           "target_audience": "mixed",
           "points": 2,
           "humor_level": 2,
@@ -766,18 +487,23 @@ const quizData = {
             "type": "none"
           },
           "payload": {
-            "correct_answer": "Waddeneilanden / Zeeland / Veluwe",
+            "correct_answer": "Bijvoorbeeld: Bridget Maasland, Ruud de Wild, Sylvie Meis, Tooske Ragas, Winston Gerschtanowitz, Evi Hanssen",
             "alternatives": [
-              "Texel",
-              "Terschelling",
-              "Ameland",
-              "Zeeland",
-              "Veluwe",
-              "Limburg",
-              "Drenthe"
+              "Bridget Maasland",
+              "Ruud de Wild",
+              "Sylvie Meis",
+              "Tooske Ragas",
+              "Winston Gerschtanowitz",
+              "Evi Hanssen",
+              "Eric Corton",
+              "Isabelle Brinkman",
+              "Wessel van Diepen",
+              "Patrick Lodiers",
+              "Candy Dulfer",
+              "Adam Curry"
             ]
           },
-          "explanation": "Hier is geen fout antwoord. Alleen iemand die 'de A2' zegt krijgt een blik."
+          "explanation": "Bekende TMF VJ's waren onder andere Bridget Maasland, Ruud de Wild, Sylvie Meis, Tooske Ragas, Winston Gerschtanowitz en Evi Hanssen."
         }
       ]
     },
@@ -789,20 +515,20 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "Welke bijzondere verjaardag viel samen met SAIL Amsterdam 2025?",
+          "question_text": "SAIL Amsterdam 2025 was geen 'gewone editie'. Welke mijlpaal vierde de stad tegelijk?",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
           "media": {
-            "type": "image",
+            "type": "image_after_answer",
             "url": "https://thingstodoinamsterdam.com/wp-content/uploads/2025/03/Sail-2025.jpg",
             "alt_text": "SAIL Amsterdam 2025"
           },
           "answers": [
             "750 jaar Amsterdam",
-            "500 jaar grachten",
-            "100 jaar fietsbel",
-            "50 jaar file op de A10"
+            "500 jaar grachtengordel",
+            "100 jaar IJtunnel",
+            "50 jaar A10"
           ],
           "correct": 0,
           "explanation": "SAIL 2025 viel samen met het 750-jarig bestaan van Amsterdam."
@@ -810,21 +536,21 @@ const quizData = {
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Wat is een 'parade' of optocht meestal?",
+          "question_text": "Amsterdam werd in 2025 750 jaar. Wat betekent dat?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 1,
+          "humor_level": 3,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Een rij mensen/voertuigen die langs komt met muziek",
-            "Een stille rij bij de tandarts",
-            "Een file met alleen tractors",
-            "Een spelletje op de telefoon"
+            "Dat de stad al 750 jaar bestaat",
+            "Dat er 750 boten lagen",
+            "Dat er 750 mensen wonen",
+            "Dat het 750 dagen feest was"
           ],
           "correct": 0,
-          "explanation": "Bij een parade rijdt of loopt er een stoet langs, vaak met muziek."
+          "explanation": "Amsterdam bestaat sinds 1275 en werd in 2025 750 jaar."
         },
         {
           "slot_type": "music",
@@ -846,50 +572,6 @@ const quizData = {
           ],
           "correct": 0,
           "explanation": "Tijs Verwest is Tiësto."
-        },
-        {
-          "slot_type": "viral",
-          "question_type": "multiple_choice",
-          "question_text": "Augustus: wat is het meest gedeelde 'hete dag' bericht in Nederland?",
-          "target_audience": "mixed",
-          "points": 1,
-          "humor_level": 2,
-          "media": {
-            "type": "none"
-          },
-          "answers": [
-            "'Het is 28 graden. Dit is officieel tropisch. Ik smelt.'",
-            "'Wat een fijne kou!'",
-            "'Ik heb zin in erwtensoep'",
-            "'Ik ga de schoorsteen aansteken'"
-          ],
-          "correct": 0,
-          "explanation": "Nederlanders praten over het weer alsof het breaking news is. Omdat dat ook zo voelt."
-        },
-        {
-          "slot_type": "buurt",
-          "question_type": "open_question",
-          "question_text": "Noem één bekende Nederlandse stad waar je in de zomer graag een dagje naartoe gaat.",
-          "target_audience": "mixed",
-          "points": 2,
-          "humor_level": 1,
-          "media": {
-            "type": "none"
-          },
-          "payload": {
-            "correct_answer": "Amsterdam / Rotterdam / Utrecht / Den Haag",
-            "alternatives": [
-              "Amsterdam",
-              "Rotterdam",
-              "Utrecht",
-              "Den Haag",
-              "Haarlem",
-              "Leiden",
-              "Groningen",
-              "Maastricht"
-            ]
-          },
-          "explanation": "Dagje stad = lopen, ijs, terras, en daarna klagen over drukte."
         }
       ]
     },
@@ -901,10 +583,10 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "In welke stad werd het WK Atletiek 2025 gehouden?",
+          "question_text": "September 2025: de WK Atletiek werd gehouden in een stad die dit kunstje al vaker heeft gedaan. Waar?",
           "target_audience": "adults",
           "points": 2,
-          "humor_level": 2,
+          "humor_level": 1,
           "media": {
             "type": "image",
             "url": "https://assets.aws.worldathletics.org/64ea346743516f3ab8b54ed4.jpg",
@@ -914,29 +596,29 @@ const quizData = {
             "Tokio",
             "Parijs",
             "Doha",
-            "Papendal (bijna)"
+            "Berlijn"
           ],
           "correct": 0,
-          "explanation": "Het WK Atletiek vond plaats in Tokio, Japan."
+          "explanation": "De WK Atletiek 2025 vonden plaats in Tokio."
         },
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Wat heb je vaak nodig als school weer begint?",
+          "question_text": "In september hoor je vaak over Prinsjesdag. Wat gebeurt er dan?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 2,
+          "humor_level": 4,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Schrift of schoolspullen",
-            "Ski's",
-            "Zwemvliezen",
-            "Een helm voor je boterham"
+            "De regering vertelt plannen voor het komende jaar",
+            "De koning gaat op vakantie",
+            "Alle wetten worden afgeschaft",
+            "De Tweede Kamer sluit"
           ],
           "correct": 0,
-          "explanation": "Bij school begin je vaak met schoolspullen zoals schriften en pennen."
+          "explanation": "Op Prinsjesdag presenteert de regering de plannen en de begroting."
         },
         {
           "slot_type": "music",
@@ -958,47 +640,6 @@ const quizData = {
           ],
           "correct": 0,
           "explanation": "Het origineel uit 1987 is van Whitney Houston; in 2025 kwam er een herwerkte versie met Calum Scott."
-        },
-        {
-          "slot_type": "viral",
-          "question_type": "multiple_choice",
-          "question_text": "September 2025: welk 'brainrot'-getal werd in 2025 een viral meme waar volwassenen niets van begrepen?",
-          "target_audience": "mixed",
-          "points": 1,
-          "humor_level": 3,
-          "media": {
-            "type": "none"
-          },
-          "answers": [
-            "6-7 ('six seven')",
-            "3,14",
-            "42 (die is al bezet door Hitchhiker's Guide)",
-            "118 (het nummer van de pizza)"
-          ],
-          "correct": 0,
-          "explanation": "'6-7' (six seven) werd in 2025 een virale meme/uitroep op social media."
-        },
-        {
-          "slot_type": "buurt",
-          "question_type": "open_question",
-          "question_text": "Noem één schooltraditie of 'terug naar school' moment dat je in september ziet (thuis of op straat).",
-          "target_audience": "mixed",
-          "points": 2,
-          "humor_level": 2,
-          "media": {
-            "type": "none"
-          },
-          "payload": {
-            "correct_answer": "Nieuwe rugzak / eerste schooldag foto / broodtrommel",
-            "alternatives": [
-              "nieuwe rugzak",
-              "eerste schooldag foto",
-              "broodtrommel",
-              "fietschaos",
-              "nieuwe schoenen"
-            ]
-          },
-          "explanation": "Alles dat 'nieuwe spullen + lichte paniek' combineert telt."
         }
       ]
     },
@@ -1010,42 +651,42 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "Op welke datum vonden de vervroegde Tweede Kamerverkiezingen van 2025 plaats?",
+          "question_text": "Na de kabinetsval werd Nederland opnieuw naar de stembus gestuurd. Op welke datum vonden de vervroegde Tweede Kamerverkiezingen plaats?",
           "target_audience": "adults",
           "points": 2,
-          "humor_level": 2,
+          "humor_level": 1,
           "media": {
             "type": "image",
             "url": "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-560w%2Cf_auto%2Cq_auto%3Abest/rockcms/2025-10/251029-Geert-Wilders-rs-95b4ea.jpg",
             "alt_text": "Verkiezingen oktober 2025"
           },
           "answers": [
-            "29 oktober",
-            "15 oktober",
-            "31 oktober",
-            "Wanneer iedereen tijd had"
+            "29 oktober 2025",
+            "15 oktober 2025",
+            "31 oktober 2025",
+            "6 november 2025"
           ],
           "correct": 0,
-          "explanation": "Na de kabinetsval werd 29 oktober vastgesteld als verkiezingsdatum."
+          "explanation": "De vervroegde verkiezingen werden gehouden op 29 oktober 2025."
         },
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Wat is Halloween meestal?",
+          "question_text": "In 2025 waren er verkiezingen. Wat doe je bij verkiezingen?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 2,
+          "humor_level": 4,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Verkleed gaan en snoep halen",
-            "Een sportdag",
-            "Een dag dat iedereen fluistert",
-            "Een feest met alleen spruitjes"
+            "Stemmen op wie je het beste vindt",
+            "Een test maken op school",
+            "Beslissen wat iedereen moet eten",
+            "Een quiz invullen"
           ],
           "correct": 0,
-          "explanation": "Met Halloween verkleden kinderen zich vaak en vragen snoep ('trick or treat')."
+          "explanation": "Bij verkiezingen stemmen mensen op een partij of persoon."
         },
         {
           "slot_type": "music",
@@ -1067,48 +708,6 @@ const quizData = {
           ],
           "correct": 0,
           "explanation": "'Thriller' van Michael Jackson is een Halloween-klassieker."
-        },
-        {
-          "slot_type": "viral",
-          "question_type": "multiple_choice",
-          "question_text": "Oktober: welk soort filmpjes scoort elk jaar weer rond Halloween?",
-          "target_audience": "mixed",
-          "points": 1,
-          "humor_level": 2,
-          "media": {
-            "type": "none"
-          },
-          "answers": [
-            "Schrikfilmpjes en jumpscares",
-            "Video's van belastingformulieren",
-            "Saaie vergaderopnames",
-            "Tutorials: 'hoe word ik een deurmat'"
-          ],
-          "correct": 0,
-          "explanation": "Jumpscares en halloween-grappen domineren vaak in oktober."
-        },
-        {
-          "slot_type": "buurt",
-          "question_type": "open_question",
-          "question_text": "Noem één ding dat je in Nederland typisch in de herfst ziet (weer, natuur of straatbeeld).",
-          "target_audience": "mixed",
-          "points": 2,
-          "humor_level": 2,
-          "media": {
-            "type": "none"
-          },
-          "payload": {
-            "correct_answer": "Bladeren vallen / regen / paddenstoelen",
-            "alternatives": [
-              "bladeren vallen",
-              "regen",
-              "storm",
-              "paddenstoelen",
-              "wind",
-              "donker vroeg"
-            ]
-          },
-          "explanation": "De herfst is 60% bladeren en 40% 'waar is mijn paraplu'."
         }
       ]
     },
@@ -1120,7 +719,7 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "Welk probleem stond centraal in het Sinterklaasjournaal 2025?",
+          "question_text": "Het Sinterklaasjournaal 2025 had een opvallend 'probleem-met-oplossing'. Wat stond centraal in het verhaal?",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
@@ -1130,32 +729,32 @@ const quizData = {
             "alt_text": "Sinterklaasjournaal 2025"
           },
           "answers": [
-            "Het Grote Boek raakte kwijt/beschadigd",
-            "De boot was lek",
-            "De Pieten waren zoek",
-            "De stoommachine had update-problemen"
+            "Kwijtgeraakte puzzelstukjes in het strooigoed",
+            "Een lekke stoomboot",
+            "Onvindbare Pieten",
+            "Een verdwenen staf"
           ],
           "correct": 0,
-          "explanation": "Het Grote Boek was het grote spanningspunt van 2025."
+          "explanation": "In 2025 draaide het verhaal om puzzelstukjes die per ongeluk tussen het strooigoed zaten."
         },
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Wie komt in november vaak aan in Nederland (in verhalen en op tv)?",
+          "question_text": "Wat is het Jeugdjournaal?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 2,
+          "humor_level": 3,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Sinterklaas",
-            "De Paashaas",
-            "De Kerstman (te vroeg!)",
-            "Een gigantische aardappel"
+            "Nieuws speciaal uitgelegd voor kinderen",
+            "Een tekenfilm",
+            "Een krant voor juffen en meesters",
+            "Een geheim programma"
           ],
           "correct": 0,
-          "explanation": "In november komt Sinterklaas 'aan' in Nederland."
+          "explanation": "Het Jeugdjournaal legt het nieuws uit op een begrijpelijke manier."
         },
         {
           "slot_type": "music",
@@ -1177,48 +776,6 @@ const quizData = {
           ],
           "correct": 0,
           "explanation": "'Zie ginds komt de stoomboot' is een bekende Sinterklaasliedje."
-        },
-        {
-          "slot_type": "viral",
-          "question_type": "multiple_choice",
-          "question_text": "November: wat is het meest gedeelde 'Sinterklaas-gevoel' online?",
-          "target_audience": "mixed",
-          "points": 1,
-          "humor_level": 3,
-          "media": {
-            "type": "none"
-          },
-          "answers": [
-            "Inpakstress + 'waar is de tape?'",
-            "Iedereen is altijd rustig",
-            "Niemand koopt ooit cadeaus",
-            "Collectieve stilte in speelgoedwinkels"
-          ],
-          "correct": 0,
-          "explanation": "Rond Sinterklaas: cadeaustress, verlanglijstjes en vooral… tape-tekort."
-        },
-        {
-          "slot_type": "buurt",
-          "question_type": "open_question",
-          "question_text": "Noem één typisch Sinterklaascadeau dat je vaak ziet (klassiek of modern).",
-          "target_audience": "mixed",
-          "points": 2,
-          "humor_level": 2,
-          "media": {
-            "type": "none"
-          },
-          "payload": {
-            "correct_answer": "Chocoladeletter / speelgoed / boek",
-            "alternatives": [
-              "chocoladeletter",
-              "pepernoten",
-              "speelgoed",
-              "boek",
-              "bordspel",
-              "lego"
-            ]
-          },
-          "explanation": "Alles telt, behalve 'een factuur'."
         }
       ]
     },
@@ -1230,12 +787,12 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "Wie ontving in december 2025 de Nobelprijs voor de Vrede?",
+          "question_text": "December 2025: wie ontving de Nobelprijs voor de Vrede, voor haar rol in de Venezolaanse democratische oppositie?",
           "target_audience": "adults",
           "points": 2,
-          "humor_level": 2,
+          "humor_level": 1,
           "media": {
-            "type": "image",
+            "type": "image_after_answer",
             "url": "https://d3pc1xvrcw35tl.cloudfront.net/ln/feedImages/1200x900/ANI-20251010092211_202510.jpg",
             "alt_text": "Nobelprijs voor de Vrede 2025"
           },
@@ -1243,29 +800,29 @@ const quizData = {
             "María Corina Machado",
             "Volodymyr Zelensky",
             "Greta Thunberg",
-            "Degene die Kerst zonder ruzie regelde"
+            "Alexei Navalny (postuum)"
           ],
           "correct": 0,
-          "explanation": "Machado kreeg de prijs voor haar rol in de Venezolaanse democratische oppositie."
+          "explanation": "De Nobelprijs voor de Vrede 2025 ging naar María Corina Machado."
         },
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Wat staat er vaak in huis met Kerst?",
+          "question_text": "In december hoor je vaak over 'vrede'. Wat betekent vrede?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 1,
+          "humor_level": 3,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Een kerstboom",
-            "Een strandstoel",
-            "Een paashaas",
-            "Een voetbalveld"
+            "Dat er geen oorlog is",
+            "Dat iedereen altijd vrienden is",
+            "Dat niemand ruzie mag maken",
+            "Dat alles perfect gaat"
           ],
           "correct": 0,
-          "explanation": "Met Kerst hebben veel mensen een kerstboom in huis."
+          "explanation": "Vrede betekent dat landen of groepen geen oorlog voeren."
         },
         {
           "slot_type": "music",
@@ -1287,49 +844,6 @@ const quizData = {
           ],
           "correct": 0,
           "explanation": "'Last Christmas' is van Wham! (George Michael)."
-        },
-        {
-          "slot_type": "viral",
-          "question_type": "multiple_choice",
-          "question_text": "December: wat is de meest voorkomende 'kerst-viral' op social media?",
-          "target_audience": "mixed",
-          "points": 1,
-          "humor_level": 3,
-          "media": {
-            "type": "none"
-          },
-          "answers": [
-            "Fail-video's met kerstlichtjes (en een ladder)",
-            "Iedereen doet aan stilte-retreat",
-            "Tutorial: hoe eet ik een steen",
-            "Video's van mensen die belasting betalen"
-          ],
-          "correct": 0,
-          "explanation": "Kerstlichtjes + ladder + haast = internetcontent."
-        },
-        {
-          "slot_type": "buurt",
-          "question_type": "open_question",
-          "question_text": "Noem één gerecht dat bij veel Nederlanders rond Kerst op tafel staat.",
-          "target_audience": "mixed",
-          "points": 2,
-          "humor_level": 3,
-          "media": {
-            "type": "none"
-          },
-          "payload": {
-            "correct_answer": "Gourmet / kerstdiner / rollade / kalkoen",
-            "alternatives": [
-              "gourmet",
-              "rollade",
-              "kalkoen",
-              "kerstdiner",
-              "biefstuk",
-              "stoofpot",
-              "desserttafel"
-            ]
-          },
-          "explanation": "Gourmetten is nationale topsport: iedereen verbrandt z'n vingers in stilte."
         }
       ]
     }

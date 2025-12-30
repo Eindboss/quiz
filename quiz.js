@@ -149,7 +149,10 @@ function loadQuestion() {
     const mediaContainer = document.getElementById('media-container');
     mediaContainer.innerHTML = '';
 
-    if (question.media && question.media.type !== 'none') {
+    // Only show media immediately if it's not an "after_answer" type
+    if (question.media && question.media.type !== 'none' &&
+        question.media.type !== 'video_after_answer' &&
+        question.media.type !== 'image_after_answer') {
         if (question.media.type === 'image') {
             const img = document.createElement('img');
             img.src = question.media.url;
@@ -173,6 +176,38 @@ function loadQuestion() {
             if (question.media.autoplay) audio.autoplay = true;
             mediaContainer.appendChild(audio);
         }
+    }
+
+    // Handle intro text and lyrics hint for music_lyrics questions
+    const questionCard = document.querySelector('.question-card');
+    const existingIntro = questionCard.querySelector('.intro-text');
+    const existingLyrics = questionCard.querySelector('.lyrics-hint');
+    if (existingIntro) existingIntro.remove();
+    if (existingLyrics) existingLyrics.remove();
+
+    if (question.intro_text) {
+        const introEl = document.createElement('div');
+        introEl.className = 'intro-text';
+        introEl.textContent = question.intro_text;
+        // Insert before question text
+        const questionText = document.getElementById('question-text');
+        questionText.parentNode.insertBefore(introEl, questionText);
+    }
+
+    if (question.lyrics_hint) {
+        const lyricsEl = document.createElement('div');
+        lyricsEl.className = 'lyrics-hint';
+        // Format lyrics with line breaks and highlight missing line
+        const lines = question.lyrics_hint.split('\n');
+        lyricsEl.innerHTML = lines.map(line => {
+            if (line.trim() === '....') {
+                return '<span class="missing-line">🎵 .... 🎵</span>';
+            }
+            return `<span class="lyric-line">${line}</span>`;
+        }).join('');
+        // Insert before question text
+        const questionText = document.getElementById('question-text');
+        questionText.parentNode.insertBefore(lyricsEl, questionText);
     }
 
     // Update vraag
@@ -287,6 +322,26 @@ function showAnswer() {
         });
     }
 
+    // Show media after answer if applicable
+    if (question.media && (question.media.type === 'video_after_answer' || question.media.type === 'image_after_answer')) {
+        const mediaContainer = document.getElementById('media-container');
+        mediaContainer.innerHTML = '';
+
+        if (question.media.type === 'video_after_answer') {
+            const iframe = document.createElement('iframe');
+            iframe.src = question.media.url;
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+            mediaContainer.appendChild(iframe);
+        } else if (question.media.type === 'image_after_answer') {
+            const img = document.createElement('img');
+            img.src = question.media.url;
+            img.alt = question.media.alt_text || 'Quiz afbeelding';
+            img.loading = 'lazy';
+            mediaContainer.appendChild(img);
+        }
+    }
+
     // Toon uitleg indien beschikbaar
     if (question.explanation) {
         const explanationEl = document.createElement('div');
@@ -320,14 +375,22 @@ function showAnswer() {
 function nextQuestion() {
     const month = quizData.months[currentMonth];
 
-    // Verwijder uitleg en fun fact
+    // Verwijder uitleg, fun fact, intro en lyrics
     const questionCard = document.querySelector('.question-card');
     const explanation = questionCard.querySelector('.explanation');
     const funFact = questionCard.querySelector('.fun-fact');
     const openReveal = questionCard.querySelector('.open-answer-reveal');
+    const introText = questionCard.querySelector('.intro-text');
+    const lyricsHint = questionCard.querySelector('.lyrics-hint');
     if (explanation) explanation.remove();
     if (funFact) funFact.remove();
     if (openReveal) openReveal.remove();
+    if (introText) introText.remove();
+    if (lyricsHint) lyricsHint.remove();
+
+    // Clear media container for after_answer types
+    const mediaContainer = document.getElementById('media-container');
+    mediaContainer.innerHTML = '';
 
     currentQuestion++;
 

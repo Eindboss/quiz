@@ -903,6 +903,53 @@ html, body {
     border: none;
 }
 
+/* Intro text for questions */
+.intro-text {
+    background: rgba(139, 92, 246, 0.1);
+    border-left: 3px solid var(--music);
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--white-muted);
+    font-style: italic;
+    flex-shrink: 0;
+}
+
+/* Lyrics hint for music questions */
+.lyrics-hint {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05));
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.lyrics-hint .lyric-line {
+    display: block;
+    color: var(--white);
+}
+
+.lyrics-hint .missing-line {
+    display: block;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 8px 0;
+    animation: missingPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes missingPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+}
+
 .question-text {
     font-family: var(--font-display);
     font-size: clamp(1.1rem, 2.5vw, 1.4rem);
