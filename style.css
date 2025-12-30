@@ -903,6 +903,51 @@ html, body {
     border: none;
 }
 
+/* Audio-only YouTube player (hidden video) */
+.audio-youtube-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.audio-youtube-iframe {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.audio-youtube-label {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(139, 92, 246, 0.1));
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    padding: 16px 32px;
+    border-radius: var(--radius-lg);
+    font-size: 1.1rem;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: audioPulse 2s ease-in-out infinite;
+}
+
+.audio-youtube-label span {
+    font-style: italic;
+}
+
+@keyframes audioPulse {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
+        transform: scale(1.02);
+    }
+}
+
 /* Intro text for questions */
 .intro-text {
     background: rgba(139, 92, 246, 0.1);

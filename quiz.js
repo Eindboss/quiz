@@ -175,6 +175,30 @@ function loadQuestion() {
             audio.controls = true;
             if (question.media.autoplay) audio.autoplay = true;
             mediaContainer.appendChild(audio);
+        } else if (question.media.type === 'audio_youtube') {
+            // YouTube audio-only: iframe is hidden, only audio plays
+            const wrapper = document.createElement('div');
+            wrapper.className = 'audio-youtube-wrapper';
+
+            const iframe = document.createElement('iframe');
+            let videoUrl = question.media.url;
+            // Add autoplay parameter
+            if (videoUrl.includes('?')) {
+                videoUrl += '&autoplay=1';
+            } else {
+                videoUrl += '?autoplay=1';
+            }
+            iframe.src = videoUrl;
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.className = 'audio-youtube-iframe';
+
+            const label = document.createElement('div');
+            label.className = 'audio-youtube-label';
+            label.innerHTML = '🎵 <span>Luister goed...</span>';
+
+            wrapper.appendChild(iframe);
+            wrapper.appendChild(label);
+            mediaContainer.appendChild(wrapper);
         }
     }
 
@@ -323,7 +347,7 @@ function showAnswer() {
     }
 
     // Show media after answer if applicable
-    if (question.media && (question.media.type === 'video_after_answer' || question.media.type === 'image_after_answer')) {
+    if (question.media && (question.media.type === 'video_after_answer' || question.media.type === 'image_after_answer' || question.media.type === 'audio_youtube')) {
         const mediaContainer = document.getElementById('media-container');
         mediaContainer.innerHTML = '';
 
@@ -339,6 +363,13 @@ function showAnswer() {
             img.alt = question.media.alt_text || 'Quiz afbeelding';
             img.loading = 'lazy';
             mediaContainer.appendChild(img);
+        } else if (question.media.type === 'audio_youtube') {
+            // After answer: show the actual video (was audio-only before)
+            const iframe = document.createElement('iframe');
+            iframe.src = question.media.url;
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+            mediaContainer.appendChild(iframe);
         }
     }
 
