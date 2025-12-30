@@ -19,8 +19,8 @@ const quizData = {
       "questions": [
         {
           "slot_type": "news",
-          "question_type": "multiple_choice",
-          "question_text": "20 januari 2025: Amerika kreeg een nieuw machtsduo. Wie stond naast Trump bij de eedaflegging, en werd daarmee het politieke 'experiment' van deze termijn?",
+          "question_type": "open_question",
+          "question_text": "20 januari 2025: Trump begon zijn tweede termijn. Hoe heet de nieuwe First Lady? (Bonuspunt: hoe heet de nieuwe Second Lady?)",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
@@ -29,19 +29,16 @@ const quizData = {
             "url": "https://ci.usembassy.gov/wp-content/uploads/sites/12/2025/01/inauguration_trump_swearing_in-25020627943215-2.jpg",
             "alt_text": "Trump inauguratie 2025"
           },
-          "answers": [
-            "J.D. Vance",
-            "Nikki Haley",
-            "Mike Pence",
-            "Ron DeSantis"
-          ],
-          "correct": 0,
-          "explanation": "Trump begon zijn tweede termijn met J.D. Vance als vicepresident."
+          "payload": {
+            "correct_answer": "Melania Trump (Second Lady: Usha Vance)",
+            "alternatives": ["Melania", "Usha Vance", "Usha"]
+          },
+          "explanation": "Melania Trump is terug als First Lady. Usha Vance, vrouw van vicepresident J.D. Vance, is de eerste Indiaas-Amerikaanse Second Lady."
         },
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "In januari hoor je vaak nieuws over 'goede voornemens'. Wat betekent dat?",
+          "question_text": "Welk huisdier hebben de meeste mensen in Nederland?",
           "target_audience": "kids",
           "points": 1,
           "humor_level": 4,
@@ -49,13 +46,13 @@ const quizData = {
             "type": "none"
           },
           "answers": [
-            "Dingen die mensen zich voornemen om beter te doen",
-            "Regels die de regering elk jaar in januari maakt",
-            "Nieuwe wetten waar kinderen zich aan moeten houden",
-            "Geheime plannen die meestal tot februari duren"
+            "Een kat",
+            "Een hond",
+            "Een konijn",
+            "Een goudvis"
           ],
           "correct": 0,
-          "explanation": "Goede voornemens zijn plannen die mensen maken om iets te verbeteren."
+          "explanation": "De kat is het populairste huisdier in Nederland - er zijn bijna 4 miljoen katten!"
         },
         {
           "slot_type": "music",
@@ -111,7 +108,7 @@ const quizData = {
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Dit kwam in 2025 veel in het nieuws: wie werd in januari president van de Verenigde Staten?",
+          "question_text": "Met carnaval verkleden veel mensen zich. Welke kleuren horen bij carnaval?",
           "target_audience": "kids",
           "points": 1,
           "humor_level": 4,
@@ -119,13 +116,13 @@ const quizData = {
             "type": "none"
           },
           "answers": [
-            "Donald Trump",
-            "Joe Biden",
-            "Barack Obama",
-            "De burgemeester van New York"
+            "Alle kleuren! Hoe gekker hoe beter",
+            "Alleen zwart en wit",
+            "Alleen grijs",
+            "Alleen oranje"
           ],
           "correct": 0,
-          "explanation": "Donald Trump begon in 2025 aan een nieuwe termijn als president."
+          "explanation": "Bij carnaval draag je zoveel mogelijk gekke kleuren!"
         },
         {
           "slot_type": "music",
@@ -158,41 +155,38 @@ const quizData = {
       "questions": [
         {
           "slot_type": "news",
-          "question_type": "multiple_choice",
-          "question_text": "Maart 2025: welk land stond opnieuw bovenaan de World Happiness Report-lijst, tot lichte frustratie van landen die het 'ook best goed doen'?",
+          "question_type": "open_question",
+          "question_text": "In 2025 werd Memphis Depay de topscorer aller tijden van het Nederlands elftal. Wiens record verbrak hij?",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
           "media": {
             "type": "none"
           },
-          "answers": [
-            "Finland",
-            "Nederland",
-            "Canada",
-            "Denemarken"
-          ],
-          "correct": 0,
-          "explanation": "Finland stond opnieuw op nummer 1 in de World Happiness Report 2025."
+          "payload": {
+            "correct_answer": "Robin van Persie",
+            "alternatives": ["Van Persie", "RVP"]
+          },
+          "explanation": "Memphis passeerde Robin van Persie (50 goals) en staat nu op 55 interlanddoelpunten."
         },
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Het Jeugdjournaal ging in 2025 vaak over klimaat. Wat betekent 'klimaat' eigenlijk?",
+          "question_text": "In de lente worden veel dieren wakker. Welk dier houdt een winterslaap?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 3,
+          "humor_level": 4,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Het gemiddelde weer over een lange tijd",
-            "Het weer van vandaag",
-            "Hoe warm je jas is",
-            "Of het morgen gaat regenen"
+            "Een egel",
+            "Een koe",
+            "Een kip",
+            "Een hond"
           ],
           "correct": 0,
-          "explanation": "Klimaat gaat over het weer over een lange periode, niet over één dag."
+          "explanation": "Egels, maar ook beren en vleermuizen houden een winterslaap!"
         },
         {
           "slot_type": "music",
@@ -231,28 +225,26 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "April 2025: de Wereldexpo ging van start. In welke stad werd de toekomst officieel geopend, inclusief robots, dromen en lange wachttijden?",
+          "question_text": "In 2025 ging een schattige video viral van konijnen op een trampoline. Wat bleek het probleem?",
           "target_audience": "adults",
           "points": 2,
-          "humor_level": 1,
+          "humor_level": 3,
           "media": {
-            "type": "image_after_answer",
-            "url": "https://www.kanpai-japan.com/sites/default/files/styles/content_xs/public/uploads/2024/08/osaka-expo-2025-3d.jpg",
-            "alt_text": "Expo 2025 Osaka"
+            "type": "none"
           },
           "answers": [
-            "Osaka",
-            "Tokio",
-            "Shanghai",
-            "Dubai"
+            "Het was nep - gemaakt met AI",
+            "De konijnen waren getraind voor een commercial",
+            "Het was een deepfake van cavia's",
+            "De trampoline was van de buren gestolen"
           ],
           "correct": 0,
-          "explanation": "Expo 2025 werd gehouden in Osaka, Japan."
+          "explanation": "De video werd honderden miljoenen keren bekeken, maar bleek volledig AI-gegenereerd. Veel influencers trapten erin!"
         },
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Op 1 april zie je soms nepnieuws. Wat is nepnieuws?",
+          "question_text": "Op 27 april is het Koningsdag! Welke kleur draagt bijna iedereen dan?",
           "target_audience": "kids",
           "points": 1,
           "humor_level": 4,
@@ -260,13 +252,13 @@ const quizData = {
             "type": "none"
           },
           "answers": [
-            "Nieuws dat niet waar is",
-            "Nieuws dat alleen op tv komt",
-            "Nieuws speciaal voor volwassenen",
-            "Nieuws dat nog moet gebeuren"
+            "Oranje",
+            "Blauw",
+            "Roze",
+            "Groen"
           ],
           "correct": 0,
-          "explanation": "Nepnieuws is nieuws dat niet klopt, maar wel echt lijkt."
+          "explanation": "Op Koningsdag draagt iedereen oranje - de kleur van ons koningshuis!"
         },
         {
           "slot_type": "music",
@@ -299,8 +291,8 @@ const quizData = {
       "questions": [
         {
           "slot_type": "news",
-          "question_type": "multiple_choice",
-          "question_text": "Eurovisie 2025: Nederland stuurde een inzending die muzikaal werd gewaardeerd, maar niet won. Wie vertegenwoordigde Nederland en waar eindigden we?",
+          "question_type": "open_question",
+          "question_text": "Eurovisie 2025: wie vertegenwoordigde Nederland en op welke plaats eindigden we? (Bonuspunt: welk land won?)",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
@@ -309,33 +301,30 @@ const quizData = {
             "url": "https://www.esc-plus.com/wp-content/uploads/2025/05/stage_basel_ESC2025.jpg",
             "alt_text": "Eurovision 2025 Basel"
           },
-          "answers": [
-            "Claude – 12e plaats",
-            "Joost Klein – 5e plaats",
-            "Anouk – 2e plaats",
-            "Duncan Laurence – 1e plaats"
-          ],
-          "correct": 0,
-          "explanation": "Claude vertegenwoordigde Nederland en eindigde 12e in de finale."
+          "payload": {
+            "correct_answer": "Claude, 12e plaats (Oostenrijk won met JJ)",
+            "alternatives": ["Claude", "Claude 12e", "Claude twaalfde"]
+          },
+          "explanation": "Claude eindigde 12e met 'C'est La Vie'. Hij maakte een tekstfout in de finale! Oostenrijk won met JJ."
         },
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "5 mei is Bevrijdingsdag. Waar denken we dan vooral aan?",
+          "question_text": "In mei 2025 kwam de film Lilo & Stitch uit. Hoe heet het meisje dat Stitch adopteert?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 3,
+          "humor_level": 4,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Vrijheid en het einde van de Tweede Wereldoorlog",
-            "Het begin van de zomervakantie",
-            "De verjaardag van de koning",
-            "Een dag zonder regels"
+            "Lilo",
+            "Nani",
+            "Angel",
+            "Moana"
           ],
           "correct": 0,
-          "explanation": "Bevrijdingsdag gaat over vrijheid na de Tweede Wereldoorlog."
+          "explanation": "Lilo is het Hawaiiaanse meisje dat de lieve alien Stitch adopteert!"
         },
         {
           "slot_type": "music",
@@ -390,7 +379,7 @@ const quizData = {
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "In 2025 viel het Nederlandse kabinet. Wat is een kabinet?",
+          "question_text": "Waar gaan de meeste Nederlandse gezinnen op zomervakantie?",
           "target_audience": "kids",
           "points": 1,
           "humor_level": 4,
@@ -398,13 +387,13 @@ const quizData = {
             "type": "none"
           },
           "answers": [
-            "De groep ministers die het land bestuurt",
-            "Een kast in de Tweede Kamer",
-            "Het huis van de minister-president",
-            "Een geheime vergaderclub"
+            "Spanje",
+            "De maan",
+            "De Noordpool",
+            "Australië"
           ],
           "correct": 0,
-          "explanation": "Het kabinet bestaat uit ministers en bestuurt Nederland."
+          "explanation": "Spanje, Griekenland en Turkije zijn de populairste vakantielanden!"
         },
         {
           "slot_type": "music",
@@ -437,43 +426,38 @@ const quizData = {
       "questions": [
         {
           "slot_type": "news",
-          "question_type": "multiple_choice",
-          "question_text": "Juli 2025: Wimbledon kreeg een nieuwe kampioen bij de mannen. Wie won zijn eerste titel op het heiligste gras?",
+          "question_type": "open_question",
+          "question_text": "In 2025 kondigde de originele K3 een reünie aan. Tickets vlogen de deur uit! Hoe heten de drie originele K3-zangeressen?",
           "target_audience": "adults",
-          "points": 2,
-          "humor_level": 1,
-          "media": {
-            "type": "image_after_answer",
-            "url": "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/bedf/live/f1887690-51b8-11f0-bdc1-3392cff01039.jpg",
-            "alt_text": "Wimbledon 2025 winnaar"
-          },
-          "answers": [
-            "Jannik Sinner",
-            "Carlos Alcaraz",
-            "Novak Djokovic",
-            "Daniil Medvedev"
-          ],
-          "correct": 0,
-          "explanation": "Jannik Sinner won in 2025 zijn eerste Wimbledon-titel."
-        },
-        {
-          "slot_type": "kids",
-          "question_type": "multiple_choice",
-          "question_text": "Dit zag je in de zomer van 2025 vaak op tv: wat is Wimbledon?",
-          "target_audience": "kids",
-          "points": 1,
+          "points": 3,
           "humor_level": 3,
           "media": {
             "type": "none"
           },
+          "payload": {
+            "correct_answer": "Karen, Kristel en Kathleen",
+            "alternatives": ["Karen Kristel Kathleen", "Karen Damen, Kristel Verbeke, Kathleen Aerts"]
+          },
+          "explanation": "Karen Damen, Kristel Verbeke en Kathleen Aerts stonden na 16 jaar weer samen op het podium. In 4 uur werden 300.000 tickets verkocht!"
+        },
+        {
+          "slot_type": "kids",
+          "question_type": "multiple_choice",
+          "question_text": "Welk ijsje is al meer dan 45 jaar het populairste ijsje van Nederland?",
+          "target_audience": "kids",
+          "points": 1,
+          "humor_level": 4,
+          "media": {
+            "type": "none"
+          },
           "answers": [
-            "Een groot tennistoernooi",
-            "Een voetbalclub",
-            "Een pretpark in Engeland",
-            "Een nieuwe sport"
+            "Het Raketje",
+            "Een boterham met pindakaas",
+            "Een tomaat",
+            "Spruitjesijs"
           ],
           "correct": 0,
-          "explanation": "Wimbledon is een beroemd tennistoernooi in Engeland."
+          "explanation": "Het Raketje is al 45 jaar het populairste ijsje van Nederland!"
         },
         {
           "slot_type": "music",
@@ -536,21 +520,21 @@ const quizData = {
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Amsterdam werd in 2025 750 jaar. Wat betekent dat?",
+          "question_text": "Amsterdam werd in 2025 jarig! Hoe oud werd de stad?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 3,
+          "humor_level": 4,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Dat de stad al 750 jaar bestaat",
-            "Dat er 750 boten lagen",
-            "Dat er 750 mensen wonen",
-            "Dat het 750 dagen feest was"
+            "750 jaar",
+            "10 jaar",
+            "100 jaar",
+            "1 miljoen jaar"
           ],
           "correct": 0,
-          "explanation": "Amsterdam bestaat sinds 1275 en werd in 2025 750 jaar."
+          "explanation": "Amsterdam bestaat al sinds 1275 en werd in 2025 maar liefst 750 jaar oud!"
         },
         {
           "slot_type": "music",
@@ -582,43 +566,38 @@ const quizData = {
       "questions": [
         {
           "slot_type": "news",
-          "question_type": "multiple_choice",
-          "question_text": "September 2025: de WK Atletiek werd gehouden in een stad die dit kunstje al vaker heeft gedaan. Waar?",
+          "question_type": "open_question",
+          "question_text": "In mei 2025 kreeg de katholieke kerk een nieuwe paus. Welke pausnaam koos hij? (Bonuspunt: uit welk land komt hij?)",
           "target_audience": "adults",
           "points": 2,
-          "humor_level": 1,
+          "humor_level": 2,
           "media": {
-            "type": "image",
-            "url": "https://assets.aws.worldathletics.org/64ea346743516f3ab8b54ed4.jpg",
-            "alt_text": "WK Atletiek 2025"
+            "type": "none"
           },
-          "answers": [
-            "Tokio",
-            "Parijs",
-            "Doha",
-            "Berlijn"
-          ],
-          "correct": 0,
-          "explanation": "De WK Atletiek 2025 vonden plaats in Tokio."
+          "payload": {
+            "correct_answer": "Leo XIV (uit de Verenigde Staten/Amerika)",
+            "alternatives": ["Leo", "Leo de veertiende", "Paus Leo"]
+          },
+          "explanation": "Robert Prevost werd paus Leo XIV - de eerste Amerikaanse paus ooit! Hij spreekt 6 talen en woonde lang in Peru."
         },
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "In september hoor je vaak over Prinsjesdag. Wat gebeurt er dan?",
+          "question_text": "In september begint de school weer. Wat zit er meestal in je broodtrommel?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 4,
+          "humor_level": 5,
           "media": {
             "type": "none"
           },
           "answers": [
-            "De regering vertelt plannen voor het komende jaar",
-            "De koning gaat op vakantie",
-            "Alle wetten worden afgeschaft",
-            "De Tweede Kamer sluit"
+            "Boterhammen",
+            "Een televisie",
+            "Een olifant",
+            "De juf"
           ],
           "correct": 0,
-          "explanation": "Op Prinsjesdag presenteert de regering de plannen en de begroting."
+          "explanation": "Boterhammen natuurlijk! Hoewel een olifant ook best gezellig zou zijn..."
         },
         {
           "slot_type": "music",
@@ -672,7 +651,7 @@ const quizData = {
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "In 2025 waren er verkiezingen. Wat doe je bij verkiezingen?",
+          "question_text": "Welk eng feest vieren we op 31 oktober?",
           "target_audience": "kids",
           "points": 1,
           "humor_level": 4,
@@ -680,13 +659,13 @@ const quizData = {
             "type": "none"
           },
           "answers": [
-            "Stemmen op wie je het beste vindt",
-            "Een test maken op school",
-            "Beslissen wat iedereen moet eten",
-            "Een quiz invullen"
+            "Halloween",
+            "Kerstmis",
+            "Pasen",
+            "Verjaardag van de tandarts"
           ],
           "correct": 0,
-          "explanation": "Bij verkiezingen stemmen mensen op een partij of persoon."
+          "explanation": "Op Halloween verkleden kinderen zich als spoken, heksen en monsters!"
         },
         {
           "slot_type": "music",
@@ -718,8 +697,8 @@ const quizData = {
       "questions": [
         {
           "slot_type": "news",
-          "question_type": "multiple_choice",
-          "question_text": "Het Sinterklaasjournaal 2025 had een opvallend 'probleem-met-oplossing'. Wat stond centraal in het verhaal?",
+          "question_type": "open_question",
+          "question_text": "Het Sinterklaasjournaal 2025 was controversieel: er waren soldaten, noodpakketten en een noodtoestand. Wat was er kwijt?",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
@@ -728,33 +707,30 @@ const quizData = {
             "url": "https://www.dutchnews.nl/wpcms/wp-content/uploads/2025/12/ANP-542167298.jpg",
             "alt_text": "Sinterklaasjournaal 2025"
           },
-          "answers": [
-            "Kwijtgeraakte puzzelstukjes in het strooigoed",
-            "Een lekke stoomboot",
-            "Onvindbare Pieten",
-            "Een verdwenen staf"
-          ],
-          "correct": 0,
-          "explanation": "In 2025 draaide het verhaal om puzzelstukjes die per ongeluk tussen het strooigoed zaten."
+          "payload": {
+            "correct_answer": "De pakjes",
+            "alternatives": ["Pakjes", "De cadeaus", "Cadeaus", "De cadeautjes"]
+          },
+          "explanation": "De pakjes waren kwijt! De Hoofdpiet riep zelfs een noodtoestand uit en vroeg kinderen noodpakketten te kopen."
         },
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Wat is het Jeugdjournaal?",
+          "question_text": "Sinterklaas is best oud! In welk jaar is hij geboren?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 3,
+          "humor_level": 4,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Nieuws speciaal uitgelegd voor kinderen",
-            "Een tekenfilm",
-            "Een krant voor juffen en meesters",
-            "Een geheim programma"
+            "Rond het jaar 280",
+            "In 1900",
+            "In 2000",
+            "Vorig jaar"
           ],
           "correct": 0,
-          "explanation": "Het Jeugdjournaal legt het nieuws uit op een begrijpelijke manier."
+          "explanation": "Sinterklaas is gebaseerd op Sint-Nicolaas, geboren rond 280 in Turkije. Dat is meer dan 1700 jaar geleden!"
         },
         {
           "slot_type": "music",
@@ -787,42 +763,40 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "December 2025: wie ontving de Nobelprijs voor de Vrede, voor haar rol in de Venezolaanse democratische oppositie?",
+          "question_text": "Welk programma won de Gouden Televizier-Ring 2025 met een recordscore van 74% van de stemmen?",
           "target_audience": "adults",
           "points": 2,
-          "humor_level": 1,
-          "media": {
-            "type": "image_after_answer",
-            "url": "https://d3pc1xvrcw35tl.cloudfront.net/ln/feedImages/1200x900/ANI-20251010092211_202510.jpg",
-            "alt_text": "Nobelprijs voor de Vrede 2025"
-          },
-          "answers": [
-            "María Corina Machado",
-            "Volodymyr Zelensky",
-            "Greta Thunberg",
-            "Alexei Navalny (postuum)"
-          ],
-          "correct": 0,
-          "explanation": "De Nobelprijs voor de Vrede 2025 ging naar María Corina Machado."
-        },
-        {
-          "slot_type": "kids",
-          "question_type": "multiple_choice",
-          "question_text": "In december hoor je vaak over 'vrede'. Wat betekent vrede?",
-          "target_audience": "kids",
-          "points": 1,
           "humor_level": 3,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Dat er geen oorlog is",
-            "Dat iedereen altijd vrienden is",
-            "Dat niemand ruzie mag maken",
-            "Dat alles perfect gaat"
+            "Vandaag Inside",
+            "Het Jachtseizoen: Most Wanted",
+            "Wie is de Mol?",
+            "De Slimste Mens"
           ],
           "correct": 0,
-          "explanation": "Vrede betekent dat landen of groepen geen oorlog voeren."
+          "explanation": "Vandaag Inside won met 74% - een record! De heren waren zelf niet aanwezig, want ze moesten 'werken'."
+        },
+        {
+          "slot_type": "kids",
+          "question_type": "multiple_choice",
+          "question_text": "In de kerstfilm 'Home Alone' wordt een jongen thuis vergeten. Hoe heet hij?",
+          "target_audience": "kids",
+          "points": 1,
+          "humor_level": 4,
+          "media": {
+            "type": "none"
+          },
+          "answers": [
+            "Kevin",
+            "Sinterklaas",
+            "De Kerstman",
+            "Pepernansen"
+          ],
+          "correct": 0,
+          "explanation": "Kevin McCallister wordt per ongeluk thuis vergeten en moet de inbrekers slim te slim af zijn!"
         },
         {
           "slot_type": "music",

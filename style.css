@@ -500,9 +500,93 @@ html, body {
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
     animation: fadeUp 1s ease-out 0.6s both;
+}
+
+/* Startscherm foto collage */
+.start-photos-collage {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    margin-bottom: 24px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeUp 1s ease-out 0.8s both;
+}
+
+.start-photos-collage .start-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    animation: photoFadeIn 0.6s ease-out backwards;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.start-photos-collage .start-photo:hover {
+    transform: scale(1.1) rotate(2deg);
+    border-color: var(--gold);
+    z-index: 10;
+}
+
+@keyframes photoFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive startscherm foto's */
+@media (max-width: 600px) {
+    .start-photos-collage {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Eindscherm foto collage */
+.end-photos-collage {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.end-photos-collage .end-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    animation: endPhotoIn 0.6s ease-out backwards;
+}
+
+@keyframes endPhotoIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) rotate(-3deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Responsive eindscherm foto's */
+@media (max-width: 500px) {
+    .end-photos-collage {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .feature {
@@ -1263,8 +1347,68 @@ html, body {
     position: relative;
     font-size: 1.4rem;
     color: var(--gold);
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     font-style: italic;
+}
+
+/* Buurtfoto's grid op maandscherm */
+.month-photos-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 0 10px;
+}
+
+.month-photos-grid .month-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: photoPopIn 0.5s ease-out backwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.month-photos-grid .month-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+    border-color: var(--gold);
+}
+
+@keyframes photoPopIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) rotate(-5deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Responsive foto-grid */
+@media (max-width: 600px) {
+    .month-photos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+}
+
+/* TV/Large screen optimalisaties */
+@media (min-width: 1200px) {
+    .month-photos-grid {
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 16px;
+    }
+
+    .month-photos-grid .month-photo {
+        border-width: 3px;
+    }
 }
 
 .slot-preview {
@@ -1574,7 +1718,7 @@ html, body {
     }
 }
 
-/* Large screens */
+/* Large screens / TV weergave */
 @media (min-width: 1200px) {
     .container {
         max-width: 1100px;
@@ -1591,5 +1735,68 @@ html, body {
     .answer-btn {
         padding: 28px;
         font-size: 1.1rem;
+    }
+
+    /* Grotere foto's voor TV */
+    .start-photos-collage {
+        max-width: 800px;
+        gap: 12px;
+    }
+
+    .start-photos-collage .start-photo {
+        border-width: 3px;
+    }
+
+    .end-photos-collage {
+        max-width: 650px;
+        gap: 14px;
+    }
+
+    .end-photos-collage .end-photo {
+        border-width: 3px;
+    }
+
+    .month-photos-grid {
+        max-width: 800px;
+        gap: 16px;
+    }
+
+    .month-photos-grid .month-photo {
+        border-width: 3px;
+    }
+}
+
+/* Extra large screens (4K TV's) */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    .title-line {
+        font-size: 6.5rem;
+    }
+
+    .title-accent {
+        font-size: 3rem;
+    }
+
+    .question-text {
+        font-size: 2.6rem;
+    }
+
+    .start-photos-collage {
+        max-width: 1000px;
+    }
+
+    .month-photos-grid {
+        max-width: 900px;
+    }
+
+    .end-photos-collage {
+        max-width: 800px;
+    }
+
+    .month-title-big {
+        font-size: 6rem;
     }
 }

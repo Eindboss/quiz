@@ -1,9 +1,72 @@
 // Eindejaarsquiz 2025 - Premium Buurtmensen
-// Maandelijkse structuur: 12 maanden × 5 vragen = 60 vragen
+// Maandelijkse structuur: 12 maanden × 3 vragen = 36 vragen
 
 let currentMonth = 0;
 let currentQuestion = 0;
 let answerRevealed = false;
+
+// Buurtfoto's voor maandschermen
+const buurtPhotos = [
+    'photos/01c3f0dc-7d99-4e12-a410-d5d25af5f14d.JPG',
+    'photos/108de7a8-c57e-4053-8f78-5bbc55f547b0.JPG',
+    'photos/1d761673-0885-4a16-bc4c-854437b8e706.JPG',
+    'photos/241323e0-c8ae-4967-8889-0ee994fcf51e.JPG',
+    'photos/2765046b-77bb-4908-bcd7-2f4aafa6c7a8.JPG',
+    'photos/2b12f291-8b17-400e-ba7a-f562a12221fb.JPG',
+    'photos/2d21eb81-e5e3-49e1-842e-ad4214a8c02c.JPG',
+    'photos/35c8dc26-78c0-4c9a-92b1-df8f51233028.JPG',
+    'photos/3d4a352b-9864-426e-8164-d08575122cd3.JPG',
+    'photos/4058ea8d-7f74-4fae-9f5c-a51e11b46116.JPG',
+    'photos/47f4eb26-3534-4f50-ad16-1b3afc3e88da.JPG',
+    'photos/5273243e-d747-4411-a882-02ef3d5920d2.JPG',
+    'photos/5c79be39-9491-46b6-bc0b-a81b7bb7184f.JPG',
+    'photos/7215ba25-6fe3-4c52-97f0-711c10e9be3e.JPG',
+    'photos/75083418-2d59-4f6d-8039-f04a4809aefe.JPG',
+    'photos/78557f69-cadd-4001-b154-760a91623880.JPG',
+    'photos/78b260e7-98b6-4aed-938e-c88cc252f9bb.JPG',
+    'photos/809a89e9-41ac-446d-961b-83f18d2a7dd9.JPG',
+    'photos/822ac501-49ed-4b30-9c86-e0ac00616d85.JPG',
+    'photos/836e5e40-53dd-45d5-a8a7-de74fead4a50.JPG',
+    'photos/87613243-0722-4496-9598-cac309666c6a.JPG',
+    'photos/8d272829-80dd-457a-9ccc-502d027fa6c3.JPG',
+    'photos/90890882-2a62-44c1-a16f-13826140ff3f.JPG',
+    'photos/9a1c6825-2cfd-4b9c-a9ad-a761efdbcee0.JPG',
+    'photos/a0f52ab9-9134-44c5-a797-5ce22a536207.JPG',
+    'photos/a24492c1-cdf3-4a16-898e-6395e168d7fd.JPG',
+    'photos/a48fc1c6-45b3-4fb6-81a4-32f7ada10d87.JPG',
+    'photos/a92d0f5e-cdf3-425c-8e04-4f6833b4fb58.JPG',
+    'photos/ab3a58ba-836c-4ca3-aec9-d24f9379d5b3.JPG',
+    'photos/ae439c8a-ecc7-4d3d-a3b7-c9ebd8a4e824.JPG',
+    'photos/b2cb30cb-db8c-47ec-9c31-c349885a38bf.JPG',
+    'photos/bf4fd03b-a130-46ed-8f68-2cd187881b98.JPG',
+    'photos/c177934f-d1ba-4773-a85f-6962e844dc83.JPG',
+    'photos/c220d1d7-84ea-4309-ab1c-3e953c48df38.JPG',
+    'photos/c316ff69-6401-4609-8547-fc45c850664c.JPG',
+    'photos/c6127b6b-a7d8-42b1-b4e0-16323665aced.JPG',
+    'photos/cb4f8416-f658-428a-8e1a-88b6d2647426.JPG',
+    'photos/d6578651-0f1a-4b35-86b8-e44edfaef236.JPG',
+    'photos/df36d1c2-2b1b-4660-be41-dd87a50e40ec.JPG',
+    'photos/e50e7afb-965d-4f29-82bf-4651371f9b32.JPG',
+    'photos/e8dc4bb6-7b56-406f-8aa7-36cee50ccc53.JPG',
+    'photos/e9272806-282a-415a-a122-c96594640c7f.JPG',
+    'photos/ed51fc69-b667-40f3-b371-15607b129bd2.JPG'
+];
+
+// Shuffle array (Fisher-Yates)
+function shuffleArray(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+// Get random photos for a month (3-4 photos)
+function getRandomPhotos(count = 3) {
+    const shuffled = shuffleArray(buurtPhotos);
+    return shuffled.slice(0, count);
+}
 
 // Confetti colors
 const confettiColors = ['#d4af37', '#f4e4a6', '#a68b2a', '#ffffff', '#8b5cf6', '#10b981', '#ef4444'];
@@ -58,9 +121,10 @@ function showScreen(screenName) {
     if (screens[screenName]) {
         screens[screenName].classList.add('active');
 
-        // Trigger confetti on end screen
+        // Trigger confetti and photos on end screen
         if (screenName === 'end') {
             setTimeout(() => createConfetti(150), 300);
+            loadEndPhotos();
         }
     }
 }
@@ -79,6 +143,21 @@ function showMonthIntro() {
     document.getElementById('next-month-number').textContent = `Maand ${currentMonth + 1} van 12`;
     document.getElementById('next-month-title').textContent = month.name;
     document.getElementById('next-month-theme').textContent = month.theme_hint;
+
+    // Toon random buurtfoto's
+    const photoGrid = document.getElementById('month-photos');
+    if (photoGrid) {
+        photoGrid.innerHTML = '';
+        const photos = getRandomPhotos(4);
+        photos.forEach((photo, index) => {
+            const img = document.createElement('img');
+            img.src = photo;
+            img.alt = 'Buurtfoto';
+            img.className = 'month-photo';
+            img.style.animationDelay = `${index * 0.15}s`;
+            photoGrid.appendChild(img);
+        });
+    }
 
     // Update timeline op startscherm
     updateTimeline();
@@ -245,39 +324,8 @@ function loadQuestion() {
     answersContainer.innerHTML = '';
     openAnswerContainer.style.display = 'none';
 
-    // Hide answers for audio_youtube (listen & guess questions) and open questions
-    const isListenQuestion = question.media && question.media.type === 'audio_youtube';
-    const isOpenQuestion = question.question_type === 'open_question';
-
-    if (isListenQuestion || isOpenQuestion) {
-        // Luistervraag of open vraag: geen antwoorden/invoerveld tonen
-        // Mensen zeggen het hardop, antwoord wordt bij "Toon Antwoord" getoond
-    } else if (question.question_type === 'true_false') {
-        // Waar/Niet waar
-        ['Waar', 'Niet waar'].forEach((answer, index) => {
-            const btn = document.createElement('button');
-            btn.className = 'answer-btn';
-            btn.textContent = answer;
-            btn.dataset.index = index;
-            btn.dataset.value = index === 0;
-            btn.onclick = () => selectAnswer(index);
-            answersContainer.appendChild(btn);
-        });
-    } else {
-        // Multiple choice (default)
-        const options = question.payload?.options || question.answers || [];
-        options.forEach((option, index) => {
-            const btn = document.createElement('button');
-            btn.className = 'answer-btn';
-            const text = typeof option === 'object' ? option.text : option;
-            const key = typeof option === 'object' ? option.key : String.fromCharCode(65 + index);
-            btn.textContent = `${key}. ${text}`;
-            btn.dataset.index = index;
-            btn.dataset.key = key;
-            btn.onclick = () => selectAnswer(index);
-            answersContainer.appendChild(btn);
-        });
-    }
+    // Geen antwoordopties tonen - mensen raden zelf hardop
+    // Antwoorden worden pas bij "Toon Antwoord" getoond
 
     // Reset state
     answerRevealed = false;
@@ -455,6 +503,45 @@ function restartQuiz() {
 
     showScreen('start');
 }
+
+// Laad foto's op startscherm bij laden
+function loadStartPhotos() {
+    const photoGrid = document.getElementById('start-photos');
+    if (photoGrid) {
+        photoGrid.innerHTML = '';
+        const photos = getRandomPhotos(6);
+        photos.forEach((photo, index) => {
+            const img = document.createElement('img');
+            img.src = photo;
+            img.alt = 'Buurtfoto';
+            img.className = 'start-photo';
+            img.style.animationDelay = `${index * 0.1}s`;
+            photoGrid.appendChild(img);
+        });
+    }
+}
+
+// Laad foto's op eindscherm
+function loadEndPhotos() {
+    const photoGrid = document.getElementById('end-photos');
+    if (photoGrid) {
+        photoGrid.innerHTML = '';
+        const photos = getRandomPhotos(8);
+        photos.forEach((photo, index) => {
+            const img = document.createElement('img');
+            img.src = photo;
+            img.alt = 'Buurtfoto';
+            img.className = 'end-photo';
+            img.style.animationDelay = `${index * 0.1}s`;
+            photoGrid.appendChild(img);
+        });
+    }
+}
+
+// Initialiseer foto's bij laden
+document.addEventListener('DOMContentLoaded', () => {
+    loadStartPhotos();
+});
 
 // Keyboard controls
 document.addEventListener('keydown', (e) => {
