@@ -698,10 +698,12 @@ const quizData = {
             "type": "none"
           },
           "answers": [
-            "Jack",
-            "Sam",
+            "Cor",
             "Arjan",
-            "Kevin"
+            "Michael",
+            "Kevin",
+            "Onno",
+            "Robert"
           ],
           "correct": 3,
           "explanation": "Kevin McCallister wordt per ongeluk thuis vergeten en moet de inbrekers slim te slim af zijn!"
