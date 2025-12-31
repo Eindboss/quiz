@@ -26,7 +26,7 @@ const quizData = {
           "humor_level": 2,
           "media": {
             "type": "image_after_answer",
-            "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/photos/2501/8836280/1000w_q95.jpg",
+            "url": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/3935x2623+0+0/resize/1200x800!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Ff6%2Fd4%2F357d6b8d4a37b865ac8fddcb68b5%2Fgettyimages-2194469237.jpg",
             "alt_text": "Melania Trump en Usha Vance bij de inauguratie"
           },
           "payload": {
@@ -93,7 +93,7 @@ const quizData = {
           "humor_level": 2,
           "media": {
             "type": "image_after_answer",
-            "url": "https://hips.hearstapps.com/hmg-prod/images/474774247-18481150825049588-4241654844345328156-n-67a387fb4c262.jpg",
+            "url": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5331x3998+0+0/resize/1100/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F2c%2F41%2F0b0fe36e4710a6ea5b5e595af715%2Flamar2025superbowl.jpg",
             "alt_text": "Kendrick Lamar bij de Super Bowl halftime show 2025"
           },
           "payload": {
@@ -271,12 +271,12 @@ const quizData = {
             "alt_text": "Roxy Dekker"
           },
           "answers": [
-            "Ze scoorde een nummer-1-hit zonder ooit op de radio te zijn gedraaid",
-            "Haar liedjes begonnen als TikTok-grappen",
-            "Ze brak door met Nederlandstalige covers van Bruno Mars",
-            "Ze was de jongste artiest ooit met drie hits tegelijk in de Top 40",
-            "Ze werd ontdekt via The Voice Kids",
-            "Ze schrijft al haar eigen liedjes"
+            "Nummer-1-hit zonder radio airplay",
+            "Begon met TikTok-grappen",
+            "Covers van Bruno Mars",
+            "Jongste met 3 hits in Top 40",
+            "Ontdekt via The Voice Kids",
+            "Schrijft eigen liedjes"
           ],
           "correct": [1, 5],
           "explanation": "Roxy Dekker begon met grappige TikTok-liedjes die viraal gingen, en schrijft al haar eigen nummers."
@@ -536,7 +536,8 @@ const quizData = {
         {
           "slot_type": "music",
           "question_type": "open_question",
-          "question_text": "DJ's zijn vaak niet geboren als DJ. Wie weet wie dit zijn?\n\nTijs Michiel Verwest\nArmin Jozef Jacobus Daniël van Buuren\nMartijn Gerard Garritsen\nRobbert van de Corput\nNick van de Wall\nTim Bergling\nAdam Richard Wiles\nPierre David Guetta\nSonny John Moore\nJoel Thomas Zimmerman",
+          "question_text": "DJ's zijn vaak niet geboren als DJ. Wie weet wie dit zijn?",
+          "intro_text": "Tijs Verwest • Armin van Buuren • Martijn Garritsen • Robbert van de Corput • Nick van de Wall • Tim Bergling • Adam Wiles • Pierre Guetta • Sonny Moore • Joel Zimmerman",
           "target_audience": "mixed",
           "points": 10,
           "humor_level": 2,

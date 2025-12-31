@@ -418,8 +418,23 @@ function loadQuestion() {
     answersContainer.innerHTML = '';
     openAnswerContainer.style.display = 'none';
 
-    // Geen antwoordopties tonen - mensen raden zelf hardop
-    // Antwoorden worden pas bij "Toon Antwoord" getoond
+    // Toon antwoordopties voor multiple choice vragen
+    if (question.answers && question.answers.length > 0) {
+        // Add class for many answers (more than 4)
+        if (question.answers.length > 4) {
+            answersContainer.classList.add('many-answers');
+        } else {
+            answersContainer.classList.remove('many-answers');
+        }
+
+        question.answers.forEach((answer, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'answer-btn';
+            btn.textContent = answer;
+            btn.onclick = () => selectAnswer(index);
+            answersContainer.appendChild(btn);
+        });
+    }
 
     // Reset state
     answerRevealed = false;
@@ -499,6 +514,12 @@ function showAnswer() {
                 btn.classList.add('incorrect');
             }
         });
+    }
+
+    // Stop any background audio before showing video/media
+    const audioIframe = document.querySelector('.audio-youtube-iframe');
+    if (audioIframe) {
+        audioIframe.src = ''; // Stop the audio by clearing src
     }
 
     // Show media after answer if applicable
