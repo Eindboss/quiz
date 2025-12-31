@@ -321,7 +321,7 @@ function loadQuestion() {
             audio.controls = true;
             if (question.media.autoplay) audio.autoplay = true;
             mediaContainer.appendChild(audio);
-        } else if (question.media.type === 'audio_youtube') {
+        } else if (question.media.type === 'audio_youtube' || question.media.type === 'audio_only') {
             // Listen card with equalizer animation (audio plays hidden)
             const listenCard = document.createElement('div');
             listenCard.className = 'listen-card';
