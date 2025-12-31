@@ -96,6 +96,84 @@ function createConfetti(count = 100) {
     }
 }
 
+// ============================================
+// MEDIA OVERLAY - Fullscreen video
+// ============================================
+
+function openMediaOverlay(title, node) {
+    const overlay = document.getElementById('media-overlay');
+    const content = document.getElementById('media-overlay-content');
+    const titleEl = document.getElementById('media-overlay-title');
+
+    content.innerHTML = '';
+    content.appendChild(node);
+    titleEl.textContent = title || 'Media';
+
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+}
+
+function closeMediaOverlay() {
+    const overlay = document.getElementById('media-overlay');
+    const content = document.getElementById('media-overlay-content');
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    content.innerHTML = '';
+}
+
+// ============================================
+// FX ANIMATIES - Vuurwerk en champagne
+// ============================================
+
+function fireworkPop(xPct = 50, yPct = 35, count = 8) {
+    const layer = document.getElementById('fx-layer');
+    if (!layer) return;
+
+    for (let i = 0; i < count; i++) {
+        const d = document.createElement('div');
+        d.className = 'firework-pop';
+        d.style.left = `calc(${xPct}vw + ${Math.random() * 140 - 70}px)`;
+        d.style.top = `calc(${yPct}vh + ${Math.random() * 100 - 50}px)`;
+        d.style.background = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+        layer.appendChild(d);
+        setTimeout(() => d.remove(), 1000);
+    }
+}
+
+function champagneBurst(count = 20) {
+    const layer = document.getElementById('fx-layer');
+    if (!layer) return;
+
+    for (let i = 0; i < count; i++) {
+        setTimeout(() => {
+            const b = document.createElement('div');
+            b.className = 'champagne-bubble';
+            b.style.left = `${Math.random() * 100}vw`;
+            const size = Math.random() * 12 + 8;
+            b.style.width = `${size}px`;
+            b.style.height = `${size}px`;
+            layer.appendChild(b);
+            setTimeout(() => b.remove(), 3000);
+        }, i * 100);
+    }
+}
+
+function sparkleBurst(xPct = 50, yPct = 50, count = 12) {
+    const layer = document.getElementById('fx-layer');
+    if (!layer) return;
+
+    for (let i = 0; i < count; i++) {
+        setTimeout(() => {
+            const s = document.createElement('div');
+            s.className = 'sparkle-burst';
+            s.style.left = `calc(${xPct}vw + ${Math.random() * 100 - 50}px)`;
+            s.style.top = `calc(${yPct}vh + ${Math.random() * 80 - 40}px)`;
+            layer.appendChild(s);
+            setTimeout(() => s.remove(), 700);
+        }, i * 50);
+    }
+}
+
 // Slot type configuratie
 const slotConfig = {
     news: { emoji: '📰', label: 'Nieuws', class: 'news' },
@@ -121,9 +199,16 @@ function showScreen(screenName) {
     if (screens[screenName]) {
         screens[screenName].classList.add('active');
 
-        // Trigger confetti and photos on end screen
+        // Trigger confetti, champagne, fireworks and photos on end screen
         if (screenName === 'end') {
             setTimeout(() => createConfetti(150), 300);
+            setTimeout(() => champagneBurst(30), 200);
+            setTimeout(() => {
+                fireworkPop(20, 25, 8);
+                fireworkPop(80, 25, 8);
+                fireworkPop(50, 20, 10);
+            }, 500);
+            setTimeout(() => sparkleBurst(50, 50, 20), 800);
             loadEndPhotos();
         }
     }
@@ -163,6 +248,12 @@ function showMonthIntro() {
     updateTimeline();
 
     showScreen('month');
+
+    // Vuurwerk animatie bij maandovergang
+    setTimeout(() => {
+        fireworkPop(25, 30, 6);
+        fireworkPop(75, 30, 6);
+    }, 300);
 }
 
 // Update timeline markers
@@ -255,13 +346,13 @@ function loadQuestion() {
             if (question.media.autoplay) audio.autoplay = true;
             mediaContainer.appendChild(audio);
         } else if (question.media.type === 'audio_youtube') {
-            // YouTube audio-only: iframe is hidden, only audio plays
-            const wrapper = document.createElement('div');
-            wrapper.className = 'audio-youtube-wrapper';
+            // Listen card with equalizer animation (audio plays hidden)
+            const listenCard = document.createElement('div');
+            listenCard.className = 'listen-card';
 
+            // Hidden iframe for audio playback
             const iframe = document.createElement('iframe');
             let videoUrl = question.media.url;
-            // Add autoplay parameter
             if (videoUrl.includes('?')) {
                 videoUrl += '&autoplay=1';
             } else {
@@ -270,14 +361,24 @@ function loadQuestion() {
             iframe.src = videoUrl;
             iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
             iframe.className = 'audio-youtube-iframe';
+            listenCard.appendChild(iframe);
 
+            // Equalizer animation
+            const equalizer = document.createElement('div');
+            equalizer.className = 'equalizer';
+            for (let i = 0; i < 5; i++) {
+                const bar = document.createElement('span');
+                equalizer.appendChild(bar);
+            }
+            listenCard.appendChild(equalizer);
+
+            // Label
             const label = document.createElement('div');
-            label.className = 'audio-youtube-label';
-            label.innerHTML = '🎵 <span>Luister goed...</span>';
+            label.className = 'listen-label';
+            label.textContent = 'Luister goed...';
+            listenCard.appendChild(label);
 
-            wrapper.appendChild(iframe);
-            wrapper.appendChild(label);
-            mediaContainer.appendChild(wrapper);
+            mediaContainer.appendChild(listenCard);
         }
     }
 
@@ -398,27 +499,47 @@ function showAnswer() {
     // Show media after answer if applicable
     if (question.media && (question.media.type === 'video_after_answer' || question.media.type === 'image_after_answer' || question.media.type === 'audio_youtube')) {
         const mediaContainer = document.getElementById('media-container');
-        mediaContainer.innerHTML = '';
 
         if (question.media.type === 'video_after_answer') {
+            // Open video in fullscreen overlay
             const iframe = document.createElement('iframe');
-            iframe.src = question.media.url;
+            let videoUrl = question.media.url;
+            if (videoUrl.includes('?')) {
+                videoUrl += '&autoplay=1';
+            } else {
+                videoUrl += '?autoplay=1';
+            }
+            iframe.src = videoUrl;
             iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
             iframe.allowFullscreen = true;
-            mediaContainer.appendChild(iframe);
+            openMediaOverlay('Video', iframe);
+            // Champagne burst when showing video
+            champagneBurst(15);
         } else if (question.media.type === 'image_after_answer') {
+            mediaContainer.innerHTML = '';
             const img = document.createElement('img');
             img.src = question.media.url;
             img.alt = question.media.alt_text || 'Quiz afbeelding';
             img.loading = 'lazy';
             mediaContainer.appendChild(img);
+            // Sparkle effect for image reveal
+            sparkleBurst(50, 40, 10);
         } else if (question.media.type === 'audio_youtube') {
-            // After answer: show the actual video (was audio-only before)
+            // After answer: show the actual video in fullscreen overlay
             const iframe = document.createElement('iframe');
-            iframe.src = question.media.url;
+            let videoUrl = question.media.url;
+            if (videoUrl.includes('?')) {
+                videoUrl += '&autoplay=1';
+            } else {
+                videoUrl += '?autoplay=1';
+            }
+            iframe.src = videoUrl;
             iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
             iframe.allowFullscreen = true;
-            mediaContainer.appendChild(iframe);
+            openMediaOverlay('Muziekvraag', iframe);
+            // Champagne and sparkles for music reveal
+            champagneBurst(20);
+            setTimeout(() => sparkleBurst(50, 50, 15), 300);
         }
     }
 
@@ -545,9 +666,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Keyboard controls
 document.addEventListener('keydown', (e) => {
+    // Escape closes media overlay
+    if (e.key === 'Escape') {
+        const overlay = document.getElementById('media-overlay');
+        if (overlay && overlay.classList.contains('active')) {
+            closeMediaOverlay();
+            return;
+        }
+    }
+
     if (screens.quiz && screens.quiz.classList.contains('active')) {
         if (e.key === ' ' || e.key === 'Enter') {
             e.preventDefault();
+            // Don't trigger if media overlay is open
+            const overlay = document.getElementById('media-overlay');
+            if (overlay && overlay.classList.contains('active')) {
+                closeMediaOverlay();
+                return;
+            }
             if (!answerRevealed) {
                 showAnswer();
             } else {

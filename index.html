@@ -254,6 +254,20 @@
         </section>
     </div>
 
+    <!-- Media Overlay voor fullscreen video -->
+    <div id="media-overlay" class="media-overlay" aria-hidden="true">
+        <div class="media-overlay-inner">
+            <div id="media-overlay-content" class="media-overlay-content"></div>
+            <div class="media-overlay-bar">
+                <div class="media-overlay-title" id="media-overlay-title">Muziekvraag</div>
+                <button class="btn btn-secondary" onclick="closeMediaOverlay()">Sluiten</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FX Layer voor vuurwerk/champagne animaties -->
+    <div id="fx-layer" class="fx-layer"></div>
+
     <script src="questions.js"></script>
     <script src="quiz.js"></script>
 </body>
