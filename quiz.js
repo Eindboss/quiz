@@ -291,30 +291,6 @@ function loadQuestion() {
     const progressPercent = ((currentQuestion + 1) / totalQuestions) * 100;
     document.getElementById('progress-fill').style.width = `${progressPercent}%`;
 
-    // Update slot badge
-    const slotBadge = document.getElementById('slot-badge');
-    const slot = slotConfig[question.slot_type] || slotConfig.news;
-    slotBadge.textContent = `${slot.emoji} ${slot.label}`;
-    slotBadge.className = `slot-badge ${slot.class}`;
-
-    // Update difficulty badge
-    const diffBadge = document.getElementById('difficulty-badge');
-    const audience = question.target_audience || 'mixed';
-    if (audience === 'kids') {
-        diffBadge.textContent = '🧒 Kinderen';
-        diffBadge.className = 'difficulty-badge kids';
-    } else if (audience === 'adults') {
-        diffBadge.textContent = '🧠 Volwassenen';
-        diffBadge.className = 'difficulty-badge adults';
-    } else {
-        diffBadge.textContent = '👨‍👩‍👧 Familie';
-        diffBadge.className = 'difficulty-badge mixed';
-    }
-
-    // Update points badge
-    const points = question.points || 1;
-    document.getElementById('points-badge').textContent = `${points} punt${points > 1 ? 'en' : ''}`;
-
     // Update media (afbeelding, video of audio)
     const mediaContainer = document.getElementById('media-container');
     mediaContainer.innerHTML = '';
@@ -570,6 +546,39 @@ function showAnswer() {
     answerRevealed = true;
     document.getElementById('show-answer-btn').style.display = 'none';
     document.getElementById('next-btn').disabled = false;
+}
+
+// Vorige vraag
+function previousQuestion() {
+    // Verwijder uitleg, fun fact, intro en lyrics
+    const questionCard = document.querySelector('.question-card');
+    const explanation = questionCard.querySelector('.explanation');
+    const funFact = questionCard.querySelector('.fun-fact');
+    const openReveal = questionCard.querySelector('.open-answer-reveal');
+    const introText = questionCard.querySelector('.intro-text');
+    const lyricsHint = questionCard.querySelector('.lyrics-hint');
+    if (explanation) explanation.remove();
+    if (funFact) funFact.remove();
+    if (openReveal) openReveal.remove();
+    if (introText) introText.remove();
+    if (lyricsHint) lyricsHint.remove();
+
+    // Clear media container
+    const mediaContainer = document.getElementById('media-container');
+    mediaContainer.innerHTML = '';
+
+    // Ga terug naar vorige vraag
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        loadQuestion();
+    } else if (currentMonth > 0) {
+        // Ga naar vorige maand
+        currentMonth--;
+        const prevMonth = quizData.months[currentMonth];
+        currentQuestion = prevMonth.questions.length - 1;
+        loadQuestion();
+    }
+    // Als we bij eerste vraag van eerste maand zijn, doe niets
 }
 
 // Volgende vraag

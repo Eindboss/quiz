@@ -26,8 +26,8 @@ const quizData = {
           "humor_level": 2,
           "media": {
             "type": "image_after_answer",
-            "url": "https://ci.usembassy.gov/wp-content/uploads/sites/12/2025/01/inauguration_trump_swearing_in-25020627943215-2.jpg",
-            "alt_text": "Trump inauguratie 2025"
+            "url": "https://media.cnn.com/api/v1/images/stellar/prod/ap25020841494795.jpg?c=16x9&q=h_833,w_1480,c_fill",
+            "alt_text": "Melania Trump en Usha Vance bij de inauguratie"
           },
           "payload": {
             "correct_answer": "Melania Trump (Second Lady: Usha Vance)",

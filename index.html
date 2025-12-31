@@ -167,11 +167,6 @@
 
             <div class="question-card">
                 <div class="shimmer" aria-hidden="true"></div>
-                <div class="slot-row">
-                    <span id="slot-badge" class="slot-badge news">📰 Nieuws</span>
-                    <span id="difficulty-badge" class="difficulty-badge adults">🧠 Volwassenen</span>
-                    <span id="points-badge" class="points-badge">2 punten</span>
-                </div>
 
                 <div id="media-container" class="media-container"></div>
 
@@ -186,6 +181,12 @@
             </div>
 
             <div class="quiz-controls">
+                <button class="btn btn-secondary" id="prev-btn" onclick="previousQuestion()">
+                    <svg class="btn-arrow btn-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    <span>Vorige</span>
+                </button>
                 <button class="btn btn-secondary" id="show-answer-btn" onclick="showAnswer()">
                     <span>Toon Antwoord</span>
                 </button>
