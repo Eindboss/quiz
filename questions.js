@@ -98,7 +98,7 @@ const quizData = {
         },
         {
           "slot_type": "kids",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "Op 14 februari is het Valentijnsdag. Welk symbool hoort daar het meest bij?",
           "target_audience": "kids",
           "points": 1,
@@ -106,13 +106,10 @@ const quizData = {
           "media": {
             "type": "none"
           },
-          "answers": [
-            "Een rood hartje ❤️",
-            "Een voetbal ⚽",
-            "Een sneeuwpop ☃️",
-            "Een paraplu ☂️"
-          ],
-          "correct": 0,
+          "correct_answer": "Een hartje",
+          "payload": {
+            "alternatives": ["Hartje", "Hart", "Een hart", "Rood hartje"]
+          },
           "explanation": "Valentijnsdag is de dag van de liefde, en het rode hartje is hét symbool!"
         },
         {
@@ -223,7 +220,7 @@ const quizData = {
         },
         {
           "slot_type": "kids",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "Op 27 april is het Koningsdag! Welke kleur draagt bijna iedereen dan?",
           "target_audience": "kids",
           "points": 1,
@@ -231,13 +228,7 @@ const quizData = {
           "media": {
             "type": "none"
           },
-          "answers": [
-            "Oranje",
-            "Blauw",
-            "Roze",
-            "Groen"
-          ],
-          "correct": 0,
+          "correct_answer": "Oranje",
           "explanation": "Op Koningsdag draagt iedereen oranje - de kleur van ons koningshuis!"
         },
         {
@@ -297,8 +288,8 @@ const quizData = {
           "humor_level": 4,
           "media": {
             "type": "image_after_answer",
-            "url": "https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/5e49db63-887f-4731-b9df-a47750e6d180/lilo+and+stitch+live+action+poster.jpg",
-            "alt_text": "Lilo & Stitch 2025 poster"
+            "url": "https://image.tmdb.org/t/p/original/xK4KVxhsL8IbZ2vKLEX9dMqgMK8.jpg",
+            "alt_text": "Lilo & Stitch 2025 - Lilo, Stitch en Nani"
           },
           "payload": {
             "correct_answer": "Lilo, Stitch, Angel, Nani",
@@ -438,7 +429,9 @@ const quizData = {
           "points": 2,
           "humor_level": 2,
           "media": {
-            "type": "none"
+            "type": "audio_only",
+            "url": "https://www.youtube.com/embed/aWFT6Ak1vLs?si=3ryvYUc5DNOa_X24",
+            "alt_text": "TMF achtergrondmuziek"
           },
           "payload": {
             "correct_answer": "Bridget Maasland, Ruud de Wild, Sylvie Meis, Tooske Ragas, Winston Gerschtanowitz, Evi Hanssen, Eric Corton, Isabelle Brinkman, Wessel van Diepen, Patrick Lodiers, Candy Dulfer, Adam Curry",
@@ -468,7 +461,7 @@ const quizData = {
       "questions": [
         {
           "slot_type": "news",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "SAIL Amsterdam 2025 was geen 'gewone editie'. Welke mijlpaal vierde de stad tegelijk?",
           "target_audience": "adults",
           "points": 2,
@@ -478,13 +471,7 @@ const quizData = {
             "url": "https://thingstodoinamsterdam.com/wp-content/uploads/2025/03/Sail-2025.jpg",
             "alt_text": "SAIL Amsterdam 2025"
           },
-          "answers": [
-            "750 jaar Amsterdam",
-            "500 jaar grachtengordel",
-            "100 jaar IJtunnel",
-            "50 jaar A10"
-          ],
-          "correct": 0,
+          "correct_answer": "750 jaar Amsterdam",
           "explanation": "SAIL 2025 viel samen met het 750-jarig bestaan van Amsterdam."
         },
         {
@@ -503,8 +490,7 @@ const quizData = {
         {
           "slot_type": "music",
           "question_type": "open_question",
-          "question_text": "DJ's zijn vaak niet geboren als DJ. Wie weet wie dit zijn?",
-          "intro_text": "Tijs Verwest • Armin van Buuren • Martijn Garritsen • Robbert van de Corput • Nick van de Wall • Tim Bergling • Adam Wiles • Pierre Guetta • Sonny Moore • Joel Zimmerman",
+          "question_text": "DJ's zijn vaak niet geboren als DJ. Wie weet wie dit zijn?\n\nTijs Verwest • Armin van Buuren • Martijn Garritsen • Robbert van de Corput • Nick van de Wall • Tim Bergling • Adam Wiles • Pierre Guetta • Sonny Moore • Joel Zimmerman",
           "target_audience": "mixed",
           "points": 10,
           "humor_level": 2,
@@ -558,7 +544,7 @@ const quizData = {
         {
           "slot_type": "music",
           "question_type": "open_question",
-          "question_text": "September 2025: Calum Scott bracht een nieuwe versie uit van 'I Wanna Dance With Somebody' samen met Whitney Houston. Van wie is het originele nummer (1987)?",
+          "question_text": "September 2025: Calum Scott bracht een nieuwe versie uit van 'I Wanna Dance With Somebody'. Van wie is het originele nummer (1987)?",
           "target_audience": "mixed",
           "points": 2,
           "humor_level": 2,
@@ -667,32 +653,19 @@ const quizData = {
         {
           "slot_type": "music",
           "question_type": "open_question",
-          "question_text": "Welk lied wordt vaak gedraaid als Sinterklaas 'aankomt'?",
+          "question_text": "Welke zin ontbreekt?",
+          "intro_text": "Uit het Sinterklaasliedje 'Zie ginds komt de stoomboot':",
+          "lyrics_hint": "Zie ginds komt de stoomboot\nUit Spanje weer aan\nHij brengt ons Sint Nicolaas\n....\nZijn knecht staat te lachen\nEn roept ons reeds toe",
           "target_audience": "mixed",
           "points": 2,
           "humor_level": 2,
           "media": {
-            "type": "video",
-            "url": "https://www.youtube.com/embed/MRuS3dxKK9U?start=10",
+            "type": "video_after_answer",
+            "url": "https://www.youtube.com/embed/MRuS3dxKK9U?start=0",
             "alt_text": "Zie ginds komt de stoomboot"
           },
-          "correct_answer": "Zie ginds komt de stoomboot",
-          "explanation": "'Zie ginds komt de stoomboot' is een bekende Sinterklaasliedje."
-        },
-        {
-          "slot_type": "music",
-          "question_type": "open_question",
-          "question_text": "November 2025: Welke Nederlandse artiest scoorde een hit met 'Europapa' tijdens het Eurovisie Songfestival?",
-          "target_audience": "mixed",
-          "points": 2,
-          "humor_level": 3,
-          "media": {
-            "type": "audio_only",
-            "url": "https://www.youtube.com/embed/gT2wY0DjYHo?start=45",
-            "alt_text": "Europapa fragment"
-          },
-          "correct_answer": "Joost Klein",
-          "explanation": "Joost Klein ging viraal met 'Europapa' en werd gediskwalificeerd van het Eurovisie Songfestival 2025, maar het nummer bleef een hit!"
+          "correct_answer": "Ik zie hem al staan",
+          "explanation": "De volledige zin is: 'Hij brengt ons Sint Nicolaas, ik zie hem al staan!'"
         }
       ]
     },
