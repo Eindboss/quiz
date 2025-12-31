@@ -56,7 +56,7 @@ const quizData = {
         },
         {
           "slot_type": "music",
-          "question_type": "music_lyrics",
+          "question_type": "open_question",
           "question_text": "Wat is de derde zin van het refrein?",
           "intro_text": "Het lied \"Terug in de tijd\" van Yves Berendse is ook in 2025 nog altijd een van de meest gedraaide liedjes in Nederland.",
           "lyrics_hint": "Ja, als ik terug kon in de tijd, dan wel met jou\nIk heb je zo lang niet gezien, hoe is het nou?\n....\nAls ik terug kon in de tijd, dan wel met jou",
@@ -68,13 +68,7 @@ const quizData = {
             "url": "https://www.youtube.com/embed/ERSCR2cuqAU?si=RmfcCx2xyZYfgzTd&clip=UgkxX5AtC3YMl4YlmSa8QIf4OnK0eqVeBiRx&clipt=EKSHAhjPgwQ",
             "alt_text": "Terug in de tijd - Yves Berendse"
           },
-          "answers": [
-            "Ik zou het allemaal overdoen, ik zweer het jou",
-            "Ik mis je elke dag opnieuw, geloof me nou",
-            "We gaan terug naar vroeger toe, ik weet niet hoe",
-            "De tijd staat stil als jij er bent, dat weet je toch"
-          ],
-          "correct": 0,
+          "correct_answer": "Ik zou het allemaal overdoen, ik zweer het jou",
           "explanation": "De derde zin is: 'Ik zou het allemaal overdoen, ik zweer het jou'"
         }
       ]
@@ -123,7 +117,7 @@ const quizData = {
         },
         {
           "slot_type": "music",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "\"Die With a Smile\" van Bruno Mars en Lady Gaga was in februari 2025 het meest gestreamde lied in Nederland. Wat is de echte voornaam van Lady Gaga?",
           "target_audience": "mixed",
           "points": 2,
@@ -134,13 +128,7 @@ const quizData = {
             "video_after_url": "https://www.youtube.com/embed/IFS3imM9qes?si=gzf83w2UzLNt6KPS&start=2",
             "alt_text": "Die With a Smile - Bruno Mars & Lady Gaga"
           },
-          "answers": [
-            "Stefani",
-            "Angelina",
-            "Joanne",
-            "Gaga (echt waar, stond op haar geboorteakte)"
-          ],
-          "correct": 0,
+          "correct_answer": "Stefani",
           "explanation": "Lady Gaga's volledige naam is Stefani Joanne Angelina Germanotta."
         }
       ]
@@ -168,7 +156,7 @@ const quizData = {
         },
         {
           "slot_type": "kids",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "In de lente worden veel dieren wakker. Welk dier houdt een winterslaap?",
           "target_audience": "kids",
           "points": 1,
@@ -176,13 +164,10 @@ const quizData = {
           "media": {
             "type": "none"
           },
-          "answers": [
-            "Een egel",
-            "Een koe",
-            "Een kip",
-            "Een hond"
-          ],
-          "correct": 0,
+          "correct_answer": "Een egel",
+          "payload": {
+            "alternatives": ["Egel", "Beer", "Vleermuis", "Das", "Eekhoorn"]
+          },
           "explanation": "Egels, maar ook beren en vleermuizen houden een winterslaap!"
         },
         {
@@ -220,7 +205,7 @@ const quizData = {
       "questions": [
         {
           "slot_type": "news",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "In 2025 ging een video van konijnen op een trampoline massaal viral. Wat was er met dit filmpje aan de hand?",
           "target_audience": "adults",
           "points": 2,
@@ -230,13 +215,10 @@ const quizData = {
             "url": "https://www.youtube.com/embed/LDLwShbOSsg?si=6f5dxvpQQXAx8GnB&start=36",
             "alt_text": "Konijnen op een trampoline - viral video"
           },
-          "answers": [
-            "Het was nep - gemaakt met AI",
-            "De konijnen waren getraind voor een commercial",
-            "Het was een deepfake van cavia's",
-            "De trampoline was van de buren gestolen"
-          ],
-          "correct": 0,
+          "correct_answer": "Het was nep - gemaakt met AI",
+          "payload": {
+            "alternatives": ["AI", "Nep", "Fake", "AI-gegenereerd", "Gemaakt met AI"]
+          },
           "explanation": "De video werd honderden miljoenen keren bekeken, maar bleek volledig AI-gegenereerd. Veel influencers trapten erin!"
         },
         {
@@ -315,8 +297,8 @@ const quizData = {
           "humor_level": 4,
           "media": {
             "type": "image_after_answer",
-            "url": "https://static.wikia.nocookie.net/disney/images/6/65/Lilo_%26_Stitch_%282025%29_-_Poster.jpg",
-            "alt_text": "Lilo, Stitch, Angel en Nani"
+            "url": "https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/5e49db63-887f-4731-b9df-a47750e6d180/lilo+and+stitch+live+action+poster.jpg",
+            "alt_text": "Lilo & Stitch 2025 poster"
           },
           "payload": {
             "correct_answer": "Lilo, Stitch, Angel, Nani",
@@ -333,7 +315,7 @@ const quizData = {
           "humor_level": 2,
           "media": {
             "type": "video_before_question",
-            "url": "https://www.youtube.com/embed/7azASBMAkOU?si=oqGiEGH7REezD8Cu&start=2",
+            "url": "https://www.youtube.com/embed/7azASBMAkOU?si=oqGiEGH7REezD8Cu&start=190",
             "alt_text": "Marco Borsato - Dochters"
           },
           "answers": [
@@ -354,7 +336,7 @@ const quizData = {
       "questions": [
         {
           "slot_type": "news",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "Op 3 juni 2025 viel het eerste kabinet-Schoof. Wat was de reden van de val van het kabinet?",
           "target_audience": "adults",
           "points": 2,
@@ -364,18 +346,15 @@ const quizData = {
             "url": "https://idsb.tmgrup.com.tr/ly/uploads/images/2025/06/06/385834.jpg",
             "alt_text": "Kabinet Schoof valt"
           },
-          "answers": [
-            "Asiel- en migratiebeleid",
-            "De voorjaarsnota",
-            "Stikstof",
-            "De lengte van de kabinetsformatie"
-          ],
-          "correct": 0,
+          "correct_answer": "Asiel- en migratiebeleid",
+          "payload": {
+            "alternatives": ["Asiel", "Migratie", "Migratiebeleid", "Asielbeleid"]
+          },
           "explanation": "Het conflict over asielmigratie leidde tot het terugtrekken van steun door de PVV."
         },
         {
           "slot_type": "kids",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "Wat is het favoriete vakantieland voor Nederlanders?",
           "target_audience": "kids",
           "points": 1,
@@ -383,13 +362,10 @@ const quizData = {
           "media": {
             "type": "none"
           },
-          "answers": [
-            "Spanje",
-            "De maan",
-            "De Noordpool",
-            "Australië"
-          ],
-          "correct": 0,
+          "correct_answer": "Spanje",
+          "payload": {
+            "alternatives": ["Frankrijk", "Duitsland", "Griekenland", "Turkije", "Italië"]
+          },
           "explanation": "Spanje, Griekenland en Turkije zijn de populairste vakantielanden!"
         },
         {
@@ -440,7 +416,7 @@ const quizData = {
         },
         {
           "slot_type": "kids",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "Welk ijsje is al meer dan 45 jaar het populairste ijsje van Nederland?",
           "target_audience": "kids",
           "points": 1,
@@ -448,13 +424,10 @@ const quizData = {
           "media": {
             "type": "none"
           },
-          "answers": [
-            "Het Raketje",
-            "Een boterham met pindakaas",
-            "Een tomaat",
-            "Spruitjesijs"
-          ],
-          "correct": 0,
+          "correct_answer": "Het Raketje",
+          "payload": {
+            "alternatives": ["Raketje", "Raket"]
+          },
           "explanation": "Het Raketje is al 45 jaar het populairste ijsje van Nederland!"
         },
         {
@@ -516,7 +489,7 @@ const quizData = {
         },
         {
           "slot_type": "kids",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "Amsterdam is de hoofdstad van Nederland. Wat is de hoofdstad van Frankrijk?",
           "target_audience": "kids",
           "points": 1,
@@ -524,13 +497,7 @@ const quizData = {
           "media": {
             "type": "none"
           },
-          "answers": [
-            "Parijs",
-            "Londen",
-            "Berlijn",
-            "Madrid"
-          ],
-          "correct": 0,
+          "correct_answer": "Parijs",
           "explanation": "Parijs is de hoofdstad van Frankrijk!"
         },
         {
@@ -562,7 +529,7 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "open_question",
-          "question_text": "In mei 2025 kreeg de katholieke kerk een nieuwe paus. Welke pausnaam koos hij? (Bonuspunt: uit welk land komt hij?)",
+          "question_text": "In 2025 kreeg de katholieke kerk een nieuwe paus. Welke pausnaam koos hij? (Bonuspunt: uit welk land komt hij?)",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
@@ -577,7 +544,7 @@ const quizData = {
         },
         {
           "slot_type": "kids",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "In september begint de school weer. Wat zit er meestal in je broodtrommel?",
           "target_audience": "kids",
           "points": 1,
@@ -585,34 +552,22 @@ const quizData = {
           "media": {
             "type": "none"
           },
-          "answers": [
-            "Boterhammen",
-            "Een televisie",
-            "Een olifant",
-            "De juf"
-          ],
-          "correct": 0,
+          "correct_answer": "Boterhammen",
           "explanation": "Boterhammen natuurlijk! Hoewel een olifant ook best gezellig zou zijn..."
         },
         {
           "slot_type": "music",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "September 2025: Calum Scott bracht een nieuwe versie uit van 'I Wanna Dance With Somebody' samen met Whitney Houston. Van wie is het originele nummer (1987)?",
           "target_audience": "mixed",
           "points": 2,
           "humor_level": 2,
           "media": {
-            "type": "video",
-            "url": "https://www.youtube.com/embed/eH3giaIzONA?start=45",
+            "type": "audio_only",
+            "url": "https://www.youtube.com/embed/mHg8Kdt18kw?si=4hMHCuaJj3NBmovq&clip=UgkxdqjFI80mRIanxbrOwaW647O0Toid6-an&clipt=EMC4AhjEvAM",
             "alt_text": "I Wanna Dance With Somebody"
           },
-          "answers": [
-            "Whitney Houston",
-            "Madonna",
-            "Céline Dion",
-            "De HEMA (afdeling dans)"
-          ],
-          "correct": 0,
+          "correct_answer": "Whitney Houston",
           "explanation": "Het origineel uit 1987 is van Whitney Houston; in 2025 kwam er een herwerkte versie met Calum Scott."
         }
       ]
@@ -624,7 +579,7 @@ const quizData = {
       "questions": [
         {
           "slot_type": "news",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "Na de kabinetsval werd Nederland opnieuw naar de stembus gestuurd. Op welke datum vonden de vervroegde Tweede Kamerverkiezingen plaats?",
           "target_audience": "adults",
           "points": 2,
@@ -634,13 +589,7 @@ const quizData = {
             "url": "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-560w%2Cf_auto%2Cq_auto%3Abest/rockcms/2025-10/251029-Geert-Wilders-rs-95b4ea.jpg",
             "alt_text": "Verkiezingen oktober 2025"
           },
-          "answers": [
-            "29 oktober 2025",
-            "15 oktober 2025",
-            "31 oktober 2025",
-            "6 november 2025"
-          ],
-          "correct": 0,
+          "correct_answer": "29 oktober 2025",
           "explanation": "De vervroegde verkiezingen werden gehouden op 29 oktober 2025."
         },
         {
@@ -664,23 +613,17 @@ const quizData = {
         },
         {
           "slot_type": "music",
-          "question_type": "multiple_choice",
-          "question_text": "Welk liedje hoort bijna standaard bij Halloween-feestjes (met dat bekende 'hee-hee' geluid)?",
+          "question_type": "open_question",
+          "question_text": "Uit welk lied komt deze lieve lach?",
           "target_audience": "mixed",
           "points": 2,
           "humor_level": 2,
           "media": {
-            "type": "video",
-            "url": "https://www.youtube.com/embed/sOnqjkJTMaA?start=240",
-            "alt_text": "Thriller Michael Jackson"
+            "type": "audio_only",
+            "url": "https://www.youtube.com/embed/G7f7rO7n6_k?si=qvZZqAPblkJzdi8H",
+            "alt_text": "Lieve lach fragment"
           },
-          "answers": [
-            "Thriller – Michael Jackson",
-            "Het Wilhelmus",
-            "Kleine Wasbeer",
-            "Bumperkleven – Remix"
-          ],
-          "correct": 0,
+          "correct_answer": "Thriller – Michael Jackson",
           "explanation": "'Thriller' van Michael Jackson is een Halloween-klassieker."
         }
       ]
@@ -710,7 +653,7 @@ const quizData = {
         },
         {
           "slot_type": "kids",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "Sinterklaas is best oud! In welk jaar is hij geboren?",
           "target_audience": "kids",
           "points": 1,
@@ -718,18 +661,12 @@ const quizData = {
           "media": {
             "type": "none"
           },
-          "answers": [
-            "Rond het jaar 280",
-            "In 1900",
-            "In 2000",
-            "Vorig jaar"
-          ],
-          "correct": 0,
+          "correct_answer": "Rond het jaar 280",
           "explanation": "Sinterklaas is gebaseerd op Sint-Nicolaas, geboren rond 280 in Turkije. Dat is meer dan 1700 jaar geleden!"
         },
         {
           "slot_type": "music",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "Welk lied wordt vaak gedraaid als Sinterklaas 'aankomt'?",
           "target_audience": "mixed",
           "points": 2,
@@ -739,14 +676,23 @@ const quizData = {
             "url": "https://www.youtube.com/embed/MRuS3dxKK9U?start=10",
             "alt_text": "Zie ginds komt de stoomboot"
           },
-          "answers": [
-            "Zie ginds komt de stoomboot",
-            "Jingle Bells",
-            "Bad Romance",
-            "Het geluid van inpakpapier dat scheurt"
-          ],
-          "correct": 0,
+          "correct_answer": "Zie ginds komt de stoomboot",
           "explanation": "'Zie ginds komt de stoomboot' is een bekende Sinterklaasliedje."
+        },
+        {
+          "slot_type": "music",
+          "question_type": "open_question",
+          "question_text": "November 2025: Welke Nederlandse artiest scoorde een hit met 'Europapa' tijdens het Eurovisie Songfestival?",
+          "target_audience": "mixed",
+          "points": 2,
+          "humor_level": 3,
+          "media": {
+            "type": "audio_only",
+            "url": "https://www.youtube.com/embed/gT2wY0DjYHo?start=45",
+            "alt_text": "Europapa fragment"
+          },
+          "correct_answer": "Joost Klein",
+          "explanation": "Joost Klein ging viraal met 'Europapa' en werd gediskwalificeerd van het Eurovisie Songfestival 2025, maar het nummer bleef een hit!"
         }
       ]
     },
@@ -757,7 +703,7 @@ const quizData = {
       "questions": [
         {
           "slot_type": "news",
-          "question_type": "multiple_choice",
+          "question_type": "open_question",
           "question_text": "Welk programma won de Gouden Televizier-Ring 2025 met een recordscore van 74% van de stemmen?",
           "target_audience": "adults",
           "points": 2,
@@ -765,13 +711,7 @@ const quizData = {
           "media": {
             "type": "none"
           },
-          "answers": [
-            "Vandaag Inside",
-            "Het Jachtseizoen: Most Wanted",
-            "Wie is de Mol?",
-            "De Slimste Mens"
-          ],
-          "correct": 0,
+          "correct_answer": "Vandaag Inside",
           "explanation": "Vandaag Inside won met 74% - een record! De heren waren zelf niet aanwezig, want ze moesten 'werken'."
         },
         {
@@ -785,34 +725,28 @@ const quizData = {
             "type": "none"
           },
           "answers": [
-            "Kevin",
-            "Sinterklaas",
-            "De Kerstman",
-            "Pepernansen"
+            "Jack",
+            "Sam",
+            "Arjan",
+            "Kevin"
           ],
-          "correct": 0,
+          "correct": 3,
           "explanation": "Kevin McCallister wordt per ongeluk thuis vergeten en moet de inbrekers slim te slim af zijn!"
         },
         {
           "slot_type": "music",
-          "question_type": "multiple_choice",
-          "question_text": "Welke kersthit begint met 'Last Christmas, I gave you my heart'?",
+          "question_type": "open_question",
+          "question_text": "Van welk lied is dit het intro?",
           "target_audience": "mixed",
           "points": 2,
           "humor_level": 2,
           "media": {
-            "type": "video",
-            "url": "https://www.youtube.com/embed/E8gmARGvPlI?start=30",
-            "alt_text": "Last Christmas Wham!"
+            "type": "audio_only",
+            "url": "https://www.youtube.com/embed/3Uo0JAUWijM?start=0&end=20",
+            "alt_text": "Happy New Year intro"
           },
-          "answers": [
-            "Wham!",
-            "Queen",
-            "Coldplay",
-            "De buurkinderen (als ze om 07:00 aanbellen)"
-          ],
-          "correct": 0,
-          "explanation": "'Last Christmas' is van Wham! (George Michael)."
+          "correct_answer": "Happy New Year – ABBA",
+          "explanation": "'Happy New Year' van ABBA is hét perfecte nummer om het nieuwe jaar mee in te luiden!"
         }
       ]
     }

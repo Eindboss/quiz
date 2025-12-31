@@ -310,6 +310,7 @@ function loadQuestion() {
     // Update media (afbeelding, video of audio)
     const mediaContainer = document.getElementById('media-container');
     mediaContainer.innerHTML = '';
+    mediaContainer.classList.remove('answer-revealed'); // Reset smaller image class
 
     // Only show media immediately if it's not an "after_answer" or "before_question" type
     if (question.media && question.media.type !== 'none' &&
@@ -408,7 +409,9 @@ function loadQuestion() {
     }
 
     // Update vraag
-    document.getElementById('question-text').textContent = question.question_text;
+    const questionTextEl = document.getElementById('question-text');
+    questionTextEl.style.display = ''; // Reset visibility (in case hidden by image_after_answer)
+    questionTextEl.textContent = question.question_text;
 
     // Bepaal vraagtype en toon juiste interface
     const answersContainer = document.getElementById('answers');
@@ -462,6 +465,14 @@ function showAnswer() {
     const openAnswerContainer = document.getElementById('open-answer-container');
 
     if (question.question_type === 'open_question') {
+        // Hide question text, intro text, lyrics hint to make room for answer
+        const questionText = document.getElementById('question-text');
+        const introText = document.querySelector('.intro-text');
+        const lyricsHint = document.querySelector('.lyrics-hint');
+        if (questionText) questionText.style.display = 'none';
+        if (introText) introText.style.display = 'none';
+        if (lyricsHint) lyricsHint.style.display = 'none';
+
         // Toon correct antwoord voor open vraag
         const correctAnswer = question.payload?.correct_answer || question.correct_answer || '';
         const alternatives = question.payload?.alternatives || [];
@@ -542,7 +553,16 @@ function showAnswer() {
             // Champagne burst when showing video
             champagneBurst(15);
         } else if (question.media.type === 'image_after_answer') {
+            // Hide question text, intro text, lyrics hint when showing image
+            const questionText = document.getElementById('question-text');
+            const introText = document.querySelector('.intro-text');
+            const lyricsHint = document.querySelector('.lyrics-hint');
+            if (questionText) questionText.style.display = 'none';
+            if (introText) introText.style.display = 'none';
+            if (lyricsHint) lyricsHint.style.display = 'none';
+
             mediaContainer.innerHTML = '';
+            mediaContainer.classList.add('answer-revealed'); // Smaller image
             const img = document.createElement('img');
             img.src = question.media.url;
             img.alt = question.media.alt_text || 'Quiz afbeelding';
