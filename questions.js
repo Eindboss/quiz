@@ -86,24 +86,21 @@ const quizData = {
       "questions": [
         {
           "slot_type": "news",
-          "question_type": "multiple_choice",
-          "question_text": "Super Bowl LIX (februari 2025): sport was bijzaak, cultuur hoofdzaak. Welke artiest kreeg het podium – en het debat – volledig naar zich toe?",
+          "question_type": "open_question",
+          "question_text": "In februari is er in de VS de Super Bowl, een van de grootste sport- en mediaevenementen van het jaar. Om welke sport gaat het eigenlijk bij de Super Bowl? En wie trad dit jaar op bij de halftime show?",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
           "media": {
             "type": "image_after_answer",
             "url": "https://hips.hearstapps.com/hmg-prod/images/474774247-18481150825049588-4241654844345328156-n-67a387fb4c262.jpg",
-            "alt_text": "Super Bowl halftime show 2025"
+            "alt_text": "Kendrick Lamar bij de Super Bowl halftime show 2025"
           },
-          "answers": [
-            "Kendrick Lamar",
-            "Beyoncé",
-            "Taylor Swift",
-            "The Weeknd"
-          ],
-          "correct": 0,
-          "explanation": "Kendrick Lamar verzorgde de halftime show van Super Bowl LIX."
+          "payload": {
+            "correct_answer": "American football, Kendrick Lamar",
+            "alternatives": ["Football", "American football", "Kendrick Lamar", "Kendrick"]
+          },
+          "explanation": "De Super Bowl is de finale van de American football competitie (NFL). Kendrick Lamar verzorgde de halftime show van Super Bowl LIX."
         },
         {
           "slot_type": "kids",
