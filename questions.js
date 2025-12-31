@@ -130,8 +130,9 @@ const quizData = {
           "points": 2,
           "humor_level": 2,
           "media": {
-            "type": "audio_only",
+            "type": "audio_with_video_after",
             "url": "https://www.youtube.com/embed/kPa7bsKwL-c?si=hhJVDCdyQJ1dd5zh&start=36",
+            "video_after_url": "https://www.youtube.com/embed/IFS3imM9qes?si=gzf83w2UzLNt6KPS&start=2",
             "alt_text": "Die With a Smile - Bruno Mars & Lady Gaga"
           },
           "answers": [

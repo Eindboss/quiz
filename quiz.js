@@ -321,7 +321,7 @@ function loadQuestion() {
             audio.controls = true;
             if (question.media.autoplay) audio.autoplay = true;
             mediaContainer.appendChild(audio);
-        } else if (question.media.type === 'audio_youtube' || question.media.type === 'audio_only') {
+        } else if (question.media.type === 'audio_youtube' || question.media.type === 'audio_only' || question.media.type === 'audio_with_video_after') {
             // Listen card with equalizer animation (audio plays hidden)
             const listenCard = document.createElement('div');
             listenCard.className = 'listen-card';
@@ -500,10 +500,11 @@ function showAnswer() {
             mediaContainer.appendChild(img);
             // Sparkle effect for image reveal
             sparkleBurst(50, 40, 10);
-        } else if (question.media.type === 'audio_youtube') {
+        } else if (question.media.type === 'audio_youtube' || question.media.type === 'audio_with_video_after') {
             // After answer: show the actual video in fullscreen overlay
             const iframe = document.createElement('iframe');
-            let videoUrl = question.media.url;
+            // Use video_after_url if available, otherwise use main url
+            let videoUrl = question.media.video_after_url || question.media.url;
             if (videoUrl.includes('?')) {
                 videoUrl += '&autoplay=1';
             } else {
