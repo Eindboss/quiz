@@ -473,7 +473,7 @@ function showAnswer() {
     }
 
     // Show media after answer if applicable
-    if (question.media && (question.media.type === 'video_after_answer' || question.media.type === 'image_after_answer' || question.media.type === 'audio_youtube')) {
+    if (question.media && (question.media.type === 'video_after_answer' || question.media.type === 'image_after_answer' || question.media.type === 'audio_youtube' || question.media.type === 'audio_with_video_after')) {
         const mediaContainer = document.getElementById('media-container');
 
         if (question.media.type === 'video_after_answer') {

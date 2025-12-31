@@ -38,7 +38,7 @@ const quizData = {
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Welk huisdier hebben de meeste mensen in Nederland?",
+          "question_text": "Wat is het populairste huisdier van Nederland?",
           "target_audience": "kids",
           "points": 1,
           "humor_level": 4,
@@ -124,8 +124,7 @@ const quizData = {
         {
           "slot_type": "music",
           "question_type": "multiple_choice",
-          "question_text": "Wat is de echte voornaam van Lady Gaga?",
-          "intro_text": "Het nummer \"Die With a Smile\" van Bruno Mars en Lady Gaga was in februari 2025 het meest gestreamde lied in Nederland. De ballade over eeuwige liefde raakte een snaar bij miljoenen luisteraars.",
+          "question_text": "\"Die With a Smile\" van Bruno Mars en Lady Gaga was in februari 2025 het meest gestreamde lied in Nederland. Wat is de echte voornaam van Lady Gaga?",
           "target_audience": "mixed",
           "points": 2,
           "humor_level": 2,
@@ -154,7 +153,7 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "open_question",
-          "question_text": "In 2025 werd Memphis Depay de topscorer aller tijden van het Nederlands elftal. Wiens record verbrak hij?",
+          "question_text": "In 2025 werd Memphis Depay de topscorer aller tijden van het Nederlands elftal. Wie was de vorige topscorer aller tijden?",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,

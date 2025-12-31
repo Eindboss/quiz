@@ -849,15 +849,15 @@ body {
     color: var(--gold);
 }
 
-/* Progress bar with shimmer - compact */
+/* Progress bar with shimmer - tiny */
 .progress-bar {
-    width: 100px;
-    height: 5px;
+    width: 60px;
+    height: 3px;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
-    margin-bottom: 6px;
+    border-radius: 2px;
+    margin-bottom: 4px;
     overflow: hidden;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
     position: relative;
 }
 
@@ -1064,7 +1064,8 @@ body {
 .media-container img {
     width: 100%;
     max-height: 25vh;
-    object-fit: contain;
+    aspect-ratio: 16/9;
+    object-fit: cover;
     transition: transform 0.3s ease;
 }
 
@@ -1670,53 +1671,45 @@ body {
 .listen-card {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 24px;
-    padding: 32px;
-    border-radius: var(--r-xl);
-    background:
-        radial-gradient(800px 240px at 10% 0%, rgba(139, 92, 246, 0.18), transparent 55%),
-        radial-gradient(700px 220px at 90% 20%, rgba(244, 228, 166, 0.12), transparent 60%),
-        var(--surface-2);
-    border: 1px solid rgba(139, 92, 246, 0.35);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-    position: relative;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: var(--r-md);
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    opacity: 0.7;
 }
 
 .listen-info {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    text-align: left;
+    display: none;
 }
 
 .listen-title {
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    color: #c4b5fd;
-    text-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    display: none;
 }
 
 .listen-sub, .listen-label {
-    color: var(--text-60);
-    font-size: 1rem;
+    display: none;
 }
 
 .equalizer {
     display: flex;
-    gap: 6px;
+    gap: 3px;
     align-items: flex-end;
-    height: 60px;
-    padding: 10px 14px;
-    border-radius: 16px;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 20px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    border: none;
 }
 
 .equalizer span {
-    width: 8px;
-    height: 12px;
-    border-radius: 8px;
+    width: 3px;
+    height: 6px;
+    border-radius: 2px;
     background: linear-gradient(180deg, #a78bfa, var(--gold));
     animation: eq 900ms ease-in-out infinite;
     opacity: 0.9;
@@ -1865,8 +1858,7 @@ body {
 
     .trophy { font-size: 4.5rem; }
 
-    .listen-card { flex-direction: column; gap: 16px; padding: 24px; }
-    .listen-info { text-align: center; }
+    .listen-card { gap: 6px; padding: 6px 10px; }
 }
 
 /* Large screens / TV display */
@@ -1906,7 +1898,7 @@ body {
 
     .btn { font-size: 1.35rem; padding: 24px 48px; }
 
-    .listen-card { padding: 40px; }
+    .listen-card { padding: 10px 16px; }
     .listen-title { font-size: 2.2rem; }
     .equalizer { height: 70px; }
     .equalizer span { width: 10px; }
