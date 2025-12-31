@@ -1295,16 +1295,16 @@ body {
     color: var(--text-40);
 }
 
-/* Open answer reveal - EXTRA LARGE */
+/* Open answer reveal - MEGA LARGE */
 .open-answer-reveal {
     margin-top: 16px;
-    padding: 48px 56px;
+    padding: 60px 70px;
     background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(16, 185, 129, 0.12));
     border: 4px solid var(--success);
     border-radius: var(--r-lg);
     text-align: center;
     font-family: var(--font-display);
-    font-size: clamp(3rem, 6vw, 6rem);
+    font-size: clamp(4rem, 8vw, 8rem);
     font-weight: 700;
     color: var(--white);
     animation: revealSlide 0.5s ease-out;
@@ -1313,7 +1313,7 @@ body {
     box-shadow: 0 0 40px rgba(16, 185, 129, 0.3);
     max-height: 70vh;
     overflow-y: auto;
-    line-height: 1.4;
+    line-height: 1.3;
 }
 
 @keyframes revealSlide {
@@ -1321,13 +1321,13 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Explanation & Fun fact - compact */
+/* Explanation & Fun fact - larger for TV */
 .explanation, .fun-fact {
     margin-top: 10px;
-    padding: 10px 14px;
+    padding: 16px 20px;
     border-radius: var(--r-md);
     text-align: center;
-    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
     line-height: 1.4;
     animation: revealSlide 0.5s ease-out;
     flex-shrink: 0;

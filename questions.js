@@ -288,7 +288,7 @@ const quizData = {
           "humor_level": 4,
           "media": {
             "type": "image_after_answer",
-            "url": "https://image.tmdb.org/t/p/original/xK4KVxhsL8IbZ2vKLEX9dMqgMK8.jpg",
+            "url": "https://m.media-amazon.com/images/M/MV5BYTIxNzk2YjgtMjI3OC00YjFiLWIxMmMtNjY2MjFkMjUzMWU1XkEyXkFqcGc@._V1_.jpg",
             "alt_text": "Lilo & Stitch 2025 - Lilo, Stitch en Nani"
           },
           "payload": {
@@ -661,7 +661,7 @@ const quizData = {
           "humor_level": 2,
           "media": {
             "type": "video_after_answer",
-            "url": "https://www.youtube.com/embed/MRuS3dxKK9U?start=0",
+            "url": "https://www.youtube.com/embed/vqTlZQqwHGE",
             "alt_text": "Zie ginds komt de stoomboot"
           },
           "correct_answer": "Ik zie hem al staan",
