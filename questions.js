@@ -543,7 +543,7 @@ const quizData = {
           "media": {
             "type": "audio_only",
             "url": "https://www.youtube.com/embed/DhFWvnzedBE?si=yWbtarwoR78Gc1V9&start=36",
-            "alt_text": "Waarom moet ze nou een DJ zijn - Guus Meeuwis"
+            "alt_text": "Waarom moet ze nou een DJ zijn - Bankzitters"
           },
           "payload": {
             "correct_answer": "Tiësto, Armin van Buuren, Martin Garrix, Hardwell, Afrojack, Avicii, Calvin Harris, David Guetta, Skrillex, Deadmau5",
