@@ -94,7 +94,7 @@ const quizData = {
             "correct_answer": "American football, Kendrick Lamar",
             "alternatives": ["Football", "American football", "Kendrick Lamar", "Kendrick"]
           },
-          "explanation": "De Super Bowl is de finale van de American football competitie (NFL). Kendrick Lamar verzorgde de halftime show van Super Bowl LIX."
+          "explanation": "De Super Bowl is de NFL-finale. Kendrick Lamar deed de halftime show."
         },
         {
           "slot_type": "kids",
@@ -288,7 +288,7 @@ const quizData = {
           "humor_level": 4,
           "media": {
             "type": "image_after_answer",
-            "url": "https://m.media-amazon.com/images/M/MV5BYTIxNzk2YjgtMjI3OC00YjFiLWIxMmMtNjY2MjFkMjUzMWU1XkEyXkFqcGc@._V1_.jpg",
+            "url": "https://i.ytimg.com/vi/rpArTuHZ3Ts/maxresdefault.jpg",
             "alt_text": "Lilo & Stitch 2025 - Lilo, Stitch en Nani"
           },
           "payload": {
