@@ -441,7 +441,7 @@ function showAnswer() {
 
         const answerDisplay = document.createElement('div');
         answerDisplay.className = 'open-answer-reveal';
-        answerDisplay.innerHTML = `<strong>Correct antwoord:</strong> ${answerText}`;
+        answerDisplay.innerHTML = answerText;
         openAnswerContainer.appendChild(answerDisplay);
 
     } else if (question.question_type === 'true_false') {
@@ -524,7 +524,7 @@ function showAnswer() {
     if (question.explanation) {
         const explanationEl = document.createElement('div');
         explanationEl.className = 'explanation';
-        explanationEl.innerHTML = `<strong>Uitleg:</strong> ${question.explanation}`;
+        explanationEl.innerHTML = question.explanation;
 
         const questionCard = document.querySelector('.question-card');
         const existingExplanation = questionCard.querySelector('.explanation');

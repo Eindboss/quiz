@@ -20,20 +20,20 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "open_question",
-          "question_text": "20 januari 2025: Trump begon zijn tweede termijn. Hoe heet de nieuwe First Lady? (Bonuspunt: hoe heet de nieuwe Second Lady?)",
+          "question_text": "Trump begon zijn tweede termijn. Hoe heet de nieuwe First Lady? (Bonus: de Second Lady?)",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
           "media": {
             "type": "image_after_answer",
-            "url": "https://media.cnn.com/api/v1/images/stellar/prod/ap25020841494795.jpg?c=16x9&q=h_833,w_1480,c_fill",
+            "url": "https://people.com/thmb/kLLGVNxYJlFZLZVnQMKlcHKRK8c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(659x0:661x2)/melania-trump-usha-vance-tout-012025-9041f7a97c764c8085fc6aa95f2c2e7a.jpg",
             "alt_text": "Melania Trump en Usha Vance bij de inauguratie"
           },
           "payload": {
-            "correct_answer": "Melania Trump (Second Lady: Usha Vance)",
-            "alternatives": ["Melania", "Usha Vance", "Usha"]
+            "correct_answer": "Melania Trump en Usha Vance",
+            "alternatives": ["Melania Trump", "Melania", "Usha Vance", "Usha"]
           },
-          "explanation": "Melania Trump is terug als First Lady. Usha Vance, vrouw van vicepresident J.D. Vance, is de eerste Indiaas-Amerikaanse Second Lady."
+          "explanation": "Melania Trump is terug als First Lady. Usha Vance is de eerste Indiaas-Amerikaanse Second Lady."
         },
         {
           "slot_type": "kids",
