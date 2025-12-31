@@ -26,7 +26,7 @@ const quizData = {
           "humor_level": 2,
           "media": {
             "type": "image_after_answer",
-            "url": "https://people.com/thmb/kLLGVNxYJlFZLZVnQMKlcHKRK8c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(659x0:661x2)/melania-trump-usha-vance-tout-012025-9041f7a97c764c8085fc6aa95f2c2e7a.jpg",
+            "url": "https://d1ldvf68ux039x.cloudfront.net/thumbs/photos/2501/8836280/1000w_q95.jpg",
             "alt_text": "Melania Trump en Usha Vance bij de inauguratie"
           },
           "payload": {
@@ -315,7 +315,7 @@ const quizData = {
           "humor_level": 4,
           "media": {
             "type": "image_after_answer",
-            "url": "https://static.wikia.nocookie.net/disney/images/4/4c/Lilo%26StitchCast.png",
+            "url": "https://static.wikia.nocookie.net/disney/images/6/65/Lilo_%26_Stitch_%282025%29_-_Poster.jpg",
             "alt_text": "Lilo, Stitch, Angel en Nani"
           },
           "payload": {
@@ -535,24 +535,21 @@ const quizData = {
         },
         {
           "slot_type": "music",
-          "question_type": "multiple_choice",
-          "question_text": "Welke Nederlandse dj is wereldwijd bekend én heet eigenlijk Tijs Verwest?",
+          "question_type": "open_question",
+          "question_text": "DJ's zijn vaak niet geboren als DJ. Wie weet wie dit zijn?\n\nTijs Michiel Verwest\nArmin Jozef Jacobus Daniël van Buuren\nMartijn Gerard Garritsen\nRobbert van de Corput\nNick van de Wall\nTim Bergling\nAdam Richard Wiles\nPierre David Guetta\nSonny John Moore\nJoel Thomas Zimmerman",
           "target_audience": "mixed",
-          "points": 2,
+          "points": 10,
           "humor_level": 2,
           "media": {
-            "type": "video",
-            "url": "https://www.youtube.com/embed/qhJKCgKJuJY?start=60",
-            "alt_text": "Tiësto"
+            "type": "audio_only",
+            "url": "https://www.youtube.com/embed/DhFWvnzedBE?si=yWbtarwoR78Gc1V9&start=36",
+            "alt_text": "Waarom moet ze nou een DJ zijn - Guus Meeuwis"
           },
-          "answers": [
-            "Tiësto",
-            "Armin van Buuren",
-            "Martin Garrix",
-            "DJ Pannenkoek (live vanaf de bakplaat)"
-          ],
-          "correct": 0,
-          "explanation": "Tijs Verwest is Tiësto."
+          "payload": {
+            "correct_answer": "Tiësto, Armin van Buuren, Martin Garrix, Hardwell, Afrojack, Avicii, Calvin Harris, David Guetta, Skrillex, Deadmau5",
+            "alternatives": ["Tiësto", "Armin van Buuren", "Martin Garrix", "Hardwell", "Afrojack", "Avicii", "Calvin Harris", "David Guetta", "Skrillex", "Deadmau5"]
+          },
+          "explanation": "Tijs Verwest = Tiësto, Armin van Buuren, Martijn Garritsen = Martin Garrix, Robbert van de Corput = Hardwell, Nick van de Wall = Afrojack, Tim Bergling = Avicii, Adam Wiles = Calvin Harris, Pierre Guetta = David Guetta, Sonny Moore = Skrillex, Joel Zimmerman = Deadmau5."
         }
       ]
     },
