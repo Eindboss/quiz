@@ -281,6 +281,22 @@ function loadQuestion() {
     const question = month.questions[currentQuestion];
     const totalQuestions = month.questions.length;
 
+    // Check for video_before_question - show video first in overlay
+    if (question.media && question.media.type === 'video_before_question' && !question._videoShown) {
+        question._videoShown = true; // Mark as shown to prevent loop
+        const iframe = document.createElement('iframe');
+        let videoUrl = question.media.url;
+        if (videoUrl.includes('?')) {
+            videoUrl += '&autoplay=1';
+        } else {
+            videoUrl += '?autoplay=1';
+        }
+        iframe.src = videoUrl;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        openMediaOverlay(question.media.alt_text || 'Video', iframe);
+    }
+
     // Update header
     document.getElementById('month-name').textContent = month.name;
     document.getElementById('month-theme').textContent = month.theme_hint;
@@ -295,10 +311,11 @@ function loadQuestion() {
     const mediaContainer = document.getElementById('media-container');
     mediaContainer.innerHTML = '';
 
-    // Only show media immediately if it's not an "after_answer" type
+    // Only show media immediately if it's not an "after_answer" or "before_question" type
     if (question.media && question.media.type !== 'none' &&
         question.media.type !== 'video_after_answer' &&
-        question.media.type !== 'image_after_answer') {
+        question.media.type !== 'image_after_answer' &&
+        question.media.type !== 'video_before_question') {
         if (question.media.type === 'image') {
             const img = document.createElement('img');
             img.src = question.media.url;
@@ -456,8 +473,20 @@ function showAnswer() {
                 btn.classList.add('incorrect');
             }
         });
+    } else if (question.question_type === 'multiple_choice_multi') {
+        // Multiple choice with multiple correct answers
+        const correctIndices = Array.isArray(question.correct) ? question.correct : [question.correct];
+
+        buttons.forEach((btn, index) => {
+            btn.classList.add('revealed');
+            if (correctIndices.includes(index)) {
+                btn.classList.add('correct');
+            } else if (btn.classList.contains('selected')) {
+                btn.classList.add('incorrect');
+            }
+        });
     } else {
-        // Multiple choice
+        // Multiple choice (single answer)
         const correctKey = question.payload?.correct_option;
         const correctIndex = question.correct !== undefined ? question.correct :
             (correctKey ? ['A', 'B', 'C', 'D'].indexOf(correctKey) : 0);

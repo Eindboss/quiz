@@ -153,7 +153,7 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "open_question",
-          "question_text": "In 2025 werd Memphis Depay de topscorer aller tijden van het Nederlands elftal. Wie was de vorige topscorer aller tijden?",
+          "question_text": "In 2025 werd Memphis Depay de topscorer aller tijden van het Nederlands elftal. Welke oud-international passeerde hij daarmee op de ranglijst?",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
@@ -188,14 +188,13 @@ const quizData = {
         {
           "slot_type": "music",
           "question_type": "open_question",
-          "question_text": "Ken jij nog 3 zangeressen waarvan de naam begint met een R?",
-          "intro_text": "In maart scoorde Bruno Mars weer een megahit, maar nu met een andere zangeres: Rosé.",
+          "question_text": "In maart scoorde Bruno Mars weer een megahit, maar nu met een andere zangeres: Rosé. Ken jij nog 3 zangeressen waarvan de naam begint met een R?",
           "target_audience": "mixed",
           "points": 3,
           "humor_level": 2,
           "media": {
-            "type": "video",
-            "url": "https://www.youtube.com/embed/ekr2nIex040?si=abHghLUQxAzjtmm6&start=2&clip=Ugkx5klmMSVdJYlwqSaSNk-nmOulm9puiw_d&clipt=EIS1CBjAgQk",
+            "type": "audio_only",
+            "url": "https://www.youtube.com/embed/ekr2nIex040?si=abHghLUQxAzjtmm6&start=2",
             "alt_text": "APT. - Bruno Mars & Rosé"
           },
           "payload": {
@@ -222,12 +221,14 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "In 2025 ging een schattige video viral van konijnen op een trampoline. Wat bleek het probleem?",
+          "question_text": "In 2025 ging een video van konijnen op een trampoline massaal viral. Wat was er met dit filmpje aan de hand?",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 3,
           "media": {
-            "type": "none"
+            "type": "video_before_question",
+            "url": "https://www.youtube.com/embed/LDLwShbOSsg?si=6f5dxvpQQXAx8GnB&start=36",
+            "alt_text": "Konijnen op een trampoline - viral video"
           },
           "answers": [
             "Het was nep - gemaakt met AI",
@@ -259,25 +260,26 @@ const quizData = {
         },
         {
           "slot_type": "music",
-          "question_type": "multiple_choice",
-          "question_text": "Wat is waar over Roxy Dekker?",
-          "intro_text": "In april was de populairste Nederlandse artiest Roxy Dekker.",
+          "question_type": "multiple_choice_multi",
+          "question_text": "In april was de populairste Nederlandse artiest Roxy Dekker. Welke 2 dingen zijn waar over Roxy Dekker?",
           "target_audience": "mixed",
           "points": 2,
           "humor_level": 2,
           "media": {
-            "type": "video",
-            "url": "https://www.youtube.com/embed/AsWcssoECUE?si=wcORh-pUXvAYbzwi&start=2&clip=Ugkxk5ERSrmwwd04yUY4E3XqWn6G8onFM0GV&clipt=EMjWBRjwmQc",
+            "type": "audio_only",
+            "url": "https://www.youtube.com/embed/AsWcssoECUE?si=wcORh-pUXvAYbzwi&start=2",
             "alt_text": "Roxy Dekker"
           },
           "answers": [
             "Ze scoorde een nummer-1-hit zonder ooit op de radio te zijn gedraaid",
             "Haar liedjes begonnen als TikTok-grappen",
             "Ze brak door met Nederlandstalige covers van Bruno Mars",
-            "Ze was de jongste artiest ooit met drie hits tegelijk in de Top 40"
+            "Ze was de jongste artiest ooit met drie hits tegelijk in de Top 40",
+            "Ze werd ontdekt via The Voice Kids",
+            "Ze schrijft al haar eigen liedjes"
           ],
-          "correct": 1,
-          "explanation": "Roxy Dekker begon met het maken van grappige liedjes op TikTok die viraal gingen."
+          "correct": [1, 5],
+          "explanation": "Roxy Dekker begon met grappige TikTok-liedjes die viraal gingen, en schrijft al haar eigen nummers."
         }
       ]
     },
@@ -306,35 +308,33 @@ const quizData = {
         },
         {
           "slot_type": "kids",
-          "question_type": "multiple_choice",
-          "question_text": "In mei 2025 kwam de film Lilo & Stitch uit. Hoe heet het meisje dat Stitch adopteert?",
+          "question_type": "open_question",
+          "question_text": "In 2025 kwam de film Lilo & Stitch uit. Noem vier namen van figuren uit deze film.",
           "target_audience": "kids",
           "points": 1,
           "humor_level": 4,
           "media": {
-            "type": "none"
+            "type": "image_after_answer",
+            "url": "https://static.wikia.nocookie.net/disney/images/4/4c/Lilo%26StitchCast.png",
+            "alt_text": "Lilo, Stitch, Angel en Nani"
           },
-          "answers": [
-            "Lilo",
-            "Nani",
-            "Angel",
-            "Moana"
-          ],
-          "correct": 0,
-          "explanation": "Lilo is het Hawaiiaanse meisje dat de lieve alien Stitch adopteert!"
+          "payload": {
+            "correct_answer": "Lilo, Stitch, Angel, Nani",
+            "alternatives": ["Lilo", "Stitch", "Angel", "Nani", "Jumba", "Pleakley", "David", "Cobra Bubbles"]
+          },
+          "explanation": "De hoofdfiguren zijn Lilo, Stitch, Angel en Nani!"
         },
         {
           "slot_type": "music",
           "question_type": "multiple_choice",
-          "question_text": "Welk lied heeft de hoogste notering?",
-          "intro_text": "In mei 2025 was Marco Borsato gecanceld. Toch staat hij nu met veel nummers in de Top 2000.",
+          "question_text": "In mei 2025 was Marco Borsato gecanceld. Toch staat hij nu met veel nummers in de Top 2000. Welk lied heeft de hoogste notering?",
           "target_audience": "mixed",
           "points": 2,
           "humor_level": 2,
           "media": {
-            "type": "video",
-            "url": "https://www.youtube.com/embed/7azASBMAkOU?si=oqGiEGH7REezD8Cu&start=2&clip=UgkxrglFAPV2MbmwEk6uPYosvk7K0JpRG2ly&clipt=EOC_ChjYlQs",
-            "alt_text": "Marco Borsato"
+            "type": "video_before_question",
+            "url": "https://www.youtube.com/embed/7azASBMAkOU?si=oqGiEGH7REezD8Cu&start=2",
+            "alt_text": "Marco Borsato - Dochters"
           },
           "answers": [
             "Dromen zijn bedrog",
@@ -355,7 +355,7 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "multiple_choice",
-          "question_text": "3 juni 2025: kabinet-Schoof viel. Wat was de doorslaggevende politieke breuklijn?",
+          "question_text": "Op 3 juni 2025 viel het eerste kabinet-Schoof. Wat was de reden van de val van het kabinet?",
           "target_audience": "adults",
           "points": 2,
           "humor_level": 2,
@@ -376,7 +376,7 @@ const quizData = {
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Waar gaan de meeste Nederlandse gezinnen op zomervakantie?",
+          "question_text": "Wat is het favoriete vakantieland voor Nederlanders?",
           "target_audience": "kids",
           "points": 1,
           "humor_level": 4,
@@ -395,24 +395,23 @@ const quizData = {
         {
           "slot_type": "music",
           "question_type": "multiple_choice",
-          "question_text": "Wie stond er in juni 2000 op 1 in de Nederlandse hitlijsten?",
-          "intro_text": "25 jaar geleden was er ook al muziek.",
+          "question_text": "25 jaar geleden was er ook al muziek. Wie stond er in juni 2000 op 1 in de Nederlandse hitlijsten?",
           "target_audience": "mixed",
           "points": 2,
           "humor_level": 2,
           "media": {
             "type": "video_after_answer",
-            "url": "https://www.youtube.com/embed/oIJldSgK0Wc?si=bXVoGiHBflzNl-8_&clip=Ugkx3ugWjRVnfh5e3jCm7bmDuzC5Z2pu7Lya&clipt=EMmdChijtws",
-            "alt_text": "Life - Des'ree"
+            "url": "https://www.youtube.com/embed/ymNFyxvIdaM?si=2YvZO9tnLxNf6-8x&start=36&clip=UgkxbUksRD-dmuFmH9X52f5hCU6FF0mytx84&clipt=ELzTAhjD1QM",
+            "alt_text": "Freestyler - Bomfunk MC's"
           },
           "answers": [
-            "Life – Des'ree",
-            "The Ketchup Song (Aserejé) – Las Ketchup",
-            "Dragostea Din Tei – O-Zone",
-            "Jij bent de zon – Jop"
+            "The Boy Is Mine – Brandy & Monica",
+            "Freestyler – Bomfunk MC's",
+            "A Little Less Conversation – Elvis Presley vs JXL",
+            "Dragostea Din Tei – O-Zone"
           ],
-          "correct": 0,
-          "explanation": "Life van Des'ree stond in juni 2000 op nummer 1 in Nederland."
+          "correct": 1,
+          "explanation": "Freestyler van Bomfunk MC's stond in juni 2000 op nummer 1 in Nederland."
         }
       ]
     },
@@ -424,18 +423,20 @@ const quizData = {
         {
           "slot_type": "news",
           "question_type": "open_question",
-          "question_text": "In 2025 kondigde de originele K3 een reünie aan. Tickets vlogen de deur uit! Hoe heten de drie originele K3-zangeressen?",
+          "question_text": "In 2025 kondigde de originele K3 een reünie aan. Tickets vlogen de deur uit! Noem 5 K3-zangeressen!",
           "target_audience": "adults",
-          "points": 3,
+          "points": 5,
           "humor_level": 3,
           "media": {
-            "type": "none"
+            "type": "audio_only",
+            "url": "https://www.youtube.com/embed/wgDnM4i3gbM?si=WC7etSkFF9-z03Jw&start=36",
+            "alt_text": "K3 - Alle Kleuren"
           },
           "payload": {
-            "correct_answer": "Karen, Kristel en Kathleen",
-            "alternatives": ["Karen Kristel Kathleen", "Karen Damen, Kristel Verbeke, Kathleen Aerts"]
+            "correct_answer": "Karen Damen, Kristel Verbeke, Kathleen Aerts, Josje Huisman, Klaasje Meijer, Hanne Verbruggen, Marthe De Pillecyn, Julia Boschman",
+            "alternatives": ["Karen", "Kristel", "Kathleen", "Josje", "Klaasje", "Hanne", "Marthe", "Julia"]
           },
-          "explanation": "Karen Damen, Kristel Verbeke en Kathleen Aerts stonden na 16 jaar weer samen op het podium. In 4 uur werden 300.000 tickets verkocht!"
+          "explanation": "Alle K3-zangeressen: Karen Damen, Kristel Verbeke, Kathleen Aerts (origineel), Josje Huisman, Klaasje Meijer, Hanne Verbruggen, Marthe De Pillecyn en Julia Boschman."
         },
         {
           "slot_type": "kids",
@@ -459,8 +460,7 @@ const quizData = {
         {
           "slot_type": "music",
           "question_type": "open_question",
-          "question_text": "Hoeveel TMF VJ's ken je nog?",
-          "intro_text": "De meeste zomerhits hoor je in de zomer. Waar je weinig meer van hoort is van TMF.",
+          "question_text": "De meeste zomerhits hoor je in de zomer. Waar je weinig meer van hoort is van TMF. Wie kent de meeste TMF-VJ's?",
           "target_audience": "mixed",
           "points": 2,
           "humor_level": 2,
@@ -468,7 +468,7 @@ const quizData = {
             "type": "none"
           },
           "payload": {
-            "correct_answer": "Bijvoorbeeld: Bridget Maasland, Ruud de Wild, Sylvie Meis, Tooske Ragas, Winston Gerschtanowitz, Evi Hanssen",
+            "correct_answer": "Bridget Maasland, Ruud de Wild, Sylvie Meis, Tooske Ragas, Winston Gerschtanowitz, Evi Hanssen, Eric Corton, Isabelle Brinkman, Wessel van Diepen, Patrick Lodiers, Candy Dulfer, Adam Curry",
             "alternatives": [
               "Bridget Maasland",
               "Ruud de Wild",
@@ -484,7 +484,7 @@ const quizData = {
               "Adam Curry"
             ]
           },
-          "explanation": "Bekende TMF VJ's waren onder andere Bridget Maasland, Ruud de Wild, Sylvie Meis, Tooske Ragas, Winston Gerschtanowitz en Evi Hanssen."
+          "explanation": "Alle bekende TMF-VJ's: Bridget Maasland, Ruud de Wild, Sylvie Meis, Tooske Ragas, Winston Gerschtanowitz, Evi Hanssen, Eric Corton, Isabelle Brinkman, Wessel van Diepen, Patrick Lodiers, Candy Dulfer en Adam Curry."
         }
       ]
     },
@@ -517,7 +517,7 @@ const quizData = {
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Amsterdam werd in 2025 jarig! Hoe oud werd de stad?",
+          "question_text": "Amsterdam is de hoofdstad van Nederland. Wat is de hoofdstad van Frankrijk?",
           "target_audience": "kids",
           "points": 1,
           "humor_level": 4,
@@ -525,13 +525,13 @@ const quizData = {
             "type": "none"
           },
           "answers": [
-            "750 jaar",
-            "10 jaar",
-            "100 jaar",
-            "1 miljoen jaar"
+            "Parijs",
+            "Londen",
+            "Berlijn",
+            "Madrid"
           ],
           "correct": 0,
-          "explanation": "Amsterdam bestaat al sinds 1275 en werd in 2025 maar liefst 750 jaar oud!"
+          "explanation": "Parijs is de hoofdstad van Frankrijk!"
         },
         {
           "slot_type": "music",

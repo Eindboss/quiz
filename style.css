@@ -1173,9 +1173,9 @@ body {
 
 .answer-btn {
     position: relative;
-    padding: 24px 28px;
+    padding: 18px 22px;
     font-family: var(--font-body);
-    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+    font-size: clamp(1rem, 1.6vw, 1.4rem);
     font-weight: 600;
     text-align: left;
     background: var(--surface-1);
@@ -1186,7 +1186,7 @@ body {
     cursor: pointer;
     transition: all 0.4s var(--ease-spring);
     overflow: hidden;
-    min-height: 80px;
+    min-height: 60px;
     display: flex;
     align-items: center;
 }
