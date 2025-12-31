@@ -105,21 +105,21 @@ const quizData = {
         {
           "slot_type": "kids",
           "question_type": "multiple_choice",
-          "question_text": "Met carnaval verkleden veel mensen zich. Welke kleuren horen bij carnaval?",
+          "question_text": "Op 14 februari is het Valentijnsdag. Welk symbool hoort daar het meest bij?",
           "target_audience": "kids",
           "points": 1,
-          "humor_level": 4,
+          "humor_level": 3,
           "media": {
             "type": "none"
           },
           "answers": [
-            "Alle kleuren! Hoe gekker hoe beter",
-            "Alleen zwart en wit",
-            "Alleen grijs",
-            "Alleen oranje"
+            "Een rood hartje ❤️",
+            "Een voetbal ⚽",
+            "Een sneeuwpop ☃️",
+            "Een paraplu ☂️"
           ],
           "correct": 0,
-          "explanation": "Bij carnaval draag je zoveel mogelijk gekke kleuren!"
+          "explanation": "Valentijnsdag is de dag van de liefde, en het rode hartje is hét symbool!"
         },
         {
           "slot_type": "music",
@@ -130,8 +130,8 @@ const quizData = {
           "points": 2,
           "humor_level": 2,
           "media": {
-            "type": "video_after_answer",
-            "url": "https://www.youtube.com/embed/IFS3imM9qes?si=gzf83w2UzLNt6KPS&start=2",
+            "type": "audio_youtube",
+            "url": "https://www.youtube.com/embed/kPa7bsKwL-c?si=hhJVDCdyQJ1dd5zh&start=36",
             "alt_text": "Die With a Smile - Bruno Mars & Lady Gaga"
           },
           "answers": [
